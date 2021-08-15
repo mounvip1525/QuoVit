@@ -1,0 +1,38 @@
+.suggestions-main{
+    display:flex;
+    flex-direction: column;
+    box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.07), 0px 3.60461px 5.6174px rgba(0, 0, 0, 0.0417275), 0px 2.85954px 6.5588px rgba(0, 0, 0, 0.0282725);
+    margin:2%;
+    padding:0 0 2%;
+}
+.suggestions-main div{
+    display:flex;
+    width:100%;
+    padding:2% 5%;
+    box-sizing: border-box;
+    align-items: center;
+}
+.suggestions-main div img{
+    height:2.5rem;
+    width:2.5rem;
+    border-radius:50%;
+    padding:1%;
+    object-fit: contain;
+}
+.suggestions-main div div{
+    display:flex;
+    flex-direction: column;
+    width:70%;
+    align-items: flex-start;
+}
+.suggestions-main div div h4,.suggestions-main div div p{
+    margin:0;
+    padding:0;
+}
+.suggestions-main div div h4{
+    font-weight:500;
+}
+.suggestions-main .suggestions-add{
+    color:rgb(92, 92, 92);
+    height:1rem
+}
