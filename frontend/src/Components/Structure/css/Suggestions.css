@@ -31,6 +31,7 @@
 }
 .suggestions-main div div h4{
     font-weight:500;
+    font-size: small;
 }
 .suggestions-main .suggestions-add{
     color:rgb(92, 92, 92);

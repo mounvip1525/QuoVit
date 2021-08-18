@@ -9,7 +9,7 @@
     height:max-content;
 }
 .layout-main:nth-child(2){
-    height:100vh;
+    min-height:100vh;
 }
 .layout-sub{
     flex-direction: column;
