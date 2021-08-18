@@ -24,6 +24,7 @@ export default function Login() {
             <p style={{fontSize:"x-small"}}>New to this website? <Link to="/Signup">Create Account</Link></p>
             <form onSubmit={handleSubmit} className="login-form">
                 <div>
+                <div>
                     <label htmlFor="email">VIT Email</label>
                     <input type="text" id="email" name="email" onChange={handleChange}/>
                 </div>
@@ -31,7 +32,8 @@ export default function Login() {
                     <label htmlFor="password">Password</label>
                     <input type="password" id="password" name="password" onChange={handleChange}/>
                 </div>
-                <button type="submit">Login</button>
+                <button type="submit" className="login-btn">Login</button>
+                </div>
             </form>
         </div>
     )

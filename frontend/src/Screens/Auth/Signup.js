@@ -110,7 +110,6 @@ export default function Signup() {
                 id="github"
                 name="github"
                 onChange={handleChange}
-                placeholder="Ex. Vellore"
                 value={user.github}
               />
             </div>

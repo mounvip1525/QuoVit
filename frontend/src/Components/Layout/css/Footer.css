@@ -1,6 +1,6 @@
 .footer{
     min-height:3rem;
-    background:#C03A3A;
+    background:var(--primary-color);
     display:flex;
     justify-content: space-between;
     align-items: center;

@@ -1,5 +1,5 @@
 .nav{
-    background:#C03A3A;
+    background:var(--primary-color);
     display:flex;
     justify-content: space-between;
     height:4rem;
@@ -34,7 +34,7 @@
     display:none !important
 }
 .nav .MuiTab-textColorInherit.Mui-selected {
-    border-bottom:4px solid #C03A3A !important
+    border-bottom:4px solid var(--primary-color) !important
 }
 .nav .MuiTab-textColorInherit {
     opacity:1 !important

@@ -37,7 +37,7 @@
     object-fit: contain;
 }
 .side-add{
-    background:#C03A3A;
+    background:var(--primary-color);
     width:10% !important;
     padding:1%;
     margin:2%;
@@ -48,6 +48,6 @@
     min-height:3rem;
 }
 .sidebar-main div .side-selected{
-    border-left:3px solid #C03A3A;
+    border-left:3px solid var(--primary-color);
     background: rgba(193, 70, 78, 0.17)
 }

@@ -10,20 +10,25 @@ import QuestionBank from "./Screens/QuestionBank/QuestionBank";
 import Profile from "./Screens/Profile/Profile";
 import "./App.css";
 import SavedPosts from "./Screens/Landing/SavedPosts";
+import Notifications from "./Screens/Landing/Notifications";
 
 function App() {
   return (
     <Switch>
       <Route exact path="/" component={Landing} />
-      <Route exact path="/Login" component={Login} />
-      <Route exact path="/Signup" component={Signup} />
-      <Route exact path="/Contact" component={Contact} />
+      <Route exact path="/Saved" component={SavedPosts} />
+      <Route exact path="/Notifications" component={Notifications} />
+      <Route exact path="/Profile" component={Profile} />
+
       <Route exact path="/FacultyReview" component={FacultyReview} />
       <Route exact path="/Confessions" component={Confessions} />
       <Route exact path="/IdeasBlock" component={IdeasBlock} />
       <Route exact path="/QuestionBank" component={QuestionBank} />
-      <Route exact path="/Profile" component={Profile} />
-      <Route exact path="/Saved" component={SavedPosts} />
+
+      <Route exact path="/Login" component={Login} />
+      <Route exact path="/Signup" component={Signup} />
+
+      <Route exact path="/Contact" component={Contact} />      
     </Switch>
   );
 }
