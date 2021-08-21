@@ -11,6 +11,7 @@ import Profile from "./Screens/Profile/Profile";
 import "./App.css";
 import SavedPosts from "./Screens/Landing/SavedPosts";
 import Notifications from "./Screens/Landing/Notifications";
+import EachCourse from "./Screens/QuestionBank/EachCourse";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <Route exact path="/Confessions" component={Confessions} />
       <Route exact path="/IdeasBlock" component={IdeasBlock} />
       <Route exact path="/QuestionBank" component={QuestionBank} />
+      <Route exact path="/EachCourse" component={EachCourse} />
 
       <Route exact path="/Login" component={Login} />
       <Route exact path="/Signup" component={Signup} />

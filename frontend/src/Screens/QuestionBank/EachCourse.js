@@ -1,10 +1,11 @@
 import React from 'react'
+import MainLayout from '../../Components/Structure/Main'
 import './css/EachCourse.css'
 
 export default function EachCourse() {
     return (
-        <div>
-            
-        </div>
+        <MainLayout>
+            Each Coirse
+        </MainLayout>
     )
 }
