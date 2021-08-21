@@ -9,6 +9,9 @@
     border-radius: 5px;
     cursor:pointer;
 }
+.idea-add{
+    top:10%;
+}
 .ideaCard > div >div>p {
     margin:0;
 }

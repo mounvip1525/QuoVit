@@ -1,6 +1,7 @@
 import React  , {useState} from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../Assets/logo.png'
+import main from './img/Login.png'
 import './css/Auth.css'
 
 export default function Login() {
@@ -14,15 +15,21 @@ export default function Login() {
     }
     return (
         <div className="login-main">
+            <div className="login-1">
+                <div>
+                    <img src={logo} alt="QuoVit" />
+                    <p className="name">A Quora Clone for College</p>
+                </div>
+                <img src={main} alt="Login" className="login-img" />
+             </div>
             <div>
-                <img src={logo} alt="QuoVit" />
-                <p>A Quora Clone for College</p>
-            </div>
+            <form onSubmit={handleSubmit} className="login-form login-form-2">
+            <div className="form-head">
             <h2>
                 Welcome Back!
             </h2>
             <p style={{fontSize:"x-small"}}>New to this website? <Link to="/Signup">Create Account</Link></p>
-            <form onSubmit={handleSubmit} className="login-form">
+            </div>
                 <div>
                 <div>
                     <label htmlFor="email">VIT Email</label>
@@ -35,6 +42,7 @@ export default function Login() {
                 <button type="submit" className="login-btn">Login</button>
                 </div>
             </form>
+            </div>
         </div>
     )
 }

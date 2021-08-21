@@ -9,13 +9,16 @@ export default function IdeaCard(props) {
   return (
     <div className="ideaCard">
         <div onClick={()=>setShow(!show)}>
-            {!show ? <Add className="idea-expand"/> : <Remove className="idea-expand" />}
+            {!show ? <Add className="idea-expand idea-add"/> : <Remove className="idea-expand" />}
         </div>
       <User user={user} />
       <h3>{title}</h3>
       {show && 
       <div>
+          <div>
+          <p className="i-muted">Description:</p>
           <p>{description}</p>
+          </div>
       {link && (
         <div>
           <p className="i-muted">Link:</p>
