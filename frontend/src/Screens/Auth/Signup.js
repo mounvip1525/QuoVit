@@ -76,7 +76,8 @@ export default function Signup() {
         </div>
         <img src={main} alt="Login" />
       </div>
-      <form onSubmit={handleSubmit} className="login-form">
+      <div>
+      <form onSubmit={handleSubmit} className="login-form" style={{margin:"2rem auto"}}>
         <div className="form-head">
           <h2>Create an account</h2>
           <p style={{ fontSize: "x-small" }}>
@@ -239,6 +240,7 @@ export default function Signup() {
           </div>
         )}
       </form>
+      </div>
     </div>
   );
 }

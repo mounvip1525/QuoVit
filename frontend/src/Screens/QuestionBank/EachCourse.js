@@ -5,7 +5,7 @@ import './css/EachCourse.css'
 export default function EachCourse() {
     return (
         <MainLayout>
-            Each Coirse
+            DV'S PAPERS AND INFO
         </MainLayout>
     )
 }
