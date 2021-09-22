@@ -1,0 +1,29 @@
+.fac-main{
+    width:90%;
+    margin:2rem auto;
+}
+.input-search{
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    width:70%;
+    margin:2rem auto;
+    display:flex;
+    padding:1% 2%;
+    border-radius:30px;
+}
+.input-search input{
+    width:95%;
+    outline:none;
+    border:none;
+}
+.input-search input::placeholder{
+    font-family: Poppins;
+}
+.input-search img{
+    width:5%;
+    cursor:pointer;
+}
+.fac-cards{
+    display:flex;
+    flex-wrap: wrap;
+    margin:auto;
+}

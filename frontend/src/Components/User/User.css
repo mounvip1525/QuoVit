@@ -1,0 +1,17 @@
+.user-card{
+    display:flex;
+    align-items: center;
+}
+.user-card img{
+    border-radius:50%;
+    height:2.7rem;
+    width:2.7rem;
+    object-fit: contain;
+}
+.user-card div{
+    margin-left:2%;
+}
+.user-card h4,.user-card p{
+    margin:0;
+    padding:0;
+}

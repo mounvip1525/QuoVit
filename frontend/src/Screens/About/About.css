@@ -1,0 +1,109 @@
+body {
+    background-color: #E5E5E5;
+    margin: 0px;
+    text-align: center;
+    color: #40514E;
+}
+
+.headers {
+    font-family: sans-serif;
+    margin: 100px auto;
+    text-align: center;
+    color: black;
+    font-size: 40px;
+    max-width: 90%;
+    position: relative;
+  }
+.headers:before {
+    content: "";
+    display: block;
+    width: 400px;
+    height: 2px;
+    background: black;
+    left: 85px;
+    top: 50%;
+    position: absolute;
+  }
+.headers:after {
+    content: "";
+    display: block;
+    width: 400px;
+    height: 2px;
+    background: black;
+    right: 85px;
+    top: 50%;
+    position: absolute;
+  }
+
+.basic-div {
+    width: 100%;
+    margin: 100px auto 100px auto;
+    text-align: left;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    
+
+}
+
+.feature-row {
+    display: flex;
+    margin-bottom: 100px;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.about-us-image {
+    width: 300px;
+    height: 300px;
+    float: right;
+    margin-left: 30px;
+    margin-right: 70px;
+}
+
+.work-image {
+    width: 300px;
+    height: 300px;
+    float: left;
+    margin-right: 30px;
+    margin-left: 70px;
+}
+
+.left-images {
+    width: 300px;
+    height: 300px;
+    float: left;
+    margin-right: 30px;
+    
+}
+
+.right-images {
+    width: 300px;
+    height: 300px;
+    float: right;
+    margin-left: 30px;
+    
+}
+
+p {
+    line-height: 2;
+}
+
+.features-content {
+    background-color: white;
+    line-height: 2;
+    padding: 10px 10px;
+    
+    height: 280px;
+    
+
+}
+
+.footer {
+    padding: 50px 0 20px;
+    background-color: #C03A3A;
+    ;
+}

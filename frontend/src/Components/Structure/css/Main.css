@@ -1,0 +1,17 @@
+.layout-main,.layout-sub{
+    min-height:90vh;
+    display:flex;
+    width:100%;
+    justify-content: space-between;
+}
+.layout-main > div:first-child,.layout-main > div:last-child{
+    width:20%;
+    height:max-content;
+}
+.layout-main:nth-child(2){
+    min-height:100vh;
+}
+.layout-sub{
+    flex-direction: column;
+    align-items: center;
+}
