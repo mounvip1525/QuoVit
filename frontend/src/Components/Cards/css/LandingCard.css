@@ -1,9 +1,8 @@
 .landingCard {
-  padding: 10px;
+  padding: 3%;
   position: relative;
-  margin-top: 7px;
-  margin-bottom: 7px;
-  box-shadow: 0 2px 2px;
+  margin:3%;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
 }
 .landing-expand {
   position: absolute;
@@ -25,17 +24,34 @@
 .landingCard > div > div > p:last-child {
   margin-bottom: 2%;
 }
-
-.likecircle {
-  text-align: center;
-  margin-right: 5px;
-  padding-bottom: 4px;
-  width: 25px;
-  height: 25px;
-  position: relative;
-  display: inline-block;
-  border-radius: 100px;
-  border: 1px solid;
-  font-size: 20px;
-  font-weight: bold;
+.lcs-div{
+  display:flex;
+}
+.lcs-div div{
+  display:flex;
+  margin:0 2%;
+  display:flex;
+  align-items: center;
+}
+.lcs-div div:first-child{
+  margin-left:0;
+}
+.lcs-div div img{
+  height:auto;
+  max-height:1.2rem;
+  object-fit: contain;
+  cursor: pointer;
+}
+.lcs-div div p{
+  margin:0;
+  padding:0;
+}
+.like-circle{
+  border:2px solid black;
+  margin:0 0.5rem !important;
+  height:1.7rem;
+  width:1.7rem;
+  display:flex;
+  justify-content: center;
+  border-radius: 50%;
 }

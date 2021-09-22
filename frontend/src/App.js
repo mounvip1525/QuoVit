@@ -32,7 +32,7 @@ function App() {
       <Route exact path="/Signup" component={Signup} />
 
       <Route exact path="/Contact" component={Contact} />  
-       <Route component={NotFound} />    
+      <Route component={NotFound} />    
     </Switch>
   );
 }
