@@ -1,0 +1,79 @@
+.profile-main{
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin:3% 1%;
+  padding:3%;
+}
+.user-profile{
+    text-align: center;
+}
+.user-profile img{
+    height:10rem;
+    border-radius: 50%;
+    width:10rem;
+}
+.user-profile h3{
+    font-weight:normal;
+    margin-bottom:0;
+    padding-bottom: 0;
+    margin-top:2%;
+}
+.user-profile p{
+    margin:0;
+    padding:0;
+    color:grey;
+    font-size: small;
+}
+.user-contact{
+    margin:10% 0 !important;
+}
+.user-contact div{
+    display:flex;
+    align-items: center;
+    text-align: left;
+}
+.user-contact svg{
+    margin-right:3%;
+}
+.user-contact h4{
+    font-weight:normal;
+    margin:0;
+    padding:3%;
+}
+.resume-btn{
+    background: var(--primary-color);
+    border:none;
+    cursor:pointer;
+    outline:none;
+    color:white;
+    padding:2% 10%;
+    font-size: large;
+    font-family: Poppins;
+}
+.user-tab{
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    display:flex;
+    justify-content: space-around;
+    min-width:25rem;
+    padding:0% 3%; 
+    margin:10% 0 5%;
+    border-radius: 5px;
+}
+.user-tab h3{
+    margin:0;
+    padding:2%;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+}
+.profile-main .suggestions-main{
+    width:100%;
+    box-shadow: none;
+}
+.profile-main .suggestions-main > div{
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  width:18rem;
+  margin:2% 0;
+  padding:2% 2% 2% 4%;
+}

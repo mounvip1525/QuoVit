@@ -81,7 +81,7 @@ export default function Signup() {
         <div className="form-head">
           <h2>Create an account</h2>
           <p style={{ fontSize: "x-small" }}>
-            Already have an account <Link to="/Login">Login</Link>
+            Already have an account? <Link to="/Login">Login</Link>
           </p>
           <div className="progress-main">
             <div className="progress-track" style={{ width: `${width}%` }} />
