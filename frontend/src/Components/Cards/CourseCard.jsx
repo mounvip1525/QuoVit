@@ -21,8 +21,14 @@ export default function CourseCard(props) {
             </div>
         <div className="c-name">
             Data Visualization 
+    return (
+        <div>
+            {props.name} 
+            {/* <h4>{props.age}</h4> */}
         </div>
         </div>
         </Link>
     )
 }
+
+

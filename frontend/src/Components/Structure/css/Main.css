@@ -8,6 +8,10 @@
     width:20%;
     height:max-content;
 }
+.layout-main > div:last-child{
+    width:18%;
+    height:max-content;
+}
 .layout-main:nth-child(2){
     min-height:100vh;
 }

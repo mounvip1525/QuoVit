@@ -7,7 +7,6 @@
     background:white;
     border:none;
     outline:none;
-    box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.07), 0px 3.60461px 5.6174px rgba(0, 0, 0, 0.0417275), 0px 2.85954px 6.5588px rgba(0, 0, 0, 0.0282725);
     margin:3% 3% 2% 4%;
     min-height:2.5rem;
     align-items: center;
@@ -15,6 +14,8 @@
     justify-content: center;
     font-size:1rem;
     cursor:pointer;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+
 }
 .sidebar-main div{
     margin:4% 3% 4% 4%;

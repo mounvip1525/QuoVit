@@ -2,25 +2,61 @@ import { ChevronLeft, ChevronRight } from "@material-ui/icons";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../Assets/logo.png";
-import avatar1 from './img/Avatar1.png'
-import avatar2 from './img/Avatar2.png'
-import avatar3 from './img/Avatar3.png'
-import avatar4 from './img/Avatar4.png'
-import avatar5 from './img/Avatar5.png'
-import avatar6 from './img/Avatar6.png'
-import avatar7 from './img/Avatar7.png'
-import avatar8 from './img/Avatar8.png'
-import avatar9 from './img/Avatar9.png'
-import avatar10 from './img/Avatar10.png'
+import main from "./img/Signup.png";
+import avatar1 from "./img/Avatar1.png";
+import avatar2 from "./img/Avatar2.png";
+import avatar3 from "./img/Avatar3.png";
+import avatar4 from "./img/Avatar4.png";
+import avatar5 from "./img/Avatar5.png";
+import avatar6 from "./img/Avatar6.png";
+import avatar7 from "./img/Avatar7.png";
+import avatar8 from "./img/Avatar8.png";
+import avatar9 from "./img/Avatar9.png";
+import avatar10 from "./img/Avatar10.png";
 import "./css/Auth.css";
 
 export default function Signup() {
   const [steps, setSteps] = useState(0);
-  const [avatar,setAvatar] = useState(0);
-  const [color,setColor] = useState(0);
-  const avatars = [avatar1,avatar2,avatar3,avatar4,avatar5,avatar6,avatar7,avatar8,avatar9,avatar10];
-  const colors = ["#561FC3","#A8351C","#1599B6","#6FAA0D","#000000","#C31F9F","#C3951F","#1F7EC3","#F9601E","#204466"]
-  const [user, setUser] = useState({ name: "", email: "",year:"",branch:"",campus:"",github:"",resume:"",password:"",confirm_password:"",avatar:avatar,color:colors[color] });
+  const [width, setWidth] = useState(1);
+  const [avatar, setAvatar] = useState(0);
+  const [color, setColor] = useState(0);
+  const avatars = [
+    avatar1,
+    avatar2,
+    avatar3,
+    avatar4,
+    avatar5,
+    avatar6,
+    avatar7,
+    avatar8,
+    avatar9,
+    avatar10,
+  ];
+  const colors = [
+    "#561FC3",
+    "#A8351C",
+    "#1599B6",
+    "#6FAA0D",
+    "#000000",
+    "#C31F9F",
+    "#C3951F",
+    "#1F7EC3",
+    "#F9601E",
+    "#204466",
+  ];
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    year: "",
+    branch: "",
+    campus: "",
+    github: "",
+    resume: "",
+    password: "",
+    confirm_password: "",
+    avatar: avatar,
+    color: colors[color],
+  });
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(user);
@@ -29,19 +65,28 @@ export default function Signup() {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
   const handleFileChange = (e) => {
-      setUser({...user,resume:e.target.files[0]})
-  }
+    setUser({ ...user, resume: e.target.files[0] });
+  };
   return (
     <div className="login-main">
-      <div>
-        <img src={logo} alt="QuoVit" />
-        <p>A Quora Clone for College</p>
+      <div className="login-1">
+        <div>
+          <img src={logo} alt="QuoVit" />
+          <p className="name">A Quora Clone for College</p>
+        </div>
+        <img src={main} alt="Login" />
       </div>
-      <h2>Create an account</h2>
-      <p style={{ fontSize: "x-small" }}>
-        Already have an account <Link to="/Login">Login</Link>
-      </p>
-      <form onSubmit={handleSubmit} className="login-form">
+      <div>
+      <form onSubmit={handleSubmit} className="login-form" style={{margin:"2rem auto"}}>
+        <div className="form-head">
+          <h2>Create an account</h2>
+          <p style={{ fontSize: "x-small" }}>
+            Already have an account? <Link to="/Login">Login</Link>
+          </p>
+          <div className="progress-main">
+            <div className="progress-track" style={{ width: `${width}%` }} />
+          </div>
+        </div>
         {steps === 0 ? (
           <div>
             <div>
@@ -99,7 +144,14 @@ export default function Signup() {
                 value={user.campus}
               />
             </div>
-            <button onClick={() => setSteps(1)}>Next</button>
+            <button
+              onClick={() => {
+                setSteps(1);
+                setWidth(50);
+              }}
+            >
+              Next
+            </button>
           </div>
         ) : steps === 1 ? (
           <div>
@@ -143,30 +195,52 @@ export default function Signup() {
               />
             </div>
             <div className="signup-btns">
-            <button onClick={() => setSteps(0)}><ChevronLeft /></button>
-            <button onClick={() => setSteps(2)}><ChevronRight /></button>
+              <button onClick={() => setSteps(0)}>
+                <ChevronLeft />
+              </button>
+              <button
+                onClick={() => {
+                  setSteps(2);
+                  setWidth(95);
+                }}
+              >
+                <ChevronRight />
+              </button>
             </div>
           </div>
         ) : (
           <div>
-              <label htmlFor="avatar">Choose an Avatar</label>
-              <div className="signup-avatar">
-                {avatars.map((a,index)=>(
-                    <img src={a} alt={index} key={index} className={index === avatar ? "avatar-selected" : ""} onClick={()=>setAvatar(index)}/>
-                ))}
-              </div>
-              <label htmlFor="background">Pick a Color</label>
-              <div className="signup-colors">
-                    {colors.map((c,index)=>(
-                        <div key={index} className={index === color ? "color-selected" : ""}>
-                            <div style={{background:c}} onClick={()=>setColor(index)}/>
-                        </div>
-                    ))}
-              </div>
+            <label htmlFor="avatar">Choose an Avatar</label>
+            <div className="signup-avatar">
+              {avatars.map((a, index) => (
+                <img
+                  src={a}
+                  alt={index}
+                  key={index}
+                  className={index === avatar ? "avatar-selected" : ""}
+                  onClick={() => setAvatar(index)}
+                />
+              ))}
+            </div>
+            <label htmlFor="background">Pick a Color</label>
+            <div className="signup-colors">
+              {colors.map((c, index) => (
+                <div
+                  key={index}
+                  className={index === color ? "color-selected" : ""}
+                >
+                  <div
+                    style={{ background: c }}
+                    onClick={() => setColor(index)}
+                  />
+                </div>
+              ))}
+            </div>
             <button type="submit">Create</button>
           </div>
         )}
       </form>
+      </div>
     </div>
   );
 }

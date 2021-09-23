@@ -12,6 +12,7 @@ import "./App.css";
 import SavedPosts from "./Screens/Landing/SavedPosts";
 import Notifications from "./Screens/Landing/Notifications";
 import EachCourse from "./Screens/QuestionBank/EachCourse";
+import NotFound from "./Screens/NotFound/NotFound";
 
 function App() {
   return (
@@ -30,7 +31,8 @@ function App() {
       <Route exact path="/Login" component={Login} />
       <Route exact path="/Signup" component={Signup} />
 
-      <Route exact path="/Contact" component={Contact} />      
+      <Route exact path="/Contact" component={Contact} />  
+      <Route component={NotFound} />    
     </Switch>
   );
 }
