@@ -1,33 +1,18 @@
 import React from 'react'
 import './css/CourseCard.css'
-import img from "./img/Vector (1).png"
 import { Link } from 'react-router-dom'
+import { ChevronRight } from '@material-ui/icons';
 
 export default function CourseCard(props) {
-    const {c_name,c_type } = props.course;
+    const {name,type } = props.course;
     return (
-        <Link to="/Eachcourse"style={{color: 'inherit', textDecoration: 'inherit'}}>
-        {/* <Link
-            to={{
-                pathname: "/Eachcourse",
-                state: { c_type: {c_type} }
-            }}> */}
         <div className='co-Card'>
-            <div className="coursetype">
-                {c_type}
+            <div className="course-head">
+                <p>{type}</p>
+                <Link to={{pathname:"/EachCourse",query:{props}}}><ChevronRight /></Link>
             </div>
-            <div className="expand">
-            <button><img src={img} alt=""/></button>
-            </div>
-        <div className="c-name">
-            Data Visualization 
-    return (
-        <div>
-            {props.name} 
-            {/* <h4>{props.age}</h4> */}
+            <h4>{name}</h4>
         </div>
-        </div>
-        </Link>
     )
 }
 

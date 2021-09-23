@@ -1,82 +1,92 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import CourseCard from '../../Components/Cards/CourseCard'
-import MainLayout from '../../Components/Structure/Main'
-import './css/QuestionBank.css'
-import srcpng from './img/search.png'
-// import CourseCard from '../../Components/Cards/CourseCard'
-import CourseCard from '../../Components/Cards/CourseCard'
+import React from "react";
+import { Link } from "react-router-dom";
+import CourseCard from "../../Components/Cards/CourseCard";
+import MainLayout from "../../Components/Structure/Main";
+import "./css/QuestionBank.css";
+import srcpng from "./img/Search copy.png";
 
 export default function QuestionBank() {
-    const courses=[
-        {
-            id:1,
-            c_type:"UC",
-            c_name:"Data visualization"},
-        {
-            id:2,
-            c_type:"UC",
-            c_name:"Data visualization" 
-            
+  const courses = [
+    {
+      id: 1,
+      type: "UC",
+      name: "Data visualization",
+      papers: {
+        cat1: [
+          { year: "2021", paper: "" },
+          { year: "2020", paper: "" },
+          { year: "2020", paper: "" },
+        ],
+        cat2: [
+          { year: "2021", paper: "" },
+          { year: "2020", paper: "" },
+        ],
+        fat: [{ year: "2021", paper: "" }],
+      },
+    },
+    {
+      id: 2,
+      type: "PC",
+      name: "Internet and Web Programming",
+      papers: {
+        cat1: [{ year: "2021", paper: "" }],
+        cat2: [
+          { year: "2021", paper: "" },
+          { year: "2020", paper: "" },
+        ],
+        fat: [
+          { year: "2021", paper: "" },
+          { year: "2020", paper: "" },
+          { year: "2020", paper: "" },
+        ],
+      },
+    },
+    {
+      id: 3,
+      type: "UC",
+      name: "Data visualization2",
+      papers: {
+        cat1: [
+          { year: "2021", paper: "" },
+          { year: "2020", paper: "" },
+          { year: "2020", paper: "" },
+        ],
+        cat2: [
+          { year: "2021", paper: "" },
+          { year: "2020", paper: "" },
+        ],
+        fat: [],
+      },
+    },
+    {
+        id: 4,
+        type: "UC",
+        name: "Data visualization",
+        papers: {
+          cat1: [
+            { year: "2021", paper: "" },
+            { year: "2020", paper: "" },
+            { year: "2020", paper: "" },
+          ],
+          cat2: [
+            { year: "2021", paper: "" },
+            { year: "2020", paper: "" },
+          ],
+          fat: [{ year: "2021", paper: "" }],
         },
-        {
-            id:3,
-            c_type:"UC",
-            c_name:"Data visualization" 
-            
-        },
-    ]
-    //Adarsh check the folder Ideas Block to understand the mappings if u dont understand message me, I'll explain! 
-    const Courses = [
-        {
-            id:1,
-            name:"DV",
-            age:"18"
-        },
-        {
-            id:2,
-            name:"IWP"
-        },
-        {
-            id:3,
-            name:"PDC"
-        }
-    ]
-    return (
-            <MainLayout>
-                <div className="searchBar">
-                    <input type="text" className="searchTerm" placeholder="What subject are you searching for?"/>
-                    <button type="submit" className="searchButton"><img src={srcpng} alt=""/></button>
-                </div>
-                   <div className="courses">
-                       <div className="c-1">
-                        {/* <Link to="/Eachcourse"style={{color: 'inherit', textDecoration: 'inherit'}}> */}
-                        {courses.map(course=>(
-                            <CourseCard course={course} />
-                                         ))}
-                        {/* </Link> */}
-                       </div>
-                       <div className="c-2">
-                       {/* <Link to="/Eachcourse" style={{color: 'inherit', textDecoration: 'inherit'}}> */}
-                      
-                       {courses.map(course=>(
-                            <CourseCard course={course} />
-                                         ))}
-                       {/* </Link> */}
-                           
-                       </div>
-                    </div>
-              
-                <Link to="/EachCourse">
-                    {Courses.map(mounvi=>(
-                        <CourseCard name={mounvi.name} age={mounvi.age}/>
-                    ))}
-                        {/* <CourseCard name="DV"/>
-                        <CourseCard name="IWP"/>
-                        <CourseCard name="PDC"/>
-                        <CourseCard name="isaa"/>
-                        <CourseCard name="ala"/> */}
-                </Link>
-            </MainLayout>     
-    )
+      },
+  ];
+  return (
+    <MainLayout>
+      <div className="input-search">
+        <input type="text" name="course" placeholder="Search Course..." />
+        <img src={srcpng} alt="Go" />
+      </div>
+      <div className="course-container">
+          {courses.map(course=>(
+              <CourseCard course={course} />
+          ))}
+      </div>
+    </MainLayout>
+  );
 }

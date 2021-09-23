@@ -1,42 +1,38 @@
 .co-Card{
-    margin: 10% 10% ;
+    margin: 1% auto;
     box-shadow: var(--box-shadow);
     display: flex;
     flex-direction: column;
-    height:max-content;
-    background: #FFFFFF;
     border-radius: 4px;
-    padding: 5px; 
-    width: 70%;
-    
+    padding: 2%; 
+    box-sizing: border-box;
+    width:40%; 
+    position:relative;
 }
-.coursetype{
-    height: 10px;
-    margin-left: 5%;
+.course-head{
+    display:flex;
+    justify-content: space-between;
 }
-
-.c-name{
-    font-weight: normal;
-    font-size: 20px;
-    letter-spacing: -0.374833px;
-    text-decoration: none;
-    margin-left: 10%;
-
+.course-head p{
+    color:grey;
+    padding:0;
+    margin:0;
+    font-size:0.8rem
 }
-.expand{
-    height: 30px;
-    text-align: end;
-}
-.expand>button{
-    background-color: var(--primary-color);;
-    border: none;
+.course-head svg{
+    background:var(--primary-color);
+    height:2rem;
+    width:2rem;
     border-radius: 50%;
-    cursor: pointer;
-    width: 28px;
-    height: 26px;
+    object-fit: contain;
+    margin:5% 2% 0 0;
+    position:absolute;
+    right:3%;
+    top:-8%;
+    color:white;
 }
-.expand>button>img{
-    width: 60%;
-    height: 60%;
-    margin: 5px;
+.co-Card h4{
+    font-weight:normal;
+    margin:0;
+    padding:0;
 }

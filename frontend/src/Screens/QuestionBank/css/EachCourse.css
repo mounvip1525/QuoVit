@@ -2,7 +2,7 @@
     display: flex;
     text-align: center;
     justify-content: center;
-    margin-top: 80px; 
+    margin-top: 30px; 
     align-items: center;
     font-size: 1.8rem;
 }
@@ -17,12 +17,14 @@
 .cat1,.cat2{
     display: flex;
 }
-.cat1>.c1,.c2,.c3{
-    width: 33%;
-}
-.cat2>.c1,.c2,.c3{
-    width: 33%;
+.eachcourse-cont{
+    width:90%;
+    margin:0 auto;
 }
 hr{
     width: 95%;
+        border: 0;
+        height: 1px;
+        background: #333;
+        background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
