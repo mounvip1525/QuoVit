@@ -6,13 +6,13 @@ import { useLocation } from "react-router";
 
 export default function EachCourse() {
   const { query } = useLocation();
-  const { name, papers, type } = query.props.course;
+  const { name, papers, code } = query.props.course;
 
   return (
     <MainLayout>
       <div className="eachcourse-cont">
       <div className="courseName">{name}</div>
-      <div className="courseType">{type}</div>
+      <div className="courseCode">{code}</div>
       <div className="exam">CAT 1 </div>
       <div className="cat1">
         {papers.cat1.length>0 ? 

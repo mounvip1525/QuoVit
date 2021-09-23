@@ -9,7 +9,7 @@ export default function QuestionBank() {
   const courses = [
     {
       id: 1,
-      type: "UC",
+      code:"CSE3002",
       name: "Data visualization",
       papers: {
         cat1: [
@@ -26,7 +26,7 @@ export default function QuestionBank() {
     },
     {
       id: 2,
-      type: "PC",
+      code:"CSE4019",
       name: "Internet and Web Programming",
       papers: {
         cat1: [{ year: "2021", paper: "" }],
@@ -43,7 +43,7 @@ export default function QuestionBank() {
     },
     {
       id: 3,
-      type: "UC",
+      code:"CSE3002",
       name: "Data visualization2",
       papers: {
         cat1: [
@@ -60,7 +60,7 @@ export default function QuestionBank() {
     },
     {
         id: 4,
-        type: "UC",
+        code:"CSE3002",
         name: "Data visualization",
         papers: {
           cat1: [

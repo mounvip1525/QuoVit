@@ -6,13 +6,14 @@
     align-items: center;
     font-size: 1.8rem;
 }
-.courseType{
+.courseCode{
     display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
     font-size: 1.1rem;
     padding-bottom:20px ;
+    color:grey
 }
 .cat1,.cat2{
     display: flex;
@@ -23,8 +24,8 @@
 }
 hr{
     width: 95%;
-        border: 0;
-        height: 1px;
-        background: #333;
-        background-image: linear-gradient(to right, #ccc, #333, #ccc);
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    margin-bottom:2rem
 }
