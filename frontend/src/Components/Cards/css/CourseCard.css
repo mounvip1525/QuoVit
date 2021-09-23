@@ -1,0 +1,42 @@
+.co-Card{
+    margin: 10% 10% ;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    height:max-content;
+    background: #FFFFFF;
+    border-radius: 4px;
+    padding: 5px; 
+    width: 70%;
+    
+}
+.coursetype{
+    height: 10px;
+    margin-left: 5%;
+}
+
+.c-name{
+    font-weight: normal;
+    font-size: 20px;
+    letter-spacing: -0.374833px;
+    text-decoration: none;
+    margin-left: 10%;
+
+}
+.expand{
+    height: 30px;
+    text-align: end;
+}
+.expand>button{
+    background-color: var(--primary-color);;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 28px;
+    height: 26px;
+}
+.expand>button>img{
+    width: 60%;
+    height: 60%;
+    margin: 5px;
+}
