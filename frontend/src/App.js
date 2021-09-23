@@ -13,6 +13,7 @@ import SavedPosts from "./Screens/Landing/SavedPosts";
 import Notifications from "./Screens/Landing/Notifications";
 import EachCourse from "./Screens/QuestionBank/EachCourse";
 import NotFound from "./Screens/NotFound/NotFound";
+import About from "./Screens/About/About";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
       <Route exact path="/Signup" component={Signup} />
 
       <Route exact path="/Contact" component={Contact} />  
+      <Route exact path="/About" component={About} />
       <Route component={NotFound} />    
     </Switch>
   );

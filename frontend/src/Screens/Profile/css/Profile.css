@@ -1,155 +1,142 @@
-.profile-main{
-  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
-  display:flex;
+.profile-main {
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  margin:3% 1%;
-  padding:3% 0;
-  width:80%;
+  margin: 3% 1%;
+  padding: 3% 0;
+  width: 80%;
 }
-.profile-main > div:first-child{
-    width:90%;
+.profile-main > div:first-child {
+  width: 90%;
 }
-.user-posts{
-    width:70%;
+.user-posts {
+  width: 70%;
 }
-.user-details{
-    display:flex;
-    width:100%;
+.user-details {
+  display: flex;
+  width: 100%;
 }
-.user-first{
-    width:30%;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+.user-first {
+  width: 30%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
-.user-second{
-    width:70%;
+.user-second {
+  width: 70%;
 }
-/* .user-pro{
-    text-align: center;
-} */
-.user-first img{
-    height:12rem;
-    border-radius: 50%;
-    width:12rem;
+.user-first img {
+  height: 12rem;
+  border-radius: 50%;
+  width: 12rem;
 }
-/* .user-profile h3{
-    font-weight:normal;
-    margin-bottom:0;
-    padding-bottom: 0;
-    margin-top:2%;
+.user-contact {
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  margin: 15% 0;
+  box-sizing: border-box;
 }
-.user-profile p{
-    margin:0;
-    padding:0;
-    color:grey;
-    font-size: small;
-} */
-.user-contact{
-    /* margin:10% 0 !important; */
-    box-shadow: var(--box-shadow);
-    width:100%;
-    margin:15% 0;
-    box-sizing: border-box;
-    /* padding:0 1% 1% 3%; */
+.user-contact h4 {
+  background: var(--primary-color);
+  text-align: center;
 }
-.user-contact h4{
-    background: var(--primary-color);
-    text-align: center;
+.user-contact div {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  padding: 0 0 0 1.5rem;
 }
-.user-contact div{
-    display:flex;
-    align-items: center;
-    text-align: left;
-    padding:0 0 0 1.5rem;
+.user-contact svg {
+  margin-right: 3%;
 }
-.user-contact svg{
-    margin-right:3%;
+.user-contact h4 {
+  font-weight: normal;
+  margin: 0;
+  padding: 3%;
 }
-.user-contact h4{
-    font-weight:normal;
-    margin:0;
-    padding:3%;
-}
-.user-contact div p{
-    font-size: small;
-    white-space: nowrap; 
+.user-contact div p {
+  font-size: small;
+  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; 
-  width:75%;
+  text-overflow: ellipsis;
+  width: 75%;
 }
-.user-contact .user-btn{
-    display:flex;
-    justify-content: center;
-    padding-left:0 !important;
-    margin:3% 0 10%;
+.user-contact .user-btn {
+  display: flex;
+  justify-content: center;
+  padding-left: 0 !important;
+  margin: 3% 0 10%;
 }
-.resume-btn{
-    border:2px solid var(--primary-color);
-    cursor:pointer;
-    outline:none;
-    background: white;
-    color:var(--primary-color);
-    padding:1% 10%;
-    font-size: large;
-    font-family: Poppins;
+.resume-btn {
+  border: 2px solid var(--primary-color);
+  cursor: pointer;
+  outline: none;
+  background: white;
+  color: var(--primary-color);
+  padding: 1% 10%;
+  font-size: large;
+  font-family: Poppins;
 }
-.resume-btn:hover{
-    background: var(--primary-color);
-    color:white;
-    transition: all 0.5s ease;
+.resume-btn:hover {
+  background: var(--primary-color);
+  color: white;
+  transition: all 0.5s ease;
 }
-.user-second{
-    padding:0 3%;
+.user-second {
+  padding: 0 3%;
 }
-.user-second h2{
-    margin-bottom: 0;
-    padding-bottom: 0;
+.user-second h2 {
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
-.user-second p{
-    margin: 0%;
-    padding: 0%;
+.user-second p {
+  margin: 0%;
+  padding: 0%;
 }
-.skills-div p{
-    display:inline-flex;
-    border:1.5px solid black;
-    margin-right:2%;
-    border-radius: 3px;
-    padding:0.5% 2%;
+.skills-div p {
+  display: inline-flex;
+  border: 1.5px solid black;
+  margin-right: 2%;
+  border-radius: 3px;
+  padding: 0.5% 2%;
+  color: var(--primary-color);
 }
-.user-second li{
-    font-size: small;
+.user-second li {
+  font-size: small;
 }
-.user-tab{
-    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
-    display:flex;
-    justify-content: space-around;
-    min-width:25rem;
-    padding:0% 3%; 
-    margin:10% 0 5%;
-    border-radius: 5px;
-    background: var(--primary-color);
+.user-tab {
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  display: flex;
+  justify-content: space-around;
+  min-width: 25rem;
+  padding: 0% 3%;
+  margin: 10% 0 5%;
+  border-radius: 5px;
+  background: var(--primary-color);
 }
-.user-tab h3{
-    margin:0;
-    padding:2%;
-    cursor: pointer;
-    border-bottom: 3px solid transparent;
-    color:white;
+.user-tab h3 {
+  margin: 0;
+  padding: 2%;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  color: white;
 }
-.profile-main .suggestions-main{
-    width:100%;
-    box-shadow: none;
+.profile-main .suggestions-main {
+  width: 100%;
+  box-shadow: none;
 }
-.profile-main .suggestions-main > div{
-  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
-  width:18rem;
-  margin:2% auto;
-  padding:2% 2% 2% 4%;
+.profile-main .suggestions-main > div {
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  width: 18rem;
+  margin: 2% auto;
+  padding: 2% 2% 2% 4%;
 }
-.user-post-div{
-    display:flex;
-    flex-direction: column;
-    text-align: left !important;
+.user-post-div {
+  display: flex;
+  flex-direction: column;
+  text-align: left !important;
 }
