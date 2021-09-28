@@ -81,6 +81,13 @@ export default function Navbar() {
           />
         </Tabs>
       </Paper>
+      {/* <div className="navbar-nav">
+        <img src={home} alt="Home" />
+        <img src={confessions} alt="Confessions" />
+        <img src={questionBank} alt="Question Bank" />
+        <img src={ideas} alt="Ideas Corner" />
+        <img src={facReview} alt="Faculty Review" />
+      </div> */}
       <div>
         <div>
           <p style={{ fontSize: "x-small" }}>Logged in as</p>

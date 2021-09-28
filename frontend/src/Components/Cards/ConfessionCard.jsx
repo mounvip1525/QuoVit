@@ -16,7 +16,7 @@ export default function ConfessionCard({id,confession,date,index}) {
             <div className="c-emojis">
                 {emojis.map((e,index)=>(
                     <div onClick={()=>setEmoji(index)} className={index === emoji ? "emoji-selected" : ""}>
-                        <img src={e} alt="emoji"/>
+                        <img src={e} alt="emoji" style={{cursor:"pointer"}}/>
                     </div>
                 ))}
             </div>

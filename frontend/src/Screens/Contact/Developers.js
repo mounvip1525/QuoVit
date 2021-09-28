@@ -21,8 +21,8 @@ export default function Developers() {
       responsive={responsive}
       ssr={true}
       infinite={true}
-      autoPlay={true}
-      autoPlaySpeed={1000}
+      autoPlay={false}
+      autoPlaySpeed={1000000000000}
       keyBoardControl={true}
       transitionDuration={500}
       >
