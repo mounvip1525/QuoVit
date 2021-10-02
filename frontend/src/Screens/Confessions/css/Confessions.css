@@ -1,4 +1,9 @@
 .confessions-cont{
     display: flex;
-    width:100%;
+    width:90%;
+    margin:auto;
+    justify-content: space-around;
+}
+.confessions-cont > div{
+    width:45%;
 }
