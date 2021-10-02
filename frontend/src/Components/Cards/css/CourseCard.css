@@ -1,5 +1,5 @@
 .co-Card{
-    margin: 1% auto;
+    margin: 1%;
     box-shadow: var(--box-shadow);
     display: flex;
     flex-direction: column;

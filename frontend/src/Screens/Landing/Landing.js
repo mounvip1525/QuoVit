@@ -5,10 +5,10 @@ import LandingCard from "../../Components/Cards/LandingCard";
 import avatar from "./img/Avatar8.png";
 
 export default class Landing extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      posts : [
+      posts: [
         {
           id: 0,
           title: "Quora Clone for VIT",
@@ -69,10 +69,10 @@ export default class Landing extends Component {
             background: "purple",
           },
         },
-      ]
-    }
+      ],
+    };
   }
-    handleLikeClick = (id,value) => {
+  handleLikeClick = (id, value) => {
     const newPosts = [...this.state.posts];
     newPosts.map((p) => {
       if (id === p.id) {
@@ -95,7 +95,7 @@ export default class Landing extends Component {
   render() {
     return (
       <div>
-        <MainLayout>
+        <MainLayout type="landing">
           <div className="landing-main">
             {this.state.posts.map((post) => (
               <LandingCard

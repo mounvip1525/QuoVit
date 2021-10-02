@@ -9,7 +9,7 @@ export default function QuestionBank() {
   const courses = [
     {
       id: 1,
-      code:"CSE3002",
+      code: "CSE3002",
       name: "Data visualization",
       papers: {
         cat1: [
@@ -26,7 +26,7 @@ export default function QuestionBank() {
     },
     {
       id: 2,
-      code:"CSE4019",
+      code: "CSE4019",
       name: "Internet and Web Programming",
       papers: {
         cat1: [{ year: "2021", paper: "" }],
@@ -43,7 +43,7 @@ export default function QuestionBank() {
     },
     {
       id: 3,
-      code:"CSE3002",
+      code: "CSE3002",
       name: "Data visualization2",
       papers: {
         cat1: [
@@ -59,33 +59,33 @@ export default function QuestionBank() {
       },
     },
     {
-        id: 4,
-        code:"CSE3002",
-        name: "Data visualization",
-        papers: {
-          cat1: [
-            { year: "2021", paper: "" },
-            { year: "2020", paper: "" },
-            { year: "2020", paper: "" },
-          ],
-          cat2: [
-            { year: "2021", paper: "" },
-            { year: "2020", paper: "" },
-          ],
-          fat: [{ year: "2021", paper: "" }],
-        },
+      id: 4,
+      code: "CSE3002",
+      name: "Data visualization",
+      papers: {
+        cat1: [
+          { year: "2021", paper: "" },
+          { year: "2020", paper: "" },
+          { year: "2020", paper: "" },
+        ],
+        cat2: [
+          { year: "2021", paper: "" },
+          { year: "2020", paper: "" },
+        ],
+        fat: [{ year: "2021", paper: "" }],
       },
+    },
   ];
   return (
-    <MainLayout>
+    <MainLayout type="questionBank">
       <div className="input-search">
         <input type="text" name="course" placeholder="Search Course..." />
         <img src={srcpng} alt="Go" />
       </div>
       <div className="course-container">
-          {courses.map(course=>(
-              <CourseCard course={course} />
-          ))}
+        {courses.map((course) => (
+          <CourseCard course={course} />
+        ))}
       </div>
     </MainLayout>
   );

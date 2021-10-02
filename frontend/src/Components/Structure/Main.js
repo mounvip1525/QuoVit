@@ -10,7 +10,7 @@ export default function MainLayout(props) {
         <div>
             <Navbar />
             <div className="layout-main">
-                <Sidebar />
+                <Sidebar type={props.type}/>
                 <div style={{width:"60%"}}>{props.children}</div>
                 <Suggestions />
             </div>
