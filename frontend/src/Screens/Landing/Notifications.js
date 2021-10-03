@@ -7,7 +7,7 @@ export default function Notifications() {
     return (
             <MainLayout type="landing">
                 <AddPostModal />
-                Notifications
+                {/* html code here */}
             </MainLayout>
     )
 }

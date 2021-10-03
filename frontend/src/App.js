@@ -14,6 +14,7 @@ import Notifications from "./Screens/Landing/Notifications";
 import EachCourse from "./Screens/QuestionBank/EachCourse";
 import NotFound from "./Screens/NotFound/NotFound";
 import About from "./Screens/About/About";
+import Mentorship from "./Screens/Mentor/Mentorship";
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
       <Route exact path="/IdeasBlock" component={IdeasBlock} />
       <Route exact path="/QuestionBank" component={QuestionBank} />
       <Route exact path="/EachCourse" component={EachCourse} />
+
+      <Route exact path="/Mentorship" component={Mentorship} />
 
       <Route exact path="/Login" component={Login} />
       <Route exact path="/Signup" component={Signup} />

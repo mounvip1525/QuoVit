@@ -11,7 +11,7 @@ export default function Login() {
         console.log(user)
     }
     const handleChange = (e) => {
-        setUser({...user,[e.target.name]:e.target.value})
+        setUser({...user,email:e.target.value})
     }
     return (
         <div className="login-main">

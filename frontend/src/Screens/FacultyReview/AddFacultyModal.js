@@ -18,6 +18,10 @@ const AddFacultyModal = ({ closeModal, showModal }) => {
       <form onSubmit={handleSubmit} className="login-form login-form-2">
         <div>
             {/* Add your html code here */}
+            <div>
+                    <label htmlFor="email">VIT Email</label>
+                    <input type="text" id="email" name="email" onChange={handleChange}/>
+                </div>
           <button type="submit" className="login-btn add-btn">
             Submit
           </button>
