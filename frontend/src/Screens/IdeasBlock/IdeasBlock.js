@@ -3,6 +3,7 @@ import MainLayout from "../../Components/Structure/Main";
 import IdeaCard from "../../Components/Cards/IdeaCard";
 import avatar from "./img/Avatar8.png";
 import "./css/IdeasBlock.css";
+import AddIdeaModal from "./AddIdeaModal";
 
 export default function IdeasBlock() {
   const ideas = [
@@ -65,6 +66,7 @@ export default function IdeasBlock() {
   ];
   return (
     <MainLayout type="ideasBlock">
+      <AddIdeaModal />
       <div className="ideas-main">
         {ideas.map((idea) => (
           <IdeaCard idea={idea} />

@@ -7,9 +7,11 @@ import profile from "./img/profile.png";
 import save from "./img/save.png";
 import "./css/Sidebar.css";
 import { Add } from "@material-ui/icons";
+import { connect } from "react-redux";
 
-export default function Sidebar({ type }) {
+function Sidebar({ type, showConfessModal, showFacultyModal,showIdeaModal,showPaperModal,showPostModal }) {
   const history = useHistory();
+  const path = history.location.pathname;
   const [selected, setSelected] = useState(0);
   const handleClick = (id, link) => {
     setSelected(id);
@@ -37,7 +39,21 @@ export default function Sidebar({ type }) {
   ];
   return (
     <div className="sidebar-main">
-      <button>
+      <button
+        onClick={
+          path === "/Confessions"
+            ? showConfessModal
+            : path === "/FacultyReview"
+            ? showFacultyModal
+            : path === "/" || path === "/Saved" || path === "/Notifications"
+            ? showPostModal
+            : path === "/IdeasBlock"
+            ? showIdeaModal
+            : path === "/QuestionBank" | path === "/EachCourse"
+            ? showPaperModal
+            : ""
+        }
+      >
         {type === "landing"
           ? "Ask/Post"
           : type === "confessions"
@@ -66,3 +82,13 @@ export default function Sidebar({ type }) {
     </div>
   );
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  showConfessModal: () => dispatch({ type: "ShowConfessModal" }),
+  showPaperModal: () => dispatch({ type: "ShowPaperModal" }),
+  showIdeaModal: () => dispatch({ type: "ShowIdeaModal" }),
+  showPostModal: () => dispatch({ type: "ShowPostModal" }),
+  showFacultyModal: () => dispatch({ type: "ShowFacultyModal" }),
+});
+
+export default connect(null, mapDispatchToProps)(Sidebar);

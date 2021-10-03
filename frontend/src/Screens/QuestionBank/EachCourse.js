@@ -3,13 +3,15 @@ import MainLayout from "../../Components/Structure/Main";
 import "./css/EachCourse.css";
 import EachCourseCard from "../../Components/Cards/EachCourseCard";
 import { useLocation } from "react-router";
+import AddPaperModal from "./AddPaperModal";
 
 export default function EachCourse() {
   const { query } = useLocation();
   const { name, papers, code } = query.props.course;
 
   return (
-    <MainLayout>
+    <MainLayout type="questionBank">
+      <AddPaperModal />
       <div className="eachcourse-cont">
       <div className="courseName">{name}</div>
       <div className="courseCode">{code}</div>

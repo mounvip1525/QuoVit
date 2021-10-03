@@ -1,22 +1,9 @@
-// import React from 'react'
-// import MainLayout from '../../Components/Structure/Main'
-// import './css/SavedPosts.css'
-
-// export default function SavedPosts() {
-//     return (
-//         <div>
-//             <MainLayout>
-//                 Saved Posts
-//             </MainLayout>
-//         </div>
-//     )
-// }
-
 import React, { Component } from "react";
 import MainLayout from "../../Components/Structure/Main";
 import "./css/Landing.css";
 import LandingCard from "../../Components/Cards/LandingCard";
 import avatar from "./img/Avatar8.png";
+import AddPostModal from "./AddPostModal";
 
 export default class Landing extends Component {
   constructor(props){
@@ -109,7 +96,8 @@ export default class Landing extends Component {
   render() {
     return (
       <div>
-        <MainLayout>
+        <MainLayout type="landing">
+          <AddPostModal />
           <div className="landing-main">
             {this.state.posts.map((post) => (
               <LandingCard

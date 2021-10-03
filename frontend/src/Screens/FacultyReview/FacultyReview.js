@@ -3,6 +3,7 @@ import MainLayout from "../../Components/Structure/Main";
 import search from "./img/Search.png";
 import "./css/FacultyReview.css";
 import FacultyReviewCard from "../../Components/Cards/FacultyReviewCard";
+import AddFacultyModal from "./AddFacultyModal";
 
 export default function FacultyReview() {
   const faculties = [
@@ -45,6 +46,7 @@ export default function FacultyReview() {
   ];
   return (
     <MainLayout type="facultyReviews">
+      <AddFacultyModal />
       <div className="fac-main">
         <div className="input-search">
           <input type="text" name="faculty" placeholder="Search Faculty..." />

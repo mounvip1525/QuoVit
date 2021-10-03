@@ -1,44 +1,58 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ConfessionCard from "../../Components/Cards/ConfessionCard";
 import MainLayout from "../../Components/Structure/Main";
 import "./css/Confessions.css";
 import { getConfessions } from "../../Actions/confessions";
 import { useDispatch, useSelector } from "react-redux";
+import AddConfession from "./AddConfession";
+import { connect } from "react-redux";
 
-export default function Confessions() {
+function Confessions({ showConfessModal }) {
+    // console.log(props)
   const dispatch = useDispatch();
-const confessions =  useSelector(state => state.confessions)
+  const confessions = useSelector((state) => state.confessions);
   useEffect(() => {
     dispatch(getConfessions());
   }, [dispatch]);
   return (
     <MainLayout type="confessions">
+      <AddConfession />
       <div className="confessions-cont">
         <div className="c-1">
-          {confessions.map((confession,index)=>(
-              index % 2 === 0 ? (
-                <ConfessionCard
+          {confessions.map((confession, index) =>
+            index % 2 === 0 ? (
+              <ConfessionCard
                 date={confession.date}
                 confession={confession.confession}
                 id={confession.id}
                 index={index}
-              /> 
-              ) : ""
-          ))}
+              />
+            ) : (
+              ""
+            )
+          )}
         </div>
         <div className="c-2">
-        {confessions.map((confession,index)=>(
-              index % 2 !== 0 ? (
-                <ConfessionCard
+          {confessions.map((confession, index) =>
+            index % 2 !== 0 ? (
+              <ConfessionCard
                 date={confession.date}
                 confession={confession.confession}
                 id={confession.id}
                 index={index}
-              /> 
-              ) : ""
-        ))}
+              />
+            ) : (
+              ""
+            )
+          )}
         </div>
       </div>
     </MainLayout>
   );
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  showConfessModal: () => dispatch({ type: "ShowConfessModal" }),
+});
+
+export default connect(null, mapDispatchToProps)(Confessions);

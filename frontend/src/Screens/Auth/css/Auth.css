@@ -65,15 +65,16 @@
 }
 .login-form{
     background: white;
-    width:30rem;
+    min-width:20rem;
     border-radius: 3px;
     /* box-shadow: 0 0px 10px rgba(67, 71, 85, 0.75); */
 }
 .login-form div{
-    display:flex;
+    /* display:flex; */
     flex-direction: column;
     align-items: flex-start;
     padding:0 3% 3% 3%;
+    box-sizing: border-box;
 }
 .login-form div div{
     width:100%;
@@ -102,6 +103,7 @@
     font-size:1.4rem;
     font-family: Poppins;
     padding:1% 0;
+    display: block;
 }
 .login-form .signup-btns{
     display:flex;
@@ -159,6 +161,7 @@
 }
 .login-form .login-btn{
     margin:5% auto;
+    display:block
 }
 .login-form-2{
     margin-top:2rem;
@@ -179,4 +182,7 @@
 }
 .login-img{
     height:25rem !important;
+}
+.add-btn{
+    margin-top:1% !important
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import CourseCard from "../../Components/Cards/CourseCard";
 import MainLayout from "../../Components/Structure/Main";
+import AddPaperModal from "./AddPaperModal";
 import "./css/QuestionBank.css";
 import srcpng from "./img/Search copy.png";
 
@@ -78,6 +79,7 @@ export default function QuestionBank() {
   ];
   return (
     <MainLayout type="questionBank">
+      <AddPaperModal />
       <div className="input-search">
         <input type="text" name="course" placeholder="Search Course..." />
         <img src={srcpng} alt="Go" />

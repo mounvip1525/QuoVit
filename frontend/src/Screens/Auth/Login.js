@@ -23,7 +23,7 @@ export default function Login() {
                 <img src={main} alt="Login" className="login-img" />
              </div>
             <div>
-            <form onSubmit={handleSubmit} className="login-form login-form-2">
+            <form onSubmit={handleSubmit} className="login-form login-form-2" style={{width:"30rem"}}>
             <div className="form-head">
             <h2>
                 Welcome Back!
