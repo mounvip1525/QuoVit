@@ -2,8 +2,8 @@ export default (confessions = [], action) => {
   switch (action.type) {
     case "FETCH_ALL":
       return action.payload;
-    case "CREATE":
-      return confessions;
+    case "ADD":
+      return [...confessions,action.payload];
     default:
       return confessions;
   }

@@ -84,13 +84,15 @@
     margin-bottom:1%;
 }
 .login-form div input,.login-form div div input{
-    width:85%;
+    width:100%;
     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
     border:none;
     outline:none;
     padding:1% 3%;
-    min-height:2rem;
+    min-height:2.5rem;
     background: white;
+    margin:auto;
+    box-sizing: border-box;
 }
 .login-form button{
     margin:5% auto;

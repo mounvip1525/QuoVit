@@ -5,10 +5,8 @@ import "./css/Confessions.css";
 import { getConfessions } from "../../Actions/confessions";
 import { useDispatch, useSelector } from "react-redux";
 import AddConfession from "./AddConfession";
-import { connect } from "react-redux";
 
-function Confessions({ showConfessModal }) {
-    // console.log(props)
+export default function Confessions() {
   const dispatch = useDispatch();
   const confessions = useSelector((state) => state.confessions);
   useEffect(() => {
@@ -36,7 +34,7 @@ function Confessions({ showConfessModal }) {
           {confessions.map((confession, index) =>
             index % 2 !== 0 ? (
               <ConfessionCard
-                date={confession.date}
+                date={confession.createdAt}
                 confession={confession.confession}
                 id={confession.id}
                 index={index}
@@ -50,9 +48,3 @@ function Confessions({ showConfessModal }) {
     </MainLayout>
   );
 }
-
-const mapDispatchToProps = (dispatch) => ({
-  showConfessModal: () => dispatch({ type: "ShowConfessModal" }),
-});
-
-export default connect(null, mapDispatchToProps)(Confessions);

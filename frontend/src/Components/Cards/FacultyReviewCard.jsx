@@ -5,7 +5,9 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
 export default function FacultyReviewCard(props) {
-  const { name, votes, rating } = props.faculty;
+  const { facultyName, numOfVotes, facultyCMRating,_id } = props.faculty;
+  // console.log("faculty",props.faculty)
+  const rating = (facultyCMRating / numOfVotes).toFixed(1);
   const colors = ["#DD2929", "#E5664A", "#F6E015", "#71D8B3"];
   const color =
     rating >= 4
@@ -16,20 +18,23 @@ export default function FacultyReviewCard(props) {
       ? colors[1]
       : colors[0];
   // const color = colors[0];
+  const handleClick = () => {
+    props.handleShow(_id,facultyName)
+  }
   return (
     <div className="fac-card">
       <div>
-        <h3>{name}</h3>
+        <h3>{facultyName}</h3>
         <div>
           <div>
-            {votes}
+            {numOfVotes}
             <img
               style={{ marginLeft: "0.5rem", objectFit: "contain" }}
               src={person}
               alt=""
             />
           </div>
-          <div className="fac-rate">Rate</div>
+          <div className="fac-rate" onClick={handleClick}>Rate</div>
         </div>
       </div>
       <CircularProgressbar

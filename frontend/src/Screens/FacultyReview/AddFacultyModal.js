@@ -1,27 +1,46 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
+import {addFaculty} from '../../Actions/facultyReviews';
 import Modal from "../../Components/ModalHOC/Modal";
 import "./css/FacultyReview.css";
 
 const AddFacultyModal = ({ closeModal, showModal }) => {
+  const dispatch = useDispatch();
+  const [faculty,setFaculty] = useState({facultyName:"",facultyRating:0})
   const handleSubmit = (e) => {
     e.preventDefault();
-    //console.log your state here to check final values
-    closeModal()
+    // console.log(faculty);
+    dispatch(addFaculty(faculty))
+    closeModal();
   };
   const handleChange = (e) => {
-    //Add your state changes here
+    setFaculty({...faculty,[e.target.name]:e.target.value})
   };
 
   return (
     <Modal show={showModal} heading="Add Faculty" closeModal={closeModal}>
       <form onSubmit={handleSubmit} className="login-form login-form-2">
         <div>
-            {/* Add your html code here */}
-            <div>
-                    <label htmlFor="email">VIT Email</label>
-                    <input type="text" id="email" name="email" onChange={handleChange}/>
-                </div>
+          <div>
+            <label htmlFor="facultyName">Faculty Name</label>
+            <input
+              type="text"
+              id="facultyName"
+              name="facultyName"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="facultyRating">Rate</label><br/>
+            <input
+              type="number"
+              min="1"
+              max="5"
+              id="facultyRating"
+              name="facultyRating"
+              onChange={handleChange}
+            />
+          </div>
           <button type="submit" className="login-btn add-btn">
             Submit
           </button>
