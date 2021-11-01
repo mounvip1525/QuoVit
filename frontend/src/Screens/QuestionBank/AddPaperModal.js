@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { useDispatch } from "react-redux";
 import { connect } from "react-redux";
+import { uploadPaper } from "../../Actions/questionBank";
 import Modal from "../../Components/ModalHOC/Modal";
 import "./css/QuestionBank.css";
 
 const AddPaperModal = ({ closeModal, showModal }) => {
+  const dispatch = useDispatch();
   const [paper, setPaper] = useState({
     courseName: "",
     courseCategory: "",
@@ -14,13 +16,9 @@ const AddPaperModal = ({ closeModal, showModal }) => {
   });
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(paper);
     var formdata = new FormData();
     formdata.append("file", paper.paper);
-    axios.post(`http://localhost:8000/questionBank/upload/${paper.courseName}/${paper.courseCategory}/${paper.examType}/${paper.year}`,formdata)
-    .then((res) => {       
-        alert(res);
-    });
+    dispatch(uploadPaper(paper.courseName,paper.courseCategory,paper.examType,paper.year,formdata))
     e.target.reset();
     setPaper({
       courseName: "",

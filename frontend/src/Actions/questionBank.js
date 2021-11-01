@@ -8,3 +8,12 @@ export const getCourses = () => async (dispatch) => {
     console.log(error.message);
   }
 };
+
+export const uploadPaper = (courseName,courseCategory,examType,year,formData) => async (dispatch) => {
+    try {
+        const data = await api.uploadPaper(courseName,courseCategory,examType,year,formData);
+        dispatch({ type:"UPLOAD_PAPER", payload: data })
+    } catch (error) {
+        console.log(error.message)
+    }
+}
