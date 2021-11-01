@@ -9,7 +9,6 @@ const AddFacultyModal = ({ closeModal, showModal }) => {
   const [faculty,setFaculty] = useState({facultyName:"",facultyRating:0})
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(faculty);
     dispatch(addFaculty(faculty))
     closeModal();
   };
