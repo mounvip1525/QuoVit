@@ -1,4 +1,4 @@
-export default (confessions = [], action) => {
+let confessions = (confessions = [], action) => {
   switch (action.type) {
     case "FETCH_ALL":
       return action.payload;
@@ -8,3 +8,4 @@ export default (confessions = [], action) => {
       return confessions;
   }
 };
+export default confessions;

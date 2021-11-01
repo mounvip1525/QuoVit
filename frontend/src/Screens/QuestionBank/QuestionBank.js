@@ -1,82 +1,18 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React , { useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
 import CourseCard from "../../Components/Cards/CourseCard";
 import MainLayout from "../../Components/Structure/Main";
 import AddPaperModal from "./AddPaperModal";
+import { getCourses } from "../../Actions/questionBank";
 import "./css/QuestionBank.css";
 import srcpng from "./img/Search copy.png";
 
 export default function QuestionBank() {
-  const courses = [
-    {
-      id: 1,
-      code: "CSE3002",
-      name: "Data visualization",
-      papers: {
-        cat1: [
-          { year: "2021", paper: "" },
-          { year: "2020", paper: "" },
-          { year: "2020", paper: "" },
-        ],
-        cat2: [
-          { year: "2021", paper: "" },
-          { year: "2020", paper: "" },
-        ],
-        fat: [{ year: "2021", paper: "" }],
-      },
-    },
-    {
-      id: 2,
-      code: "CSE4019",
-      name: "Internet and Web Programming",
-      papers: {
-        cat1: [{ year: "2021", paper: "" }],
-        cat2: [
-          { year: "2021", paper: "" },
-          { year: "2020", paper: "" },
-        ],
-        fat: [
-          { year: "2021", paper: "" },
-          { year: "2020", paper: "" },
-          { year: "2020", paper: "" },
-        ],
-      },
-    },
-    {
-      id: 3,
-      code: "CSE3002",
-      name: "Data visualization2",
-      papers: {
-        cat1: [
-          { year: "2021", paper: "" },
-          { year: "2020", paper: "" },
-          { year: "2020", paper: "" },
-        ],
-        cat2: [
-          { year: "2021", paper: "" },
-          { year: "2020", paper: "" },
-        ],
-        fat: [],
-      },
-    },
-    {
-      id: 4,
-      code: "CSE3002",
-      name: "Data visualization",
-      papers: {
-        cat1: [
-          { year: "2021", paper: "" },
-          { year: "2020", paper: "" },
-          { year: "2020", paper: "" },
-        ],
-        cat2: [
-          { year: "2021", paper: "" },
-          { year: "2020", paper: "" },
-        ],
-        fat: [{ year: "2021", paper: "" }],
-      },
-    },
-  ];
+  const dispatch = useDispatch();
+  const courses = useSelector((state) => state.questionBank);
+  useEffect(() => {
+    dispatch(getCourses());
+  }, [dispatch]);
   return (
     <MainLayout type="questionBank">
       <AddPaperModal />

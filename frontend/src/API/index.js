@@ -7,3 +7,7 @@ export const addConfession = (newConfession) => axios.post(`${backend_url}confes
 export const fetchFacultyReviews = () => axios.get(`${backend_url}facultyReviews`)
 export const addFaculty = (newFaculty) => axios.post(`${backend_url}facultyReviews/add`,newFaculty)
 export const rateFaculty = (id,rating) => axios.patch(`${backend_url}facultyReviews/rate/${id}`,{facultyRating:rating})
+
+export const fetchCourses = () => axios.get(`${backend_url}questionBank`)
+export const fetchPapersByCourse = (courseName) => axios.get(`${backend_url}questionBank/course/${courseName}`)
+export const downloadPaper = (courseName,id) => axios({method: 'get',url: `${backend_url}questionBank/download/${courseName}/${id}`,responseType: 'blob'})

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { connect } from "react-redux";
 import Modal from "../../Components/ModalHOC/Modal";
 import "./css/QuestionBank.css";
@@ -6,25 +7,20 @@ import "./css/QuestionBank.css";
 const AddPaperModal = ({ closeModal, showModal }) => {
   const [paper, setPaper] = useState({
     courseName: "",
-    courseCode: "",
+    courseCategory: "",
     year: "",
     paper: "",
-    type: "cat1",
+    examType: "cat1",
   });
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(paper);
-    const data = new FormData();
-    data.append("paper", paper);
-    // data.append("")
-    axios({
-      method: "POST",
-      url: "http://localhost:8000/upload",
-      data: data,
-    }).then((res) => {       
+    console.log(paper);
+    var formdata = new FormData();
+    formdata.append("file", paper.paper);
+    axios.post(`http://localhost:8000/questionBank/upload/${paper.courseName}/${paper.courseCategory}/${paper.examType}/${paper.year}`,formdata)
+    .then((res) => {       
         alert(res);
     });
-  };
     e.target.reset();
     setPaper({
       courseName: "",
@@ -34,6 +30,7 @@ const AddPaperModal = ({ closeModal, showModal }) => {
       type: "cat1",
     });
     closeModal();
+    window.location.reload(false)
   };
   const handleChange = (e) => {
     setPaper({ ...paper, [e.target.name]: e.target.value });
@@ -44,7 +41,7 @@ const AddPaperModal = ({ closeModal, showModal }) => {
 
   return (
     <Modal show={showModal} heading="Add Paper" closeModal={closeModal}>
-      <form onSubmit={handleSubmit} className="login-form login-form-2">
+      <form onSubmit={handleSubmit} className="login-form login-form-2" encType="multipart/form-data">
         <div className="upload-cls">
           <div>
             <label htmlFor="courseName">Course Name</label>
@@ -56,19 +53,18 @@ const AddPaperModal = ({ closeModal, showModal }) => {
             />
           </div>
           <div>
-            <label htmlFor="courseCode">Course Code</label>
-            <input
-              type="text"
-              id="courseCode"
-              name="courseCode"
-              onChange={handleChange}
-            />
+            <label htmlFor="courseCode">Course Category</label><br />
+            <select name="courseCategory" id="courseCategory" onChange={handleChange}>
+              <option value="PC">PC</option>
+              <option value="UC">UC</option>
+              <option value="PE">PE</option>
+              <option value="UE">UE</option>
+            </select>
           </div>
           <div>
             <label htmlFor="year">Year</label>
             <input
               type="number"
-              max="20999"
               min="2000"
               step="1"
               id="year"
@@ -86,11 +82,11 @@ const AddPaperModal = ({ closeModal, showModal }) => {
             />
           </div>
           <div className="input-radios" onChange={handleChange}>
-            <input type="radio" name="type" value="cat1" />
+            <input type="radio" name="examType" value="cat1" />
             <label>Cat 1</label>
-            <input type="radio" name="type" value="cat2" />
+            <input type="radio" name="examType" value="cat2" />
             <label>Cat 2</label>
-            <input type="radio" name="type" value="fat" />
+            <input type="radio" name="examType" value="fat" />
             <label>Fat</label>
           </div>
           <button type="submit" className="login-btn add-btn">
