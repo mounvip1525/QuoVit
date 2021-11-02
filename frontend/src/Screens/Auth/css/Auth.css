@@ -94,7 +94,7 @@
     margin:auto;
     box-sizing: border-box;
 }
-.login-form button{
+.login-form button,.sbt-btn{
     margin:5% auto;
     cursor:pointer;
     background: var(--primary-color);

@@ -12,3 +12,5 @@ export const fetchCourses = () => axios.get(`${backend_url}questionBank`)
 export const fetchPapersByCourse = (courseName) => axios.get(`${backend_url}questionBank/course/${courseName}`)
 export const downloadPaper = (courseName,id) => axios.get(`${backend_url}questionBank/download/${courseName}/${id}`,{responseType: 'blob'})
 export const uploadPaper = (courseName,courseCategory,examType,year,formData) => axios.post(`http://localhost:8000/questionBank/upload/${courseName}/${courseCategory}/${examType}/${year}`,formData)
+
+export const signUp = (user) => axios.post(`${backend_url}auth/signup`,user)

@@ -1,71 +1,71 @@
-import { ChevronLeft, ChevronRight } from "@material-ui/icons";
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import * as Validate from './helper.auth'
 import { Link } from "react-router-dom";
+import { ChevronLeft, ChevronRight } from "@material-ui/icons";
 import logo from "../../Assets/logo.png";
 import main from "./img/Signup.png";
-import avatar1 from "./img/Avatar1.png";
-import avatar2 from "./img/Avatar2.png";
-import avatar3 from "./img/Avatar3.png";
-import avatar4 from "./img/Avatar4.png";
-import avatar5 from "./img/Avatar5.png";
-import avatar6 from "./img/Avatar6.png";
-import avatar7 from "./img/Avatar7.png";
-import avatar8 from "./img/Avatar8.png";
-import avatar9 from "./img/Avatar9.png";
-import avatar10 from "./img/Avatar10.png";
 import "./css/Auth.css";
+import { signUp } from "../../Actions/auth";
 
 export default function Signup() {
+  const state = useSelector(state => state.auth)
+  console.log("auth state", state)
+  const dispatch = useDispatch()
   const [steps, setSteps] = useState(0);
   const [width, setWidth] = useState(1);
-  const [avatar, setAvatar] = useState(0);
-  const [color, setColor] = useState(0);
-  const avatars = [
-    avatar1,
-    avatar2,
-    avatar3,
-    avatar4,
-    avatar5,
-    avatar6,
-    avatar7,
-    avatar8,
-    avatar9,
-    avatar10,
-  ];
-  const colors = [
-    "#561FC3",
-    "#A8351C",
-    "#1599B6",
-    "#6FAA0D",
-    "#000000",
-    "#C31F9F",
-    "#C3951F",
-    "#1F7EC3",
-    "#F9601E",
-    "#204466",
-  ];
   const [user, setUser] = useState({
     name: "",
     email: "",
-    year: "",
+    // year: "",
+    phoneNumber: "",
     branch: "",
-    campus: "",
-    github: "",
-    resume: "",
+    campus: "Vellore",
+    githubUsername: "",
+    // resume: "",
+    profileImg: "",
     password: "",
     confirm_password: "",
-    avatar: avatar,
-    color: colors[color],
   });
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(user);
+    if (Validate.nameValidation(user.name) && Validate.emailValidation(user.email) && Validate.branchValidation(user.branch) && Validate.mobileValidation(user.phoneNumber) && Validate.passwordValidation(user.password) && Validate.confirmPasswordValidation(user.confirm_password)) {
+      setSteps(2);
+      setWidth(100);
+      // console.log(user)
+      dispatch(signUp(user))
+      setUser({
+        name: "",
+        email: "",
+        phoneNumber: "",
+        branch: "",
+        campus: "Vellore",
+        githubUsername: "",
+        profileImg: "",
+        password: "",
+        confirm_password: "",
+      })
+    }
   };
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
-  const handleFileChange = (e) => {
-    setUser({ ...user, resume: e.target.files[0] });
+  const handleProfileImgChange = async (e) => {
+    const file = e.target.files[0];
+    const base64 = await convertBase64(file);
+    setUser({ ...user, profileImg: base64 })
+  }
+  const convertBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
   };
   return (
     <div className="login-main">
@@ -77,41 +77,41 @@ export default function Signup() {
         <img src={main} alt="Login" />
       </div>
       <div>
-      <form onSubmit={handleSubmit} className="login-form" style={{margin:"2rem auto",width:"30rem"}}>
-        <div className="form-head">
-          <h2>Create an account</h2>
-          <p style={{ fontSize: "x-small" }}>
-            Already have an account? <Link to="/Login">Login</Link>
-          </p>
-          <div className="progress-main">
-            <div className="progress-track" style={{ width: `${width}%` }} />
+        <form onSubmit={handleSubmit} className="login-form" style={{ margin: "2rem auto", width: "30rem" }} id="signUp-form">
+          <div className="form-head">
+            <h2>Create an account</h2>
+            <p style={{ fontSize: "x-small" }}>
+              Already have an account? <Link to="/Login">Login</Link>
+            </p>
+            <div className="progress-main">
+              <div className="progress-track" style={{ width: `${width}%` }} />
+            </div>
           </div>
-        </div>
-        {steps === 0 ? (
-          <div>
+          {steps === 0 ? (
             <div>
-              <label htmlFor="name">Full Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                onChange={handleChange}
-                placeholder="John Doe"
-                value={user.name}
-              />
-            </div>
-            <div>
-              <label htmlFor="email">VIT Email</label>
-              <input
-                type="text"
-                id="email"
-                name="email"
-                onChange={handleChange}
-                value={user.email}
-                placeholder="johndoe2019@vitstudent.ac.in"
-              />
-            </div>
-            <div>
+              <div>
+                <label htmlFor="name">Full Name <span style={{ color: "red" }}>*</span></label>
+                <input
+                  type="text"
+                  id="s-name"
+                  name="name"
+                  onChange={handleChange}
+                  placeholder="John Doe"
+                  value={user.name}
+                />
+              </div>
+              <div>
+                <label htmlFor="email">VIT Email <span style={{ color: "red" }}>*</span></label>
+                <input
+                  type="text"
+                  id="s-email"
+                  name="email"
+                  onChange={handleChange}
+                  value={user.email}
+                  placeholder="johndoe2019@vitstudent.ac.in"
+                />
+              </div>
+              {/* <div>
               <label htmlFor="year">Year of Study</label>
               <input
                 type="text"
@@ -121,125 +121,109 @@ export default function Signup() {
                 value={user.year}
                 placeholder="Ex. 3rd Year"
               />
-            </div>
-            <div>
-              <label htmlFor="branch">Branch</label>
-              <input
-                type="text"
-                id="branch"
-                name="branch"
-                onChange={handleChange}
-                value={user.branch}
-                placeholder="Ex. CSE"
-              />
-            </div>
-            <div>
-              <label htmlFor="campus">Campus</label>
-              <input
-                type="text"
-                id="campus"
-                name="campus"
-                onChange={handleChange}
-                placeholder="Ex. Vellore"
-                value={user.campus}
-              />
-            </div>
-            <button
-              onClick={() => {
-                setSteps(1);
-                setWidth(50);
-              }}
-            >
-              Next
-            </button>
-          </div>
-        ) : steps === 1 ? (
-          <div>
-            <div>
-              <label htmlFor="github">Github Username</label>
-              <input
-                type="text"
-                id="github"
-                name="github"
-                onChange={handleChange}
-                value={user.github}
-              />
-            </div>
-            <div>
-              <label htmlFor="resume">Resume</label>
-              <input
-                type="file"
-                id="resume"
-                name="resume"
-                onChange={handleFileChange}
-              />
-            </div>
-            <div>
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                onChange={handleChange}
-                value={user.password}
-              />
-            </div>
-            <div>
-              <label htmlFor="confirm_password">Confirm Password</label>
-              <input
-                type="password"
-                id="confirm_password"
-                name="confirm_password"
-                onChange={handleChange}
-                value={user.confirm_password}
-              />
-            </div>
-            <div className="signup-btns">
-              <button onClick={() => setSteps(0)}>
-                <ChevronLeft />
-              </button>
+            </div> */}
+              <div>
+                <label htmlFor="phoneNumber">Mobile Number <span style={{ color: "red" }}>*</span></label>
+                <input
+                  type="text"
+                  id="s-phoneNumber"
+                  name="phoneNumber"
+                  onChange={handleChange}
+                  value={user.phoneNumber}
+                  placeholder="Ex. +91 9676662345"
+                  pattern="[0-9+]{3,4} [0-9 ]{4,15}"
+                />
+              </div>
+              <div>
+                <label htmlFor="branch">Branch <span style={{ color: "red" }}>*</span></label>
+                <input
+                  type="text"
+                  id="s-branch"
+                  name="branch"
+                  onChange={handleChange}
+                  value={user.branch}
+                  placeholder="Ex. CSE"
+                />
+              </div>
+              <div>
+                <label htmlFor="campus">Campus</label>
+                <select name="campus" id="campus" onChange={handleChange}>
+                  <option value="Vellore">Vellore</option>
+                  <option value="Chennai">Chennai</option>
+                  <option value="AP">AP</option>
+                  <option value="Bhopal">Bhopal</option>
+                </select>
+              </div>
               <button
                 onClick={() => {
-                  setSteps(2);
-                  setWidth(95);
+                  setSteps(1);
+                  setWidth(50);
                 }}
               >
-                <ChevronRight />
+                Next
               </button>
             </div>
-          </div>
-        ) : (
-          <div>
-            <label htmlFor="avatar">Choose an Avatar</label>
-            <div className="signup-avatar">
-              {avatars.map((a, index) => (
-                <img
-                  src={a}
-                  alt={index}
-                  key={index}
-                  className={index === avatar ? "avatar-selected" : ""}
-                  onClick={() => setAvatar(index)}
+          ) : steps === 1 ? (
+            <div>
+              <div>
+                <label htmlFor="githubUsername">Github Username</label>
+                <input
+                  type="text"
+                  id="githubUsername"
+                  name="githubUsername"
+                  onChange={handleChange}
+                  value={user.githubUsername}
                 />
-              ))}
-            </div>
-            <label htmlFor="background">Pick a Color</label>
-            <div className="signup-colors">
-              {colors.map((c, index) => (
-                <div
-                  key={index}
-                  className={index === color ? "color-selected" : ""}
+              </div>
+              <div>
+                <label htmlFor="profileImg">Choose your profile photo</label>
+                <input
+                  type="file"
+                  id="profileImg"
+                  name="profileImg"
+                  onChange={handleProfileImgChange}
+                // value={user.profileImg}
+                />
+              </div>
+              <div>
+                <label htmlFor="password">Password <span style={{ color: "red" }}>*</span></label>
+                <input
+                  type="password"
+                  id="s-password"
+                  name="password"
+                  onChange={handleChange}
+                  value={user.password}
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="confirm_password">Confirm Password <span style={{ color: "red" }}>*</span></label>
+                <input
+                  type="password"
+                  id="s-confirm_password"
+                  name="confirm_password"
+                  onChange={handleChange}
+                  value={user.confirm_password}
+                  required
+                />
+              </div>
+              <div className="signup-btns">
+                <button onClick={() => setSteps(0)}>
+                  <ChevronLeft />
+                </button>
+                <button type="submit"
                 >
-                  <div
-                    style={{ background: c }}
-                    onClick={() => setColor(index)}
-                  />
-                </div>
-              ))}
+                  <ChevronRight />
+                </button>
+              </div>
             </div>
-            <button type="submit">Create</button>
-          </div>
-        )}
-      </form>
+          ) : (
+            <div>
+              <h2 style={{ textAlign: "center" }}>Successfully registered to QuoVit!</h2>
+              <button><Link to="/Login" style={{ textDecoration: "none", color: "white" }}>Login</Link></button>
+            </div>
+          )}
+        </form>
       </div>
     </div>
   );
