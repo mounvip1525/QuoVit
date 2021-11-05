@@ -14,3 +14,4 @@ export const downloadPaper = (courseName,id) => axios.get(`${backend_url}questio
 export const uploadPaper = (courseName,courseCategory,examType,year,formData) => axios.post(`http://localhost:8000/questionBank/upload/${courseName}/${courseCategory}/${examType}/${year}`,formData)
 
 export const signUp = (user) => axios.post(`${backend_url}auth/signup`,user)
+export const signIn = (user) => axios.post(`${backend_url}auth/signin`,user)

@@ -2,14 +2,31 @@ import * as api from "../API";
 
 export const signUp = (user) => async (dispatch) => {
     try {
-      const data = await api.signUp();
+      const {data} = await api.signUp(user);
     //   localStorage.setItem("token", token.data);
     //   dispatch({ type: "SIGN_UP", token: token.data });
-    dispatch({ type: "SIGN_UP",  data: data});
+    if(data.message){
+      alert(data.message)
+    }
+    dispatch({ type: "SIGN_UP",  payload: data});
     } catch (error) {
       console.log(error.message);
     }
   };
+
+export const signIn = (user) => async (dispatch) => {
+  try {
+    const {data} = await api.signIn(user);
+  if(data.message){
+    alert(data.message)
+  } else{
+    dispatch({ type: "SIGN_IN",  payload: data});
+    alert("sucess")
+  }
+  } catch (error) {
+    alert(error)
+  }
+};
 
 // export const signIn = (email, password) => {
 //   return (dispatch) => {

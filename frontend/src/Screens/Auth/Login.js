@@ -1,17 +1,34 @@
-import React  , {useState} from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Link , Redirect} from 'react-router-dom'
+import * as Validate from './helper.auth'
 import logo from '../../Assets/logo.png'
 import main from './img/Login.png'
 import './css/Auth.css'
+import { signIn } from "../../Actions/auth";
 
 export default function Login() {
+    const state = useSelector(state => state.auth)
+    const dispatch = useDispatch()
+
     const [user,setUser] = useState({email:"",password:""})
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(user)
-    }
+        if (Validate.emailValidation(user.email) && 
+            Validate.passwordValidation(user.password)) {
+          // console.log(user)
+          dispatch(signIn(user))
+          setUser({
+            email: "",
+            password: "",
+          })
+        }
+      };
     const handleChange = (e) => {
-        setUser({...user,email:e.target.value})
+        setUser({...user,[e.target.name]:e.target.value})
+    }
+    if(state.name){
+        return <Redirect to="/" />
     }
     return (
         <div className="login-main">
@@ -33,11 +50,11 @@ export default function Login() {
                 <div>
                 <div>
                     <label htmlFor="email">VIT Email</label>
-                    <input type="text" id="email" name="email" onChange={handleChange}/>
+                    <input type="text" id="email" name="email" onChange={handleChange} value={user.email}/>
                 </div>
                 <div>
                     <label htmlFor="password">Password</label>
-                    <input type="password" id="password" name="password" onChange={handleChange}/>
+                    <input type="password" id="password" name="password" onChange={handleChange} value={user.password}/>
                 </div>
                 <button type="submit" className="login-btn">Login</button>
                 </div>

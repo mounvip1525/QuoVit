@@ -1,8 +1,10 @@
 // import jwtDecode from "jwt-decode"
 
+import { Redirect } from "react-router";
+
 let initialState = {
     name:"",
-    email:"",
+    profileImg:"",
     // token:localStorage.getItem("quovit"),
     _id:null
 }
@@ -14,12 +16,21 @@ let auth = (state = initialState, action) => {
       return {
         ...initialState,
         // token: action.token,
-        name: user.name,
-        email: user.email,
-        _id: user._id,
+        // name: user.name,
+        // email: user.email,
+        // _id: user._id,
       };
       case "SIGN_IN":
-        return state
+      // const user = jwtDecode(action.token); 
+      const user2 = action.payload;
+      <Redirect to="/" />
+    return {
+      ...initialState,
+      // token: action.token,
+      name: user2.name,
+      profileImg: user2.profileImg,
+      _id: user2._id,
+    };
       default:
         return state;
     }

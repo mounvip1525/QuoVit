@@ -29,9 +29,12 @@ export default function Signup() {
   });
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (Validate.nameValidation(user.name) && Validate.emailValidation(user.email) && Validate.branchValidation(user.branch) && Validate.mobileValidation(user.phoneNumber) && Validate.passwordValidation(user.password) && Validate.confirmPasswordValidation(user.confirm_password)) {
-      setSteps(2);
-      setWidth(100);
+    if (Validate.nameValidation(user.name) && 
+        Validate.emailValidation(user.email) && 
+        Validate.branchValidation(user.branch) && 
+        Validate.mobileValidation(user.phoneNumber) && 
+        Validate.passwordValidation(user.password) && 
+        Validate.confirmPasswordValidation(user.confirm_password)) {
       // console.log(user)
       dispatch(signUp(user))
       setUser({
@@ -45,6 +48,10 @@ export default function Signup() {
         password: "",
         confirm_password: "",
       })
+      if(state.name){
+        setSteps(2);
+        setWidth(100);
+      }
     }
   };
   const handleChange = (e) => {

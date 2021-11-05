@@ -1,7 +1,7 @@
 import React from "react";
-import { Tabs, Tab, Paper, Avatar } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import { Link, Redirect,useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { Tabs, Tab, Paper, Avatar } from "@material-ui/core"; 
+import { Link } from "react-router-dom";
 import logo from "./img/logo.png";
 import avatar from "./img/Avatar8.png";
 import home from "./img/home.png";
@@ -17,15 +17,11 @@ function a11yProps(index) {
     "aria-controls": `vertical-tabpanel-${index}`,
   };
 }
-const useStyles = makeStyles({
-  root: {
-    flexGrow: 1,
-  },
-});
 
 export default function Navbar() {
-    const history = useHistory();
-  const classes = useStyles();
+  const state = useSelector(state => state.auth)
+  const dispatch = useDispatch()
+
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -81,19 +77,12 @@ export default function Navbar() {
           />
         </Tabs>
       </Paper>
-      {/* <div className="navbar-nav">
-        <img src={home} alt="Home" />
-        <img src={confessions} alt="Confessions" />
-        <img src={questionBank} alt="Question Bank" />
-        <img src={ideas} alt="Ideas Corner" />
-        <img src={facReview} alt="Faculty Review" />
-      </div> */}
       <div>
         <div>
           <p style={{ fontSize: "x-small" }}>Logged in as</p>
-          <p>Mounvi Podapati</p>
+          <p>{state.name || 'Guest'}</p>
         </div>
-        <img src={avatar} style={{ background: "black" }} className="avatar" />
+        <img src={state.profileImg || avatar} style={{ background: "black" }} className="avatar" alt="hello"/>
       </div>
     </nav>
   );
