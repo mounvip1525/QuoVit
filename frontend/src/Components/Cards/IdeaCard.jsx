@@ -4,33 +4,30 @@ import User from "../User/User.jsx";
 import "./css/IdeaCard.css";
 
 export default function IdeaCard(props) {
-  const { title, description, link, email, user } = props.idea;
+  const { idea, desc, link, creator } = props.idea;
   const [show,setShow] = useState(false);
   return (
     <div className="ideaCard">
         <div onClick={()=>setShow(!show)}>
             {!show ? <Add className="idea-expand idea-add"/> : <Remove className="idea-expand" />}
         </div>
-      <User user={user} />
-      <h3>{title}</h3>
+      <User user={creator} />
+      <h3>{idea}</h3>
       {show && 
       <div>
           <div>
           <p className="i-muted">Description:</p>
-          <p>{description}</p>
+          <p>{desc}</p>
           </div>
       {link && (
         <div>
           <p className="i-muted">Link:</p>
-          <p>{link}</p>
+          {link.map(l=>
+            <p style={{display:"inline-block"}}> {l} &nbsp;</p>
+          )}
         </div>
       )}
-      {email && (
-        <div>
-          <p className="i-muted">Email:</p>
-          <p>{email}</p>
-        </div>
-      )}</div>}
+      </div>}
     </div>
   );
 }

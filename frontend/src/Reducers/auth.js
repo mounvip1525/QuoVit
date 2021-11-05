@@ -12,7 +12,7 @@ let auth = (state = initialState, action) => {
     switch (action.type) {
       case "SIGN_UP":
         // const user = jwtDecode(action.token); 
-        const user = action.payload
+        // const user = action.payload
       return {
         ...initialState,
         // token: action.token,

@@ -1,6 +1,9 @@
 import axios from 'axios'
 const backend_url = 'http://localhost:8000/'
 
+export const signUp = (user) => axios.post(`${backend_url}auth/signup`,user)
+export const signIn = (user) => axios.post(`${backend_url}auth/signin`,user)
+
 export const fetchConfessions = () => axios.get(`${backend_url}confessions`)
 export const addConfession = (newConfession) => axios.post(`${backend_url}confessions/add`,{confession:newConfession})
 
@@ -13,5 +16,4 @@ export const fetchPapersByCourse = (courseName) => axios.get(`${backend_url}ques
 export const downloadPaper = (courseName,id) => axios.get(`${backend_url}questionBank/download/${courseName}/${id}`,{responseType: 'blob'})
 export const uploadPaper = (courseName,courseCategory,examType,year,formData) => axios.post(`http://localhost:8000/questionBank/upload/${courseName}/${courseCategory}/${examType}/${year}`,formData)
 
-export const signUp = (user) => axios.post(`${backend_url}auth/signup`,user)
-export const signIn = (user) => axios.post(`${backend_url}auth/signin`,user)
+export const fetchIdeas = () => axios.get(`${backend_url}ideasBlock/`)
