@@ -75,6 +75,7 @@
     align-items: flex-start;
     padding:0 3% 3% 3%;
     box-sizing: border-box;
+    align-items: center;
 }
 .login-form div div{
     width:100%;

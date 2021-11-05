@@ -17,3 +17,4 @@ export const downloadPaper = (courseName,id) => axios.get(`${backend_url}questio
 export const uploadPaper = (courseName,courseCategory,examType,year,formData) => axios.post(`http://localhost:8000/questionBank/upload/${courseName}/${courseCategory}/${examType}/${year}`,formData)
 
 export const fetchIdeas = () => axios.get(`${backend_url}ideasBlock/`)
+export const addIdea = (idea,id) => axios.post(`${backend_url}ideasBlock/${id}`,idea)

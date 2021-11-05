@@ -22,9 +22,7 @@ export default function IdeaCard(props) {
       {link && (
         <div>
           <p className="i-muted">Link:</p>
-          {link.map(l=>
-            <p style={{display:"inline-block"}}> {l} &nbsp;</p>
-          )}
+            <p> {link}</p>
         </div>
       )}
       </div>}

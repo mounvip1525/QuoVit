@@ -9,11 +9,14 @@ export const getIdeas = () => async (dispatch) => {
   }
 };
 
-// export const addConfession = (newConfession) => async (dispatch) => {
-//   try {
-//     const { data } = await api.addConfession(newConfession);
-//     dispatch({type: "ADD", payload: data});
-//   } catch(error) {
-//     console.log(error.message);
-//   }
-// }
+export const addIdea = (idea,id) => async (dispatch) => {
+  try {
+      if(id){
+        const { data } = await api.addIdea(idea,id);
+        console.log(data)
+        dispatch({type: "ADD", payload: data});
+      } 
+  } catch(error) {
+    console.log(error.message);
+  }
+}
