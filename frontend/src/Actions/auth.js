@@ -22,6 +22,9 @@ export const signIn = (user) => async (dispatch) => {
   } else{
     dispatch({ type: "SIGN_IN",  payload: data});
     alert("sucess")
+    const data2 = await api.fetchPosts(data._id);
+    console.log("dat2",data._id,data2)
+    dispatch({ type: "FETCH_ALL_POSTS", payload: data2.data });
   }
   } catch (error) {
     alert(error)

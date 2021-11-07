@@ -1,10 +1,10 @@
 let facultyReviews = (facultyReviews = [], action) => {
     switch (action.type) {
-      case "FETCH_ALL":
+      case "FETCH_ALL_FACULTIES":
         return action.payload;
-      case "ADD":
+      case "ADD_FACULTY":
         return [...facultyReviews,action.payload];
-      case "RATE":
+      case "RATE_FACULTY":
           return [...facultyReviews.filter(f=>f._id !== action.payload._id),action.payload];
       default:
         return facultyReviews;

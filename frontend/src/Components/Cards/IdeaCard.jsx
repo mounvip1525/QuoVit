@@ -5,6 +5,7 @@ import "./css/IdeaCard.css";
 
 export default function IdeaCard(props) {
   const { idea, desc, link, creator } = props.idea;
+  console.log(props.idea)
   const [show,setShow] = useState(false);
   return (
     <div className="ideaCard">

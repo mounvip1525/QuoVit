@@ -3,7 +3,7 @@ import * as api from "../API";
 export const getCourses = () => async (dispatch) => {
   try {
     const { data } = await api.fetchCourses();
-    dispatch({ type: "FETCH_ALL", payload: data });
+    dispatch({ type: "FETCH_ALL_PAPERS", payload: data });
   } catch (error) {
     console.log(error.message);
   }

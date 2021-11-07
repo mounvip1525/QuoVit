@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 
+import posts from './posts'
 import confessions from './confessions'
 import modal from './modal'
 import facultyReviews from './facultyReviews'
@@ -9,6 +10,7 @@ import auth from './auth';
 import ideas from "./ideasBlock";
 
 export default combineReducers({
+    posts,
     confessions,
     facultyReviews,
     questionBank,
