@@ -4,6 +4,10 @@ let posts = (posts = [], action) => {
         return action.payload;
       case "ADD_POST":
         return [...posts,action.payload];
+        case "LIKE_POST":
+            return action.payload;
+        case "DISLIKE_POST":
+            return action.payload;
       default:
         return posts;
     }

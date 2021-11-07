@@ -55,3 +55,9 @@
   justify-content: center;
   border-radius: 50%;
 }
+.post-img > img{
+  margin:5% auto;
+  display:block;
+  height:15rem;
+  object-fit: contain;
+}
