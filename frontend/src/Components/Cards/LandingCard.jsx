@@ -10,11 +10,12 @@ import comment from '../Cards/img/comment.png'
 import savenow from '../Cards/img/save.png'
 import saved from '../Cards/img/savedItem.png'
 import pic from './img/1.png'
-import { dislikePost, likePost } from "../../Actions/posts";
+import { dislikePost, likePost, toggleSavePost } from "../../Actions/posts";
 
 export default function LandingCard(props) {
-  console.log(props.post)
   const { creator , caption , desc , likes , dislikes , img , _id } = props.post;
+  // const save = props.saved;
+  const [save,setSave] = useState(props.saved)
   const dispatch = useDispatch();
   const auth = useSelector((state)=>state.auth)
   const handleLikeClick = () => {
@@ -23,7 +24,10 @@ export default function LandingCard(props) {
   const handleDislikeClick = () => {
     dispatch(dislikePost(_id,auth._id))
   }
-  console.log("post",props.post)
+  const handleSaveClick = () => {
+    setSave(!save)
+    dispatch(toggleSavePost(_id,auth._id))
+  }
   const [follow, setFollow] = useState(true);
   const likeCircleColors = ["#91C196","#C5D226", "#F6E015","#DA6767"];
   let diff = likes.length - dislikes.length
@@ -36,17 +40,16 @@ export default function LandingCard(props) {
         <div>
           <p style={{fontSize:"small",color:"black"}}>{desc}</p>
         </div>
+        {img &&        
         <div className="post-img">
-          <img src={pic} alt="pic" />
-        </div>
+          <img src={img} alt="pic" />
+        </div>}
         <div className="lcs-div">
           <div>
-          {/* <img src={up} alt="upvote" onClick={()=>props.onLikeClick(id,1)}/> */}
           <img src={up} alt="upvote" onClick={handleLikeClick} />
           <div className="like-circle" style={{borderColor:likeCircleColors[bgcolor]}}>
             {diff}
           </div>
-          {/* <img src={down} alt="downvote" onClick={()=>props.onLikeClick(id,-1)}/> */}
           <img src={down} alt="downvote" onClick={handleDislikeClick} />
           </div>
           <div>
@@ -55,8 +58,8 @@ export default function LandingCard(props) {
             <p>5kk</p>
           </div>
           <div>
-            {/* <img src={save ? saved : savenow} alt="save" style={{marginRight:"0.3rem"}} onClick={()=>props.onSaveClick(id)} />
-            <p>{save ? "Saved" : "Save"}</p> */}
+            <img src={save ? saved : savenow} alt="save" style={{marginRight:"0.3rem"}} onClick={handleSaveClick} />
+            <p>{save ? "Saved" : "Save"}</p>
           </div>
         </div>
       </div>

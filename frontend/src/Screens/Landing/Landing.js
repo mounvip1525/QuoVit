@@ -9,8 +9,9 @@ import AddPostModal from "./AddPostModal";
 
 export default function Landing(props){
   const dispatch = useDispatch();
-  const posts = useSelector((state) => state.posts);
+  const posts = useSelector((state) => state.posts.posts);
   const auth = useSelector((state)=>state.auth)
+  console.log("landing auth",auth)
   useEffect(() => {
     dispatch(getPosts(auth._id));
   }, [dispatch,auth]);
@@ -23,8 +24,7 @@ export default function Landing(props){
             {posts.map((post) => (
               <LandingCard
                 post={post}
-                // onLikeClick={this.handleLikeClick}
-                // onSaveClick={this.handleSaveClick}
+                saved={auth.savedPosts.includes(post._id)}
               />
             ))}
           </div>

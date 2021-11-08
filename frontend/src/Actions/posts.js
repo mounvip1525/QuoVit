@@ -5,9 +5,36 @@ export const getPosts = (id) => async (dispatch) => {
   try {
     let uid = id;
     if(uid === null) 
-        uid = "6186252d1cee3b1f1483e597"
+        uid = "6188299c20192f9a7c1f814c"
     const { data } = await api.fetchPosts(uid);
     dispatch({ type: "FETCH_ALL_POSTS", payload: data });
+  } catch (error) {
+    alert(error.message);
+  }
+};
+
+export const getSavedPosts = (id) => async (dispatch) => {
+  try {
+    let uid = id;
+    if(uid === null) 
+        uid = "6188299c20192f9a7c1f814c"
+    const { data } = await api.fetchSavedPosts(uid);
+    console.log("saved posts",await api.fetchSavedPosts(uid))
+    dispatch({ type: "FETCH_SAVED_POSTS", payload: data });
+  } catch (error) {
+    alert(error.message);
+  }
+};
+
+export const toggleSavePost = (postid,userid) => async (dispatch) => {
+  try {
+    let uid = userid;
+    if(uid === null) 
+      //   <Redirect to="/" />
+      alert("bruh login first")
+    const { data } = await api.toggleSavePost(postid,userid);
+    console.log("save",data)
+    dispatch({ type: "TOGGLE_SAVE_POST", payload: data });
   } catch (error) {
     console.log(error.message);
   }
@@ -18,10 +45,8 @@ export const likePost = (postid,userid) => async (dispatch) => {
       let uid = userid;
       if(uid === null) 
         //   <Redirect to="/" />
-        alert("bruh")
+        alert("bruh login first")
       const { data } = await api.likePost(postid,userid);
-      console.log("likeeeeeeee",data)
-    // console.log("hello like")
       dispatch({ type: "LIKE_POST", payload: data });
     } catch (error) {
       console.log(error.message);
@@ -34,7 +59,7 @@ export const likePost = (postid,userid) => async (dispatch) => {
       let uid = userid;
       if(uid === null) 
         //   <Redirect to="/" />
-        alert("bruh")
+        alert("bruh login first")
       const { data } = await api.dislikePost(postid,userid);
       dispatch({ type: "DISLIKE_POST", payload: data });
     } catch (error) {
@@ -42,10 +67,10 @@ export const likePost = (postid,userid) => async (dispatch) => {
     }
   };
 
-export const addIdea = (idea,id) => async (dispatch) => {
+export const addPost = (post,id) => async (dispatch) => {
   try {
       if(id){
-        const { data } = await api.addIdea(idea,id);
+        const { data } = await api.addPost(post,id);
         console.log(data)
         dispatch({type: "ADD_POST", payload: data});
       } 

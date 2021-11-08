@@ -5,9 +5,11 @@ export const signUp = (user) => axios.post(`${backend_url}auth/signup`,user)
 export const signIn = (user) => axios.post(`${backend_url}auth/signin`,user)
 
 export const fetchPosts = (id) => axios.get(`${backend_url}posts/${id}`)
+export const fetchSavedPosts = (id) => axios.get(`${backend_url}posts/saved/${id}`)
+export const toggleSavePost = (postId,userId) => axios.put(`${backend_url}posts/saved/${userId}`,{postId})
 export const likePost = (postId,userId) => axios.put(`${backend_url}posts/like/${postId}`,{userId})
 export const dislikePost = (postId,userId) => axios.put(`${backend_url}posts/dislike/${postId}`,{userId})
-export const addPost = (id,post) => axios.post(`${backend_url}posts/${id}`,post)
+export const addPost = (post,id) => axios.post(`${backend_url}posts/${id}`,post)
 
 export const fetchConfessions = () => axios.get(`${backend_url}confessions`)
 export const addConfession = (newConfession) => axios.post(`${backend_url}confessions/add`,{confession:newConfession})

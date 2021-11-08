@@ -6,7 +6,8 @@ let initialState = {
     name:"",
     profileImg:"",
     // token:localStorage.getItem("quovit"),
-    _id:null
+    _id:null,
+    savedPosts:[]
 }
 let auth = (state = initialState, action) => {
     switch (action.type) {
@@ -30,6 +31,7 @@ let auth = (state = initialState, action) => {
       name: user2.name,
       profileImg: user2.profileImg,
       _id: user2._id,
+      savedPosts:user2.savedPosts
     };
       default:
         return state;
