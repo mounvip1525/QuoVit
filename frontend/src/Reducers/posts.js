@@ -22,17 +22,14 @@
   let posts = (state=initialState, action) => {
       switch (action.type) {
         case "FETCH_ALL_POSTS":
-          return {...initialState, posts:action.payload};
-        case "ADD_POST":
-          return {...initialState,posts:[action.payload,...posts]}
         case "LIKE_POST":
-            return {...initialState, posts:action.payload};
         case "DISLIKE_POST":
-            return {...initialState, posts:action.payload};
+        case "TOGGLE_SAVE_POST":
+          return {posts:action.payload.uniquePosts,savedPosts:action.payload.savedPosts};
+        case "ADD_POST":
+          return {...initialState,posts:[action.payload,...state.posts]}
         case "FETCH_SAVED_POSTS":
           return {...initialState, savedPosts:action.payload};
-        case "TOGGLE_SAVE_POST":
-          return {posts:action.payload.uniquePosts,savedPosts:action.payload.savedPosts}
         default:
           return state;
       }

@@ -47,6 +47,7 @@ export const likePost = (postid,userid) => async (dispatch) => {
         //   <Redirect to="/" />
         alert("bruh login first")
       const { data } = await api.likePost(postid,userid);
+      console.log("like",data)
       dispatch({ type: "LIKE_POST", payload: data });
     } catch (error) {
       console.log(error.message);
@@ -75,6 +76,6 @@ export const addPost = (post,id) => async (dispatch) => {
         dispatch({type: "ADD_POST", payload: data});
       } 
   } catch(error) {
-    console.log(error.message);
+    console.log(error);
   }
 }

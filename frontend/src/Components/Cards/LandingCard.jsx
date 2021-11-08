@@ -14,7 +14,7 @@ import { dislikePost, likePost, toggleSavePost } from "../../Actions/posts";
 
 export default function LandingCard(props) {
   const { creator , caption , desc , likes , dislikes , img , _id } = props.post;
-  // const save = props.saved;
+  console.log("post",props.post)
   const [save,setSave] = useState(props.saved)
   const dispatch = useDispatch();
   const auth = useSelector((state)=>state.auth)

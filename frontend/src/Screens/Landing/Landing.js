@@ -9,9 +9,9 @@ import AddPostModal from "./AddPostModal";
 
 export default function Landing(props){
   const dispatch = useDispatch();
-  const posts = useSelector((state) => state.posts.posts);
+  const {posts,savedPosts} = useSelector((state) => state.posts);
   const auth = useSelector((state)=>state.auth)
-  console.log("landing auth",auth)
+  console.log("landing auth",auth,savedPosts,posts)
   useEffect(() => {
     dispatch(getPosts(auth._id));
   }, [dispatch,auth]);
@@ -24,7 +24,7 @@ export default function Landing(props){
             {posts.map((post) => (
               <LandingCard
                 post={post}
-                saved={auth.savedPosts.includes(post._id)}
+                saved={savedPosts.some(sPost=>sPost._id === post._id)}
               />
             ))}
           </div>
