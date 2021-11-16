@@ -19,7 +19,6 @@ export const getSavedPosts = (id) => async (dispatch) => {
     if(uid === null) 
         uid = "6188299c20192f9a7c1f814c"
     const { data } = await api.fetchSavedPosts(uid);
-    console.log("saved posts",await api.fetchSavedPosts(uid))
     dispatch({ type: "FETCH_SAVED_POSTS", payload: data });
   } catch (error) {
     alert(error.message);
@@ -33,7 +32,6 @@ export const toggleSavePost = (postid,userid) => async (dispatch) => {
       //   <Redirect to="/" />
       alert("bruh login first")
     const { data } = await api.toggleSavePost(postid,userid);
-    console.log("save",data)
     dispatch({ type: "TOGGLE_SAVE_POST", payload: data });
   } catch (error) {
     console.log(error.message);
@@ -47,7 +45,6 @@ export const likePost = (postid,userid) => async (dispatch) => {
         //   <Redirect to="/" />
         alert("bruh login first")
       const { data } = await api.likePost(postid,userid);
-      console.log("like",data)
       dispatch({ type: "LIKE_POST", payload: data });
     } catch (error) {
       console.log(error.message);
@@ -77,5 +74,18 @@ export const addPost = (post,id) => async (dispatch) => {
       } 
   } catch(error) {
     console.log(error);
+  }
+}
+
+export const profileDetails = (id) => async (dispatch) => {
+  try {
+    if(id){
+      const { data } = await api.profileDetails(id);
+      dispatch({type:"FETCH_PROFILE_DETAILS", payload:data})
+    } else {
+      alert("fucker login first")
+    }
+  } catch (err) {
+    console.log(err)
   }
 }

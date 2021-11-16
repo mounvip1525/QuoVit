@@ -13,8 +13,9 @@ import pic from './img/1.png'
 import { dislikePost, likePost, toggleSavePost } from "../../Actions/posts";
 
 export default function LandingCard(props) {
+  const [fullText,setFullText] = useState(true)
   const { creator , caption , desc , likes , dislikes , img , _id } = props.post;
-  console.log("post",props.post)
+  console.log("landing card",props.post)
   const [save,setSave] = useState(props.saved)
   const dispatch = useDispatch();
   const auth = useSelector((state)=>state.auth)
@@ -37,8 +38,11 @@ export default function LandingCard(props) {
       <User user={creator} />
       <h3>{caption}</h3>
       <div>
-        <div>
-          <p style={{fontSize:"small",color:"black"}}>{desc}</p>
+        <div className="desc-div">
+          {(desc.length>200 && fullText) ? 
+              <p style={{fontSize:"small",color:"black"}}>{desc.substring(0,200)} &nbsp;<span onClick={()=>{setFullText(false);console.log("hello")}}>More</span></p> :
+              <p style={{fontSize:"small",color:"black"}}>{desc}</p> 
+          }
         </div>
         {img &&        
         <div className="post-img">

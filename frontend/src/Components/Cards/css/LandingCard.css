@@ -61,3 +61,10 @@
   height:15rem;
   object-fit: contain;
 }
+.desc-div span{
+  color:var(--primary-color);
+  cursor:pointer;
+}
+.desc-div span:hover{
+  text-decoration: underline;
+}
