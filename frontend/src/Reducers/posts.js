@@ -1,9 +1,8 @@
 let initialState = {
   posts: [],
   savedPosts: [],
-  followers:[],
-  following:[],
-  userPosts:[]
+  userPosts:[],
+  profileDetails:[]
 }
 let posts = (state = initialState, action) => {
   switch (action.type) {
@@ -17,8 +16,9 @@ let posts = (state = initialState, action) => {
     case "FETCH_SAVED_POSTS":
       return { ...initialState, savedPosts: action.payload };
     case "FETCH_PROFILE_DETAILS":
+      console.log("reducer",action.payload)
       // console.log("payload",action.payload.followers,[action.payload.followers])
-      return { ...initialState, userPosts: action.payload.posts, followers:action.payload.followers, following:action.payload.following}
+      return { ...initialState, userPosts: action.payload.posts, profileDetails:action.payload}
     default:
       return state;
   }

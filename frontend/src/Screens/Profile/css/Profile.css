@@ -7,8 +7,20 @@
   margin: 3% 1%;
   padding: 3% 0;
   width: 80%;
+  position: relative;
 }
-.profile-main > div:first-child {
+.profile-main .edit-profile{
+  position:absolute;
+  background: var(--primary-color);
+  right:0;
+  top:0;
+  width:max-content !important;
+  padding:1%;
+}
+.profile-main .edit-profile svg{
+  color:white;
+}
+.profile-main > div:nth-child(2) {
   width: 90%;
 }
 .user-posts {

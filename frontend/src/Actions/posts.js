@@ -81,6 +81,7 @@ export const profileDetails = (id) => async (dispatch) => {
   try {
     if(id){
       const { data } = await api.profileDetails(id);
+      console.log("data",data)
       dispatch({type:"FETCH_PROFILE_DETAILS", payload:data})
     } else {
       alert("fucker login first")

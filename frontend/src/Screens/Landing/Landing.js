@@ -11,7 +11,6 @@ export default function Landing(props){
   const dispatch = useDispatch();
   const {posts,savedPosts} = useSelector((state) => state.posts);
   const auth = useSelector((state)=>state.auth)
-  console.log("landing auth",auth,savedPosts,posts)
   useEffect(() => {
     dispatch(getPosts(auth._id));
   }, [dispatch,auth]);

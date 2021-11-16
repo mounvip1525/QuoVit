@@ -9,11 +9,31 @@ import "./css/Profile.css";
 import pencil from "./img/Pencil.png";
 import bin from "./img/bin.png";
 import avatar from "./img/avatar.png";
-import { GitHub, Mail, Add, LinkedIn, WhatsApp } from "@material-ui/icons";
+import { GitHub, Mail, Add, LinkedIn, WhatsApp, EditOutlined, ClearOutlined } from "@material-ui/icons";
 
 export default function Profile() {
+  const [userEdit,setUserEdit] = useState({
+    proj:[],
+    workExp:[],
+    skil:[]
+  })
+  const [edit,setEdit]=useState(true)
   const dispatch = useDispatch();
-  const {userPosts,followers,following} = useSelector((state) => state.posts);
+  const {followers,following,currentUser,userPosts} = useSelector((state) => state.posts.profileDetails);
+  // console.log("profile details",useSelector((state) => state.posts.profileDetails));
+  if(currentUser){
+    var {name,profileImg,branch,campus,email,githubUsername,linkedIn,phoneNumber,workExperience,projects,about,skills}=currentUser;
+  }
+  const handleEditClick = () => {
+    setEdit(!edit);
+    setUserEdit({proj:projects.join(","),workExp:workExperience.join(","),skil:skills.join(",")})
+  }
+  const handleEditChange = (e) => {
+    setUserEdit({...userEdit,[e.target.name]:e.target.value})
+  }
+  const saveEdits = () => {
+    console.log("hello",userEdit)
+  }
   const auth = useSelector((state)=>state.auth)
   useEffect(() => {
     // dispatch(getPosts(auth._id));
@@ -23,42 +43,46 @@ export default function Profile() {
   const self = true;
   const user = 
     {
-      name:"Mounvi Podapati",
-      tagline:"3rd year CSE Undergrad",
-      about:"lorem",
-      skills:["react","frontend","backend"],
-      workExperience:["Pariatur exercitation Lorem commodo eu culpa.","Elit enim consequat exercitation cillum ipsum magna laborum."],
-      projects:["Pariatur exercitation Lorem commodo eu culpa.","Elit enim consequat exercitation cillum ipsum magna laborum."],
-      mail:"munvip1525@gmail.com",
-      linkedin:"mounvip1525/123456",
-      whatsapp:"+91 9787774567",
-      github:"mounvip1525",
+      name,
+      tagline:`${branch} , VIT ${campus}`,
+      about,
+      skills,
+      workExperience,
+      projects,
+      email,
+      linkedIn,
+      phoneNumber,
+      githubUsername,
       // resume:"resume"
     }
   return (
     <Sub>
+      {name ? 
       <div className="profile-main">
+        <div className="edit-profile" onClick={handleEditClick}>
+          {edit ? <EditOutlined /> : <ClearOutlined onClick={saveEdits} />}
+        </div>
         <div>
           <div className="user-details">
             <div className="user-first">
-              <img src={avatar} style={{ background: "black" }} alt="img" />
+              <img src={profileImg} style={{ background: "black" }} alt="img" />
               <div className="user-contact">
                 <h4>Connect with me</h4>
                 <div>
                   <Mail />
-                  <p>{user.mail}</p>
+                  <p>{user.email}</p>
                 </div>
                 <div>
                   <LinkedIn />
-                  <p>{user.linkedin}</p>
+                  <p>{user.linkedIn}</p>
                 </div>
                 <div>
                   <WhatsApp />
-                  <p>{user.whatsapp}</p>
+                  <p>{user.phoneNumber}</p>
                 </div>
                 <div>
                   <GitHub />
-                  <p>{user.github}</p>
+                  <p>{user.githubUsername}</p>
                 </div>
                 <div className="user-btn">
             {/* <button className="resume-btn">Resume</button> */}
@@ -74,29 +98,31 @@ export default function Profile() {
               <hr />
               <div>
                 <h4>Skills:</h4>
-                <div className="skills-div">
+                {edit ? <div className="skills-div">
                   {user.skills.map(skill=>(
                     <p>{skill}</p>
                   ))}
-                </div>
+                </div> : <input type="text" name="skil" className="edit-ip" value={userEdit.skil} onChange={handleEditChange} />}
               </div>
               <hr />
               <div>
                 <h4>Work Experience:</h4>
-                <ul>
+                {edit ? <ul>
                   {user.workExperience.map(we=>(
                     <li>{we}</li>
                   ))}
                 </ul>
+                : <input type="text" name="workExp" className="edit-ip" value={userEdit.workExp} onChange={handleEditChange} />}
               </div>
               <hr />
               <div>
                 <h4>Projects:</h4>
-                <ul>
+                {edit ? <ul>
                 {user.projects.map(project=>(
                     <li>{project}</li>
                   ))}
                 </ul>
+                : <input type="text" name="proj" className="edit-ip" value={userEdit.proj} onChange={handleEditChange}/>}
               </div>
             </div>
           </div>
@@ -154,6 +180,7 @@ export default function Profile() {
           )}
         </div>
       </div>
+ : <div>No details found</div>}
     </Sub>
   );
 }
