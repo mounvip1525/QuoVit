@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch , useSelector } from "react-redux";
-import { getPosts, profileDetails } from "../../Actions/posts";
+import { getPosts, profileDetails, updateProfileDetails } from "../../Actions/posts";
 import MainLayout from "../../Components/Structure/Main";
 import Sub from "../../Components/Structure/Sub";
 import LandingCard from "../../Components/Cards/LandingCard";
@@ -22,7 +22,7 @@ export default function Profile() {
   const {followers,following,currentUser,userPosts} = useSelector((state) => state.posts.profileDetails);
   // console.log("profile details",useSelector((state) => state.posts.profileDetails));
   if(currentUser){
-    var {name,profileImg,branch,campus,email,githubUsername,linkedIn,phoneNumber,workExperience,projects,about,skills}=currentUser;
+    var {name,profileImg,branch,campus,email,githubUsername,linkedIn,phoneNumber,workExperience,projects,about,skills,_id}=currentUser;
   }
   const handleEditClick = () => {
     setEdit(!edit);
@@ -31,8 +31,19 @@ export default function Profile() {
   const handleEditChange = (e) => {
     setUserEdit({...userEdit,[e.target.name]:e.target.value})
   }
-  const saveEdits = () => {
+  const saveEdits = async () => {
     console.log("hello",userEdit)
+    const p = await userEdit.proj.split(",")
+    console.log("p",p)
+    const s = await userEdit.skil.split(",")
+    const w = await userEdit.workExp.split(",");
+    setUserEdit({
+                proj:p,
+                workExp:w,
+                skil:s
+    })
+    console.log(userEdit)
+    dispatch(updateProfileDetails(auth._id,_id,userEdit))
   }
   const auth = useSelector((state)=>state.auth)
   useEffect(() => {

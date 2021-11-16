@@ -90,3 +90,18 @@ export const profileDetails = (id) => async (dispatch) => {
     console.log(err)
   }
 }
+export const updateProfileDetails = (id,userId,edits) => async (dispatch) => {
+  try {
+    if(id !== userId){
+      alert("You can only edit your own post")
+    } else {
+      const p = edits.proj.split(",");
+      const s = edits.skil.split(",");
+      const w = edits.workExp.split(",")
+      const { data } = await api.editProfileDetails(id,{projects:p,skills:s,workExperience:w});
+      dispatch({type:"FETCH_PROFILE_DETAILS",payload:data})
+    }
+  } catch(err){
+    console.log(err)
+  }
+}

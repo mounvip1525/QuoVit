@@ -12,6 +12,7 @@ export const dislikePost = (postId,userId) => axios.put(`${backend_url}posts/dis
 export const addPost = (post,id) => axios.post(`${backend_url}posts/${id}`,post)
 
 export const profileDetails = (id) => axios.get(`${backend_url}posts/profile/${id}`)
+export const editProfileDetails = (id,body) => axios.put(`${backend_url}posts/profile/${id}`,body)
 
 export const fetchConfessions = () => axios.get(`${backend_url}confessions`)
 export const addConfession = (newConfession) => axios.post(`${backend_url}confessions/add`,{confession:newConfession})
