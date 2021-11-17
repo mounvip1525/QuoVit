@@ -8,6 +8,7 @@ import questionBank from "./questionBank";
 import eachCourse from './eachCourse';
 import auth from './auth';
 import ideas from "./ideasBlock";
+import users from "./users";
 
 export default combineReducers({
     posts,
@@ -17,5 +18,6 @@ export default combineReducers({
     eachCourse,
     ideas,
     modal,
+    users,
     auth
 })
