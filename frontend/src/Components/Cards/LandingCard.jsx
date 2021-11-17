@@ -16,7 +16,6 @@ import DeleteIcon from '@material-ui/icons/Delete';
 export default function LandingCard(props) {
   const [fullText,setFullText] = useState(true)
   const { creator , caption , desc , likes , dislikes , img , _id } = props.post;
-  console.log("props",props)
   const [save,setSave] = useState(props.saved)
   const dispatch = useDispatch();
   const auth = useSelector((state)=>state.auth)

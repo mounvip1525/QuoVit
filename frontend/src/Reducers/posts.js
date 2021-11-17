@@ -17,6 +17,7 @@ let posts = (state = initialState, action) => {
       return { ...initialState, savedPosts: action.payload };
     case "FETCH_PROFILE_DETAILS":
     case "DELETE_POST":
+    case "UNFOLLOW_USER":
       return { ...initialState, userPosts: action.payload.posts, profileDetails:action.payload};
     default:
       return state;

@@ -168,7 +168,7 @@ export default function Profile() {
           ) : activeTab === "followers" ? (
             <div className="suggestions-main">
               {followers.map((user) => (
-                <User user={user} remove={true} />
+                <User user={user} />
               ))}
             </div>
           ) : (
