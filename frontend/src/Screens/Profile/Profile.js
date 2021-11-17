@@ -20,7 +20,7 @@ export default function Profile() {
   const [edit,setEdit]=useState(true)
   const dispatch = useDispatch();
   const {followers,following,currentUser,userPosts} = useSelector((state) => state.posts.profileDetails);
-  // console.log("profile details",useSelector((state) => state.posts.profileDetails));
+  console.log("profile details",useSelector((state) => state.posts.profileDetails));
   if(currentUser){
     var {name,profileImg,branch,campus,email,githubUsername,linkedIn,phoneNumber,workExperience,projects,about,skills,_id}=currentUser;
   }
@@ -32,17 +32,6 @@ export default function Profile() {
     setUserEdit({...userEdit,[e.target.name]:e.target.value})
   }
   const saveEdits = async () => {
-    console.log("hello",userEdit)
-    const p = await userEdit.proj.split(",")
-    console.log("p",p)
-    const s = await userEdit.skil.split(",")
-    const w = await userEdit.workExp.split(",");
-    setUserEdit({
-                proj:p,
-                workExp:w,
-                skil:s
-    })
-    console.log(userEdit)
     dispatch(updateProfileDetails(auth._id,_id,userEdit))
   }
   const auth = useSelector((state)=>state.auth)
@@ -173,7 +162,7 @@ export default function Profile() {
           {activeTab === "posts" ? (
             <div className="user-post-div">
               {userPosts.map((post) => (
-                <LandingCard post={post} />
+                <LandingCard post={post} remove={true}/>
               ))}
             </div>
           ) : activeTab === "followers" ? (

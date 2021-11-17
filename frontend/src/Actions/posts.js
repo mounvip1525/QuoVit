@@ -32,9 +32,10 @@ export const toggleSavePost = (postid,userid) => async (dispatch) => {
       //   <Redirect to="/" />
       alert("bruh login first")
     const { data } = await api.toggleSavePost(postid,userid);
+    console.log("action",data)
     dispatch({ type: "TOGGLE_SAVE_POST", payload: data });
   } catch (error) {
-    console.log(error.message);
+    console.log(error);
   }
 };
 
@@ -81,7 +82,6 @@ export const profileDetails = (id) => async (dispatch) => {
   try {
     if(id){
       const { data } = await api.profileDetails(id);
-      console.log("data",data)
       dispatch({type:"FETCH_PROFILE_DETAILS", payload:data})
     } else {
       alert("fucker login first")
@@ -103,5 +103,19 @@ export const updateProfileDetails = (id,userId,edits) => async (dispatch) => {
     }
   } catch(err){
     console.log(err)
+  }
+}
+
+export const deletePost = (postid,userId) => async (dispatch) => {
+  try {
+    if(!userId){
+      alert("Login first")
+    } else {
+      const { data } = await api.deletePost(postid,userId);
+      console.log("del",data)
+      dispatch({type:"DELETE_POST",payload:data})
+    }
+  } catch(err){
+    alert(err)
   }
 }

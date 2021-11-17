@@ -68,3 +68,10 @@
 .desc-div span:hover{
   text-decoration: underline;
 }
+.bin-post{
+  position: absolute;
+  right:0;
+  top:0;
+  padding:2%;
+  color:var(--primary-color);
+}

@@ -16,9 +16,8 @@ let posts = (state = initialState, action) => {
     case "FETCH_SAVED_POSTS":
       return { ...initialState, savedPosts: action.payload };
     case "FETCH_PROFILE_DETAILS":
-      console.log("reducer",action.payload)
-      // console.log("payload",action.payload.followers,[action.payload.followers])
-      return { ...initialState, userPosts: action.payload.posts, profileDetails:action.payload}
+    case "DELETE_POST":
+      return { ...initialState, userPosts: action.payload.posts, profileDetails:action.payload};
     default:
       return state;
   }
