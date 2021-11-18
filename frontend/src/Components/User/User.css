@@ -1,6 +1,8 @@
 .user-card{
     display:flex;
     align-items: center;
+    text-decoration: none;
+    color:black;
 }
 .user-card img{
     border-radius:50%;

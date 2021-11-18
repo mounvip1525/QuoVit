@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDispatch , useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import add from "./img/add.png";
 import logout from "./img/Logout.png";
@@ -10,12 +11,14 @@ import { Add } from "@material-ui/icons";
 import { connect } from "react-redux";
 
 function Sidebar({ type, showConfessModal, showFacultyModal,showIdeaModal,showPaperModal,showPostModal }) {
+  const dispatch = useDispatch();
+  const auth = useSelector((state)=>state.auth)
   const history = useHistory();
   const path = history.location.pathname;
   const [selected, setSelected] = useState(0);
   const handleClick = (id, link) => {
     setSelected(id);
-    history.push(link);
+    history.push(link,{id:auth._id});
   };
   const buttons = [
     {

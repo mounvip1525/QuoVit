@@ -20,10 +20,22 @@ export const unfollowUser = (userId,followId) => async (dispatch) => {
 
 export const getSuggestedUsers = (id) => async (dispatch) => {
   try {
+    if(id === null) 
+    id = "6188299c20192f9a7c1f814c"
     const { data } = await api.getSuggestedUsers(id);
     console.log("suggestions",data)
     dispatch({ type: "FETCH_SUGGESTED_USERS" , payload: data });
   } catch (err) {
+    alert(err)
+  }
+}
+
+export const getCurrentUser = (id,userId) => async (dispatch) => {
+  try {
+    if(id!==userId){
+      alert("not same")
+    }
+  } catch(err){
     alert(err)
   }
 }

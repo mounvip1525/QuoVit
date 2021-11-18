@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch , useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { getPosts, profileDetails, updateProfileDetails } from "../../Actions/posts";
 import MainLayout from "../../Components/Structure/Main";
 import Sub from "../../Components/Structure/Sub";
@@ -11,7 +12,9 @@ import bin from "./img/bin.png";
 import avatar from "./img/avatar.png";
 import { GitHub, Mail, Add, LinkedIn, WhatsApp, EditOutlined, ClearOutlined } from "@material-ui/icons";
 
-export default function Profile() {
+export default function Profile(props) {
+  const history = useHistory();
+  console.log(history)
   const [userEdit,setUserEdit] = useState({
     proj:[],
     workExp:[],
@@ -20,7 +23,6 @@ export default function Profile() {
   const [edit,setEdit]=useState(true)
   const dispatch = useDispatch();
   const {followers,following,currentUser,userPosts} = useSelector((state) => state.posts.profileDetails);
-  console.log("profile details",useSelector((state) => state.posts.profileDetails));
   if(currentUser){
     var {name,profileImg,branch,campus,email,githubUsername,linkedIn,phoneNumber,workExperience,projects,about,skills,_id}=currentUser;
   }
@@ -36,12 +38,14 @@ export default function Profile() {
   }
   const auth = useSelector((state)=>state.auth)
   useEffect(() => {
-    // dispatch(getPosts(auth._id));
-    dispatch(profileDetails(auth._id))
-  }, [dispatch,auth]);
+    let id = history.location.state ? history.location.state.id : auth._id
+    dispatch(profileDetails(id))
+  }, [dispatch,auth,history]);
   const [activeTab, setActiveTab] = useState("posts");
-  const self = true;
-  const user = 
+  // const self = history.location.state ? history.location.state.id === auth._id ? true : false : ;
+  const self = (auth && history.location.state) ? 
+                auth._id === history.location.state.id ? true : false : false;
+   const user = 
     {
       name,
       tagline:`${branch} , VIT ${campus}`,
@@ -59,10 +63,12 @@ export default function Profile() {
     <Sub>
       {name ? 
       <div className="profile-main">
+        {self && 
         <div className="edit-profile" onClick={handleEditClick}>
-          {edit ? <EditOutlined /> : <ClearOutlined onClick={saveEdits} />}
+          { edit ? <EditOutlined /> : <ClearOutlined onClick={saveEdits} />}
         </div>
-        <div>
+        }
+        <div className="u-main">
           <div className="user-details">
             <div className="user-first">
               <img src={profileImg} style={{ background: "black" }} alt="img" />
@@ -162,7 +168,7 @@ export default function Profile() {
           {activeTab === "posts" ? (
             <div className="user-post-div">
               {userPosts.map((post) => (
-                <LandingCard post={post} remove={true}/>
+                <LandingCard post={post} remove={self}/>
               ))}
             </div>
           ) : activeTab === "followers" ? (
@@ -174,7 +180,7 @@ export default function Profile() {
           ) : (
             <div className="suggestions-main">
               {following.map((user) => (
-                <User user={user} remove={true} />
+                <User user={user} remove={self} />
               ))}
             </div>
           )}
