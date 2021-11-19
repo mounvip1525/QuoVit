@@ -15,7 +15,6 @@ export default function EachCourse() {
   useEffect(() => {
     dispatch(getPapersByCourse(cName));
   }, [dispatch,cName]);
-
   return (
     <MainLayout type="questionBank">
       <AddPaperModal />

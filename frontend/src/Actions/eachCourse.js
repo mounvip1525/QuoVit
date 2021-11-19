@@ -9,15 +9,20 @@ export const getPapersByCourse = (courseName) => async (dispatch) => {
     }
 }
 
-export const downloadPaper = (courseName,id) => async () => {
+export const downloadPaper = (userId,courseName,id) => async () => {
         try{
-            const res = await api.downloadPaper(courseName,id);
-            const url = window.URL.createObjectURL(new Blob([res.data]));
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', `quovit-${courseName}.pdf`);
-            document.body.appendChild(link);
-            link.click();
+            console.log(userId,courseName,id)
+            if(userId){
+                const res = await api.downloadPaper(courseName,id);
+                const url = window.URL.createObjectURL(new Blob([res.data]));
+                const link = document.createElement('a');
+                link.href = url;
+                link.setAttribute('download', `quovit-${courseName}.pdf`);
+                document.body.appendChild(link);
+                link.click();
+            } else {
+                alert("login first")
+            }
         } catch(error) {
             console.log(error.message)
         }

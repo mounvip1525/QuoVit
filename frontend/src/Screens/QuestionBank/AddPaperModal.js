@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch , useSelector } from "react-redux";
 import { connect } from "react-redux";
 import { uploadPaper } from "../../Actions/questionBank";
 import Modal from "../../Components/ModalHOC/Modal";
@@ -7,6 +7,7 @@ import "./css/QuestionBank.css";
 
 const AddPaperModal = ({ closeModal, showModal }) => {
   const dispatch = useDispatch();
+const auth = useSelector((state) => state.auth);
   const [paper, setPaper] = useState({
     courseName: "",
     courseCategory: "PC",
@@ -18,8 +19,7 @@ const AddPaperModal = ({ closeModal, showModal }) => {
     e.preventDefault();
     var formdata = new FormData();
     formdata.append("file", paper.paper);
-    console.log("papper",paper)
-    dispatch(uploadPaper(paper.courseName,paper.courseCategory,paper.examType,paper.year,formdata))
+    dispatch(uploadPaper(auth._id,paper.courseName,paper.courseCategory,paper.examType,paper.year,formdata))
     closeModal();
   };
   const handleChange = (e) => {

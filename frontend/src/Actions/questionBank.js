@@ -9,11 +9,14 @@ export const getCourses = () => async (dispatch) => {
   }
 };
 
-export const uploadPaper = (courseName,courseCategory,examType,year,formData) => async (dispatch) => {
+export const uploadPaper = (id,courseName,courseCategory,examType,year,formData) => async (dispatch) => {
     try {
-      console.log(courseName,courseCategory,examType,year,formData)
+      if(id){
         const { data } = await api.uploadPaper(courseName,courseCategory,examType,year,formData);
         dispatch({ type:"UPLOAD_PAPER", payload: data })
+      } else {
+        alert("login first")
+      }
     } catch (error) {
         alert(error.message)
     }
