@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch , useSelector } from "react-redux";
+import { useHistory } from "react-router-dom"
 import User from "../User/User.jsx";
 import "./css/LandingCard.css";
 import following from '../Cards/img/Follow.png'
@@ -14,23 +15,36 @@ import { deletePost, dislikePost, likePost, toggleSavePost } from "../../Actions
 import DeleteIcon from '@material-ui/icons/Delete';
 
 export default function LandingCard(props) {
+  const history = useHistory()
   const [fullText,setFullText] = useState(true)
   const { creator , caption , desc , likes , dislikes , img , _id } = props.post;
   const [save,setSave] = useState(props.saved)
   const dispatch = useDispatch();
   const auth = useSelector((state)=>state.auth)
   const handleLikeClick = () => {
-    dispatch(likePost(_id,auth._id));
+    if(auth._id){
+      dispatch(likePost(_id,auth._id));
+    } else {
+      history.push("/Login")
+    }
   };
   const handleDislikeClick = () => {
-    dispatch(dislikePost(_id,auth._id))
+    if(auth._id){
+      dispatch(dislikePost(_id,auth._id));
+    } else {
+      history.push("/Login")
+    }
   }
   const handleSaveClick = () => {
-    setSave(!save)
-    dispatch(toggleSavePost(_id,auth._id))
+    if(auth._id){
+      setSave(!save)
+      dispatch(toggleSavePost(_id,auth._id))
+    } else {
+      history.push("/Login")
+    }
   }
   const handleDelete = () => {
-    dispatch(deletePost(_id,auth._id))
+      dispatch(deletePost(_id,auth._id))
   }
   const [follow, setFollow] = useState(true);
   const likeCircleColors = ["#91C196","#C5D226", "#F6E015","#DA6767"];

@@ -4,17 +4,21 @@ import { useDispatch, useSelector } from "react-redux";
 import MainLayout from "../../Components/Structure/Main";
 import "./css/EachCourse.css";
 import EachCourseCard from "../../Components/Cards/EachCourseCard";
-import { useLocation } from "react-router";
+import { useHistory, useLocation } from "react-router";
 import AddPaperModal from "./AddPaperModal";
 
 export default function EachCourse() {
+  const history = useHistory()
   const { query } = useLocation();
-  const cName = query.props.course.courseName;
   const dispatch = useDispatch();
   const {courseName,courseCategory,cat1,cat2,fat} = useSelector((state) => state.eachCourse);
   useEffect(() => {
-    dispatch(getPapersByCourse(cName));
-  }, [dispatch,cName]);
+    if(query){
+      dispatch(getPapersByCourse(query.props.course.courseName));
+    } else {
+      history.push("/Login")
+    }
+  });
   return (
     <MainLayout type="questionBank">
       <AddPaperModal />

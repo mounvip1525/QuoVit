@@ -46,6 +46,9 @@ let auth = (state = initialState, action) => {
         _id: null,
         savedPosts: []
       }
+      case "REDIRECT_LOGIN":
+        window.location.replace("/")
+        return state
     default:
       return state;
   }

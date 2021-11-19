@@ -13,13 +13,17 @@ export default function User(props) {
     const dispatch = useDispatch();
     const auth = useSelector((state)=>state.auth)
     const {name,designation,background,img,profileImg, tagLine,_id } = props.user;
-    console.log("user------>",props.user)
         const handleUnfollow = () => {
         dispatch(unfollowUser(auth._id,_id))
       }
-      const handleFollow = () => {
-        dispatch(followUser(auth._id,_id))
-        setCheck(false)
+      const handleFollow = (e) => {
+        if(auth._id){
+            dispatch(followUser(auth._id,_id))
+            setCheck(false)
+            e.stopPropagation()
+        } else {
+            history.push("/Login")
+        }
     }
     const handleUserChange = async () => {
         console.log("id here",props.user.id)

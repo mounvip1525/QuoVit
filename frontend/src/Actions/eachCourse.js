@@ -9,9 +9,8 @@ export const getPapersByCourse = (courseName) => async (dispatch) => {
     }
 }
 
-export const downloadPaper = (userId,courseName,id) => async () => {
+export const downloadPaper = (userId,courseName,id) => async (dispatch) => {
         try{
-            console.log(userId,courseName,id)
             if(userId){
                 const res = await api.downloadPaper(courseName,id);
                 const url = window.URL.createObjectURL(new Blob([res.data]));
@@ -21,7 +20,7 @@ export const downloadPaper = (userId,courseName,id) => async () => {
                 document.body.appendChild(link);
                 link.click();
             } else {
-                alert("login first")
+                alert("Login First")
             }
         } catch(error) {
             console.log(error.message)
