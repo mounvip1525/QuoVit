@@ -3,7 +3,8 @@ let questionBank = (courses = [], action) => {
       case "FETCH_ALL_PAPERS":
         return action.payload;
       case "UPLOAD_PAPER":
-        return courses;
+        window.location.replace("/questionBank")
+        return action.payload;
       default:
         return courses;
     }

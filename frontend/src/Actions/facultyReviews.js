@@ -9,19 +9,35 @@ export const getFacultyReviews = () => async (dispatch) => {
   }
 };
 
-export const addFaculty = (newFaculty) => async (dispatch) => {
+export const addFaculty = (newFaculty,id) => async (dispatch) => {
   try {
-    const { data } = await api.addFaculty(newFaculty);
-    dispatch({type: "ADD_FACULTY", payload: data});
+    if(id){
+      const { data } = await api.addFaculty(newFaculty,id);
+      if(data.message){
+        alert(data.message)
+      } else {
+        dispatch({type: "ADD_FACULTY", payload: data});
+      }
+    } else {
+      alert("Login first asshole")
+    }
   } catch(error) {
     console.log(error.message);
   }
 }
 
-export const rateFaculty = (id,rating) => async (dispatch) => {
+export const rateFaculty = (userId,facId,rating) => async (dispatch) => {
     try {
-      const { data } = await api.rateFaculty(id,rating);
+      if(userId){
+        const { data } = await api.rateFaculty(userId,facId,rating);
+        if(data.message){
+          alert(data.message)
+        } else {
       dispatch({ type: "RATE_FACULTY", payload: data });
+        }
+      } else {
+        alert("Login first you ass")
+      }
     } catch (error) {
       console.log(error.message);
     }

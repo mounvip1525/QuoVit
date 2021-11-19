@@ -9,7 +9,7 @@ const AddPaperModal = ({ closeModal, showModal }) => {
   const dispatch = useDispatch();
   const [paper, setPaper] = useState({
     courseName: "",
-    courseCategory: "",
+    courseCategory: "PC",
     year: "",
     paper: "",
     examType: "cat1",
@@ -18,17 +18,9 @@ const AddPaperModal = ({ closeModal, showModal }) => {
     e.preventDefault();
     var formdata = new FormData();
     formdata.append("file", paper.paper);
+    console.log("papper",paper)
     dispatch(uploadPaper(paper.courseName,paper.courseCategory,paper.examType,paper.year,formdata))
-    e.target.reset();
-    setPaper({
-      courseName: "",
-      courseCode: "",
-      year: "",
-      paper: "",
-      type: "cat1",
-    });
     closeModal();
-    window.location.reload(false)
   };
   const handleChange = (e) => {
     setPaper({ ...paper, [e.target.name]: e.target.value });

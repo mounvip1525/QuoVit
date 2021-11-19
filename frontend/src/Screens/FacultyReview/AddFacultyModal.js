@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { connect, useDispatch } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import {addFaculty} from '../../Actions/facultyReviews';
 import Modal from "../../Components/ModalHOC/Modal";
 import "./css/FacultyReview.css";
 
 const AddFacultyModal = ({ closeModal, showModal }) => {
   const dispatch = useDispatch();
+  const auth = useSelector((state) => state.auth);
   const [faculty,setFaculty] = useState({facultyName:"",facultyRating:0})
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addFaculty(faculty))
+    dispatch(addFaculty(faculty,auth._id))
     closeModal();
   };
   const handleChange = (e) => {

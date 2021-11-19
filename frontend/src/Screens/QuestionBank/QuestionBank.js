@@ -10,6 +10,7 @@ import srcpng from "./img/Search copy.png";
 export default function QuestionBank() {
   const dispatch = useDispatch();
   const courses = useSelector((state) => state.questionBank);
+  console.log("courses",courses)
   useEffect(() => {
     dispatch(getCourses());
   }, [dispatch]);

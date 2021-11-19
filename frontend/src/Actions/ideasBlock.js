@@ -15,7 +15,9 @@ export const addIdea = (idea,id) => async (dispatch) => {
         const { data } = await api.addIdea(idea,id);
         console.log(data)
         dispatch({type: "ADD_IDEA", payload: data});
-      } 
+      } else {
+        alert("fucker login first")
+      }
   } catch(error) {
     console.log(error.message);
   }

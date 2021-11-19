@@ -23,13 +23,13 @@ export const fetchConfessions = () => axios.get(`${backend_url}confessions`)
 export const addConfession = (newConfession) => axios.post(`${backend_url}confessions/add`,{confession:newConfession})
 
 export const fetchFacultyReviews = () => axios.get(`${backend_url}facultyReviews`)
-export const addFaculty = (newFaculty) => axios.post(`${backend_url}facultyReviews/add`,newFaculty)
-export const rateFaculty = (id,rating) => axios.patch(`${backend_url}facultyReviews/rate/${id}`,{facultyRating:rating})
+export const addFaculty = (newFaculty,id) => axios.post(`${backend_url}facultyReviews/${id}`,newFaculty)
+export const rateFaculty = (userId,facId,rating) => axios.put(`${backend_url}facultyReviews/rate/${userId}`,{facId,facultyRating:rating})
 
 export const fetchCourses = () => axios.get(`${backend_url}questionBank`)
 export const fetchPapersByCourse = (courseName) => axios.get(`${backend_url}questionBank/course/${courseName}`)
 export const downloadPaper = (courseName,id) => axios.get(`${backend_url}questionBank/download/${courseName}/${id}`,{responseType: 'blob'})
-export const uploadPaper = (courseName,courseCategory,examType,year,formData) => axios.post(`http://localhost:8000/questionBank/upload/${courseName}/${courseCategory}/${examType}/${year}`,formData)
+export const uploadPaper = (courseName,courseCategory,examType,year,formData) => axios.post(`${backend_url}questionBank/${courseName}/${courseCategory}/${examType}/${year}`,formData)
 
 export const fetchIdeas = () => axios.get(`${backend_url}ideasBlock/`)
 export const addIdea = (idea,id) => axios.post(`${backend_url}ideasBlock/${id}`,idea)

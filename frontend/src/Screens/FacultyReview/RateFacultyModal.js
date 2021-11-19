@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch , useSelector } from "react-redux";
 import { rateFaculty } from "../../Actions/facultyReviews";
 import Modal from "../../Components/ModalHOC/Modal";
 import "./css/FacultyReview.css";
@@ -10,10 +10,11 @@ export default function RateFacultyModal({
   activeFaculty,
 }) {
   const dispatch = useDispatch();
+  const auth = useSelector((state) => state.auth);
   const [rating, setRating] = useState(0);
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(rateFaculty(activeFaculty.id, rating));
+    dispatch(rateFaculty(auth._id,activeFaculty.id, rating));
     closeModal();
   };
   const handleChange = (e) => {
