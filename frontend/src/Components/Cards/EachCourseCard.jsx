@@ -10,7 +10,6 @@ const EachCourseCard = (props) => {
     const {courseName} = props;
     const dispatch = useDispatch();
     const handleClick = () => {
-        console.log("ppp",auth._id,courseName,_id)
       dispatch(downloadPaper(auth._id,courseName,_id));
     };
     return (

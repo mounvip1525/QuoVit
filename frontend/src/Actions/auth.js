@@ -20,6 +20,11 @@ export const signIn = (user) => async (dispatch) => {
   if(data.message){
     alert(data.message)
   } else{
+    console.log("data",data)
+    localStorage.setItem("quovitUserId",data._id)
+    localStorage.setItem("quovitUserName",data.name)
+    localStorage.setItem("quovitUserImg",data.profileImg)
+    localStorage.setItem("quovitUserSaved",data.savedPosts)
     dispatch({ type: "SIGN_IN",  payload: data});
     alert("sucess")
     const data2 = await api.fetchPosts(data._id);
@@ -52,18 +57,6 @@ export const signIn = (user) => async (dispatch) => {
 //   };
 // };
 
-// export const signOut = () => {
-//   return (dispatch) => {
-//     dispatch({
-//       type: "CLEAR_TODOS",
-//     });
-    
-//     dispatch({
-//       type: "SIGN_OUT",
-//     });
-
-//   };
-// };
 
 // export const loadUser = () => {
 //   return (dispatch, getState) => {

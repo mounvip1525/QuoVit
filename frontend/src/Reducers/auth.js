@@ -3,17 +3,17 @@
 import { Redirect } from "react-router";
 
 let initialState = {
-    name:"",
-    profileImg:"",
-    // token:localStorage.getItem("quovit"),
-    _id:null,
-    savedPosts:[]
+  name: localStorage.getItem("quovitUserName") || "",
+  profileImg: localStorage.getItem("quovitUserImg") || "",
+  // token:localStorage.getItem("quovit"),
+  _id: localStorage.getItem("quovitUserId") || null,
+  savedPosts: localStorage.getItem("quovitUserSaved") || []
 }
 let auth = (state = initialState, action) => {
-    switch (action.type) {
-      case "SIGN_UP":
-        // const user = jwtDecode(action.token); 
-        // const user = action.payload
+  switch (action.type) {
+    case "SIGN_UP":
+      // const user = jwtDecode(action.token); 
+      // const user = action.payload
       return {
         ...initialState,
         // token: action.token,
@@ -21,21 +21,33 @@ let auth = (state = initialState, action) => {
         // email: user.email,
         // _id: user._id,
       };
-      case "SIGN_IN":
+    case "SIGN_IN":
       // const user = jwtDecode(action.token); 
       const user2 = action.payload;
       <Redirect to="/" />
-    return {
-      ...initialState,
-      // token: action.token,
-      name: user2.name,
-      profileImg: user2.profileImg,
-      _id: user2._id,
-      savedPosts:user2.savedPosts
-    };
-      default:
-        return state;
-    }
-  };
-  export default auth;
-  
+      return {
+        ...initialState,
+        // token: action.token,
+        name: user2.name,
+        profileImg: user2.profileImg,
+        _id: user2._id,
+        savedPosts: user2.savedPosts
+      };
+    case "SIGN_OUT":
+      console.log("here logot")
+      localStorage.removeItem("quovitUserName")
+      localStorage.removeItem("quovitUserImg")
+      localStorage.removeItem("quovitUserId")
+      localStorage.removeItem("quovitUserSaved")
+      window.location.replace("/")
+      return {
+        name: "",
+        profileImg:  "",
+        _id: null,
+        savedPosts: []
+      }
+    default:
+      return state;
+  }
+};
+export default auth;

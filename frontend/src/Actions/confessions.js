@@ -9,10 +9,14 @@ export const getConfessions = () => async (dispatch) => {
   }
 };
 
-export const addConfession = (newConfession) => async (dispatch) => {
+export const addConfession = (id,newConfession) => async (dispatch) => {
   try {
-    const { data } = await api.addConfession(newConfession);
+    if(id){
+      const { data } = await api.addConfession(newConfession);
     dispatch({type: "ADD_CONFESSION", payload: data});
+    } else {
+      alert("Login first")
+    }
   } catch(error) {
     console.log(error.message);
   }

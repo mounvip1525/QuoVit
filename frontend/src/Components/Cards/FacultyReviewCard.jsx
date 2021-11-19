@@ -1,11 +1,15 @@
 import React from "react";
+import { useDispatch , useSelector } from "react-redux";
 import person from "./img/person.png";
 import "./css/FacultyReviewCard.css";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import { useHistory } from "react-router";
 
 export default function FacultyReviewCard(props) {
+  const history = useHistory();
   const { facultyName, numOfVotes, facultyCMRating,_id } = props.faculty;
+  const auth = useSelector((state)=>state.auth)
   // console.log("faculty",props.faculty)
   const rating = (facultyCMRating / numOfVotes).toFixed(1);
   const colors = ["#DD2929", "#E5664A", "#F6E015", "#71D8B3"];
@@ -19,7 +23,11 @@ export default function FacultyReviewCard(props) {
       : colors[0];
   // const color = colors[0];
   const handleClick = () => {
-    props.handleShow(_id,facultyName)
+    if(auth._id){
+      props.handleShow(_id,facultyName)
+    } else {
+      history.push("/Login")
+    }
   }
   return (
     <div className="fac-card">

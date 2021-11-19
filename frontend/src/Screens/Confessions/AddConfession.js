@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import { connect, useDispatch } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import { addConfession } from '../../Actions/confessions'
 import Modal from "../../Components/ModalHOC/Modal";
 import "./css/Confessions.css";
 
 const AddConfession = ({ closeModal, showModal }) => {
   const dispatch = useDispatch();
+  const auth = useSelector((state)=>state.auth)
   const [confession, setConfession] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(confession);
-    dispatch(addConfession(confession))
+    console.log(confession);
+    dispatch(addConfession(auth._id,confession))
     closeModal()
   };
   const handleChange = (e) => {

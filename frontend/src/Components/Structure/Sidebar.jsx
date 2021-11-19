@@ -9,6 +9,9 @@ import save from "./img/save.png";
 import "./css/Sidebar.css";
 import { Add } from "@material-ui/icons";
 import { connect } from "react-redux";
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
+import { signOut } from "../../Actions/auth";
 
 function Sidebar({ type, showConfessModal, showFacultyModal,showIdeaModal,showPaperModal,showPostModal }) {
   const dispatch = useDispatch();
@@ -20,30 +23,40 @@ function Sidebar({ type, showConfessModal, showFacultyModal,showIdeaModal,showPa
     setSelected(id);
     history.push(link,{id:auth._id});
   };
+  const handleLogout = () => {
+    dispatch({type:"SIGN_OUT"})
+  }
+  const handleLogin = () => {
+    history.push("/Login")
+  }
+  const handleBlah = () => {
+    history.push("/Login")
+  }
   const buttons = [
     {
       id: 1,
       name: "Saved Posts",
       img: save,
-      link: "/Saved",
+      link: auth._id ? "/Saved" : "/Login",
     },
     {
       id: 2,
       name: "Notifications",
       img: notifications,
-      link: "/Notifications",
+      link: auth._id ? "/Notifications" : "/Login",
     },
     {
       id: 3,
       name: "Your Profile",
       img: profile,
-      link: "/Profile",
+      link: auth._id ? "/Profile" : "/Login",
     },
   ];
   return (
     <div className="sidebar-main">
       <button
         onClick={
+          auth._id ? 
           path === "/Confessions"
             ? showConfessModal
             : path === "/FacultyReview"
@@ -55,7 +68,7 @@ function Sidebar({ type, showConfessModal, showFacultyModal,showIdeaModal,showPa
             : path === "/QuestionBank" | path === "/EachCourse"
             ? showPaperModal
             : ""
-        }
+        : handleBlah}
       >
         {type === "landing"
           ? "Ask/Post"
@@ -79,9 +92,14 @@ function Sidebar({ type, showConfessModal, showFacultyModal,showIdeaModal,showPa
           </button>
         ))}
       </div>
-      <button>
-        Logout <img src={logout} alt="logout" />
+      {auth._id ? 
+      <button onClick={handleLogout}>
+        Logout <LogoutIcon />
+      </button> :
+      <button onClick={handleLogin}>
+        Login <LoginIcon />
       </button>
+      }
     </div>
   );
 }
