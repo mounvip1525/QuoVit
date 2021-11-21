@@ -10,6 +10,7 @@ export default function Confessions() {
   const dispatch = useDispatch();
   const confessions = useSelector((state) => state.confessions);
   useEffect(() => {
+    // dispatch({ type: "SET_LOADING" })
     dispatch(getConfessions());
   }, [dispatch]);
   return (

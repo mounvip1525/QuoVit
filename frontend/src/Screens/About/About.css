@@ -13,7 +13,7 @@
 .about-cont{
     display:flex;
     box-shadow: var(--box-shadow);
-    padding:2%;
+    padding:2% 10%;
 }
 .about-cont p{
     font-size: small;

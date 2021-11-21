@@ -6,8 +6,10 @@ export const getPosts = (id) => async (dispatch) => {
         id = "6188299c20192f9a7c1f814c"
     const { data } = await api.fetchPosts(id);
     dispatch({ type: "FETCH_ALL_POSTS", payload: data });
+    dispatch({ type: "CLEAR_LOADING" })
   } catch (error) {
-    alert(error.message);
+    // alert(error.message);
+    console.log("ERR1",error)
   }
 };
 
@@ -18,7 +20,7 @@ export const getSavedPosts = (id) => async (dispatch) => {
     const { data } = await api.fetchSavedPosts(id);
     dispatch({ type: "FETCH_SAVED_POSTS", payload: data });
   } catch (error) {
-    alert(error.message);
+    alert("h12",error.message);
   }
 };
 
@@ -32,7 +34,7 @@ export const toggleSavePost = (postid,userid) => async (dispatch) => {
     dispatch({ type: "TOGGLE_SAVE_POST", payload: data });
     }
   } catch (error) {
-    console.log(error);
+    console.log("3",error);
   }
 };
 
@@ -85,7 +87,7 @@ export const profileDetails = (id) => async (dispatch) => {
       alert("fucker login first")
     }
   } catch (err) {
-    console.log(err)
+    console.log("5",err)
   }
 }
 export const updateProfileDetails = (id,userId,edits) => async (dispatch) => {

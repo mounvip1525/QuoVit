@@ -1,0 +1,29 @@
+.modal3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(199, 212, 255, 0.1);
+    z-index:60;
+} 
+.modal-main3 {
+    z-index:65;
+    position:fixed;
+    /* background: white; */
+    width: 35%;
+    height: auto;
+    /* height:40vh; */
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    padding:2%;
+    box-sizing: border-box;
+    display:flex;
+    justify-content: center;
+} 
+.display-block3 {
+    display: block;
+} 
+.display-none3 {
+    display: none;
+}

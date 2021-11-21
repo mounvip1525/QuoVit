@@ -7,7 +7,8 @@ let initialState = {
   profileImg: localStorage.getItem("quovitUserImg") || "",
   // token:localStorage.getItem("quovit"),
   _id: localStorage.getItem("quovitUserId") || null,
-  savedPosts: localStorage.getItem("quovitUserSaved") || []
+  savedPosts: localStorage.getItem("quovitUserSaved") || [],
+  loading: false
 }
 let auth = (state = initialState, action) => {
   switch (action.type) {
@@ -31,10 +32,9 @@ let auth = (state = initialState, action) => {
         name: user2.name,
         profileImg: user2.profileImg,
         _id: user2._id,
-        savedPosts: user2.savedPosts
+        savedPosts: user2.savedPosts,
       };
     case "SIGN_OUT":
-      console.log("here logot")
       localStorage.removeItem("quovitUserName")
       localStorage.removeItem("quovitUserImg")
       localStorage.removeItem("quovitUserId")
@@ -42,13 +42,21 @@ let auth = (state = initialState, action) => {
       window.location.replace("/")
       return {
         name: "",
-        profileImg:  "",
+        profileImg: "",
         _id: null,
         savedPosts: []
       }
-      case "REDIRECT_LOGIN":
-        window.location.replace("/")
-        return state
+    case "REDIRECT_LOGIN":
+      // window.location.replace("/")
+      return state
+    case "SET_LOADING":
+      return {
+        ...initialState, loading: true
+      }
+    case "CLEAR_LOADING":
+      return {
+        ...initialState, loading: false
+      }
     default:
       return state;
   }

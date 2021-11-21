@@ -31,7 +31,7 @@ export const signIn = (user) => async (dispatch) => {
     dispatch({ type: "FETCH_ALL_POSTS", payload: data2.data });
   }
   } catch (error) {
-    alert(error)
+    console.log("a1",error)
   }
 };
 

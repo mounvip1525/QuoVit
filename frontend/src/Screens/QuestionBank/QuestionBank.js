@@ -12,6 +12,7 @@ export default function QuestionBank() {
   const courses = useSelector((state) => state.questionBank);
   console.log("courses",courses)
   useEffect(() => {
+    // dispatch({ type: "SET_LOADING" })
     dispatch(getCourses());
   }, [dispatch]);
   return (

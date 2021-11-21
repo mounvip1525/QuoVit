@@ -10,6 +10,7 @@ export default function IdeasBlock() {
   const dispatch = useDispatch();
   const ideas = useSelector((state) => state.ideas);
   useEffect(() => {
+    // dispatch({ type: "SET_LOADING" })
     dispatch(getIdeas());
   }, [dispatch]);
   return (

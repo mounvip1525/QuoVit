@@ -14,6 +14,7 @@ export default function FacultyReview() {
   const dispatch = useDispatch();
   const facultyReviews = useSelector((state) => state.facultyReviews);
   useEffect(() => {
+    // dispatch({ type: "SET_LOADING" })
     dispatch(getFacultyReviews());
   }, [dispatch]);
   const handleRateShow = (id,name) => {
