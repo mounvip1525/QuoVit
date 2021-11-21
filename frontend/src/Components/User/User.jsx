@@ -8,13 +8,15 @@ import avatar from './Avatar8.png'
 import './User.css'
 
 export default function User(props) {
+    console.log("user----------->",props)
   const history = useHistory();
     const [check,setCheck]=useState(true);
     const dispatch = useDispatch();
     const auth = useSelector((state)=>state.auth)
     const {name,designation,background,img,profileImg, tagLine,_id } = props.user;
-        const handleUnfollow = () => {
+        const handleUnfollow = (e) => {
         dispatch(unfollowUser(auth._id,_id))
+        e.stopPropagation()
       }
       const handleFollow = (e) => {
         if(auth._id){
@@ -26,7 +28,6 @@ export default function User(props) {
         }
     }
     const handleUserChange = async () => {
-        console.log("id here",props.user.id)
         history.push({
             pathname: '/profile',
             state: {id:props.user.id || props.user._id}

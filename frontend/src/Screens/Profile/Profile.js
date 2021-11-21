@@ -49,6 +49,7 @@ export default function Profile(props) {
   // const self = history.location.state ? history.location.state.id === auth._id ? true : false : ;
   const self = (auth && history.location.state) ? 
                 auth._id === history.location.state.id ? true : false : false;
+                console.log(self)
    const user = 
     {
       name,
