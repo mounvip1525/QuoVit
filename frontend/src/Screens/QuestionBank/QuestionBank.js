@@ -6,6 +6,7 @@ import AddPaperModal from "./AddPaperModal";
 import { getCourses } from "../../Actions/questionBank";
 import "./css/QuestionBank.css";
 import srcpng from "./img/Search copy.png";
+import { setLoading } from "../../Actions/auth";
 
 export default function QuestionBank() {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ export default function QuestionBank() {
   console.log("courses",courses)
   useEffect(() => {
     // dispatch({ type: "SET_LOADING" })
+    dispatch(setLoading)
     dispatch(getCourses());
   }, [dispatch]);
   return (

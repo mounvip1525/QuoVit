@@ -5,11 +5,13 @@ import MainLayout from "../../Components/Structure/Main";
 import IdeaCard from "../../Components/Cards/IdeaCard";
 import "./css/IdeasBlock.css";
 import AddIdeaModal from "./AddIdeaModal";
+import { setLoading } from "../../Actions/auth";
 
 export default function IdeasBlock() {
   const dispatch = useDispatch();
   const ideas = useSelector((state) => state.ideas);
   useEffect(() => {
+    dispatch(setLoading)
     // dispatch({ type: "SET_LOADING" })
     dispatch(getIdeas());
   }, [dispatch]);

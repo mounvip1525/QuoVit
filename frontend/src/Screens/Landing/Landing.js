@@ -7,13 +7,14 @@ import LandingCard from "../../Components/Cards/LandingCard";
 import avatar from "./img/Avatar8.png";
 import AddPostModal from "./AddPostModal";
 import Loader from "../../Components/Loader/loader";
+import { setLoading } from "../../Actions/auth";
 
 export default function Landing(props){
   const dispatch = useDispatch();
   const {posts,savedPosts} = useSelector((state) => state.posts);
   const auth = useSelector((state)=>state.auth)
   useEffect(() => {
-    // dispatch({ type: "SET_LOADING" })
+    dispatch(setLoading)
     dispatch(getPosts(auth._id));
   }, [dispatch,auth]);
 

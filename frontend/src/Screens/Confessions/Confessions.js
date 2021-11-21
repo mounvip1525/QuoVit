@@ -5,12 +5,14 @@ import "./css/Confessions.css";
 import { getConfessions } from "../../Actions/confessions";
 import { useDispatch, useSelector } from "react-redux";
 import AddConfession from "./AddConfession";
+import { setLoading } from "../../Actions/auth";
 
 export default function Confessions() {
   const dispatch = useDispatch();
   const confessions = useSelector((state) => state.confessions);
   useEffect(() => {
     // dispatch({ type: "SET_LOADING" })
+    dispatch(setLoading)
     dispatch(getConfessions());
   }, [dispatch]);
   return (

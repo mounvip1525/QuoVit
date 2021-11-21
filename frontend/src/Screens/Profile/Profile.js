@@ -11,6 +11,9 @@ import pencil from "./img/Pencil.png";
 import bin from "./img/bin.png";
 import avatar from "./img/avatar.png";
 import { GitHub, Mail, Add, LinkedIn, WhatsApp, EditOutlined, ClearOutlined } from "@material-ui/icons";
+import Loader from "../../Components/Loader/loader";
+import { setLoading } from "../../Actions/auth";
+import Empty from "../../Components/Empty/Empty";
 
 export default function Profile(props) {
   const history = useHistory();
@@ -38,6 +41,7 @@ export default function Profile(props) {
   }
   const auth = useSelector((state)=>state.auth)
   useEffect(() => {
+    dispatch(setLoading)
     let id = history.location.state ? history.location.state.id : auth._id
     dispatch(profileDetails(id))
   }, [dispatch,auth,history]);
@@ -167,26 +171,27 @@ export default function Profile(props) {
         <div className="user-posts">
           {activeTab === "posts" ? (
             <div className="user-post-div">
-              {userPosts.map((post) => (
+              {userPosts.length>0 ? userPosts.map((post) => (
                 <LandingCard post={post} remove={self}/>
-              ))}
+              )): <Empty msg={`${user.name} has not posted anything yet`} index={2}/> }
             </div>
           ) : activeTab === "followers" ? (
             <div className="suggestions-main">
-              {followers.map((user) => (
+              {followers.length>0 ? followers.map((user) => (
                 <User user={user} />
-              ))}
+              )) : <Empty msg={`${user.name} does not have any followers`} index={2}/> }
             </div>
           ) : (
             <div className="suggestions-main">
-              {following.map((user) => (
+              { following.length>0 ? 
+               following.map((user) => (
                 <User user={user} remove={self} />
-              ))}
+              )) : <Empty msg={`${user.name} does not follow anyone`} index={2}/> }
             </div>
           )}
         </div>
       </div>
- : <div>No details found</div>}
+ : <Loader />}
     </Sub>
   );
 }

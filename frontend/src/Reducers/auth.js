@@ -8,7 +8,7 @@ let initialState = {
   // token:localStorage.getItem("quovit"),
   _id: localStorage.getItem("quovitUserId") || null,
   savedPosts: localStorage.getItem("quovitUserSaved") || [],
-  loading: false
+  loading: true
 }
 let auth = (state = initialState, action) => {
   switch (action.type) {

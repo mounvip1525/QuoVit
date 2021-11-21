@@ -7,6 +7,7 @@ import AddFacultyModal from "./AddFacultyModal";
 import { getFacultyReviews } from "../../Actions/facultyReviews"; 
 import { useDispatch, useSelector } from "react-redux";
 import RateFacultyModal from "./RateFacultyModal";
+import { setLoading } from "../../Actions/auth";
 
 export default function FacultyReview() {
   const [rateShow,setRateShow] = useState(false);
@@ -15,6 +16,7 @@ export default function FacultyReview() {
   const facultyReviews = useSelector((state) => state.facultyReviews);
   useEffect(() => {
     // dispatch({ type: "SET_LOADING" })
+    dispatch(setLoading)
     dispatch(getFacultyReviews());
   }, [dispatch]);
   const handleRateShow = (id,name) => {

@@ -6,6 +6,7 @@ import "./css/Landing.css";
 import LandingCard from "../../Components/Cards/LandingCard";
 import avatar from "./img/Avatar8.png";
 import AddPostModal from "./AddPostModal";
+import Empty from "../../Components/Empty/Empty";
 
 export default function Saved(props){
   const dispatch = useDispatch();
@@ -16,19 +17,17 @@ export default function Saved(props){
   }, [dispatch,auth]);
 
     return (
-      <div>
         <MainLayout type="landing">
           <AddPostModal />
           <div className="landing-main">
-            {savedPosts.map((post) => (
+            {savedPosts.length>0 ? savedPosts.map((post) => (
               <LandingCard
                 post={post}
                 saved={savedPosts.some(sPost=>sPost._id === post._id)}
               />
-            ))}
+            )): <Empty msg="You don't seem to have any saved posts" index={3}/> }
           </div>
         </MainLayout>
-      </div>
     );
 }
 
