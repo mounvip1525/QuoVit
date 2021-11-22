@@ -8,6 +8,7 @@ import { getFacultyReviews } from "../../Actions/facultyReviews";
 import { useDispatch, useSelector } from "react-redux";
 import RateFacultyModal from "./RateFacultyModal";
 import { setLoading } from "../../Actions/auth";
+import Search from "./Search";
 
 export default function FacultyReview() {
   const [rateShow,setRateShow] = useState(false);
@@ -15,7 +16,6 @@ export default function FacultyReview() {
   const dispatch = useDispatch();
   const facultyReviews = useSelector((state) => state.facultyReviews);
   useEffect(() => {
-    // dispatch({ type: "SET_LOADING" })
     dispatch(setLoading)
     dispatch(getFacultyReviews());
   }, [dispatch]);
@@ -25,13 +25,10 @@ export default function FacultyReview() {
   }
   return (
     <MainLayout type="facultyReviews">
+      <Search faculties={facultyReviews} />
       <AddFacultyModal />
       <RateFacultyModal showModal={rateShow} activeFaculty={activeFaculty} closeModal={()=>setRateShow(false)}/>
       <div className="fac-main">
-        <div className="input-search">
-          <input type="text" name="faculty" placeholder="Search Faculty..." />
-          <img src={search} alt="Go" />
-        </div>
         <div className="fac-cards">
           {facultyReviews.map((faculty) => (
             <FacultyReviewCard faculty={faculty} handleShow={handleRateShow}/>

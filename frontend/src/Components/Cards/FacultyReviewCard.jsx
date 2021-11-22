@@ -30,7 +30,7 @@ export default function FacultyReviewCard(props) {
     }
   }
   return (
-    <div className="fac-card">
+    <div className={props.bg ? "fac-card fac-bg" : "fac-card"}>
       <div>
         <h3>{facultyName}</h3>
         <div>

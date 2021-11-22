@@ -1,6 +1,6 @@
 .fac-main{
     width:90%;
-    margin:2rem auto;
+    margin:0rem auto 2rem;
 }
 .input-search{
     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
@@ -27,4 +27,14 @@
     flex-wrap: wrap;
     margin:auto;
     justify-content: center;
+}
+.searched-res{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 2%;
+}
+.no-options{
+    margin-bottom:5%;
 }

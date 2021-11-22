@@ -1,28 +1,50 @@
 import React, { Component } from 'react'
-import './css/QuestionBank.css'
+import './css/FacultyReview.css'
 import SearchIcon from '@material-ui/icons/Search';
 import { Link } from "react-router-dom";
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import srcpng from "./img/Search copy.png";
 import PropTypes from 'prop-types';
 import CourseCard from '../../Components/Cards/CourseCard';
+import FacultyReviewCard from '../../Components/Cards/FacultyReviewCard';
+import RateFacultyModal from './RateFacultyModal';
 
 export default class Search extends Component {
     static propTypes = {
         options: PropTypes.instanceOf(Array).isRequired
     };
-    state = {
-        filteredOptions: [],
-        showOptions: false,
-        userInput: '',
-        search: ''
-    };
+    constructor(props){
+        super(props)
+        this.state = {
+            filteredOptions: [],
+            showOptions: false,
+            userInput: '',
+            search: '',
+            rateShow:false,
+            activeFaculty:{
+                name:"",
+                id:""
+            }
+        };
+    this.handleRateShow = this.handleRateShow.bind(this)
+    this.closeModal = this.closeModal.bind(this)
+    }
+
+    handleRateShow = (id,name) => {
+        this.setState({
+            activeFaculty:{
+                name:name,
+                id:id
+            },
+            rateShow:true
+        })
+      }
     onChange = (e) => {
-        const options = this.props.courses
+        const options = this.props.faculties
         const userInput = e.currentTarget.value;
         const filteredOptions = options.filter(
             (optionName) =>
-                optionName.courseName.toLowerCase().indexOf(userInput.toLowerCase()) > -1
+                optionName.facultyName.toLowerCase().indexOf(userInput.toLowerCase()) > -1
         );
         this.setState({
             filteredOptions,
@@ -39,6 +61,11 @@ export default class Search extends Component {
             search: e.currentTarget.innerText
         });
     };
+    closeModal = () => {
+        this.setState({
+            rateShow:false
+        })
+    }
     render() {
         const {
             onChange,
@@ -51,7 +78,7 @@ export default class Search extends Component {
                 optionList = (
                         filteredOptions.map((optionName) => {
                             return (
-                                    <CourseCard course={optionName} bg={true} key={optionName} onClick={onClick} />
+            <FacultyReviewCard faculty={optionName} bg={true} onClick={onClick} handleShow={this.handleRateShow}/>
                             );
                         })
                 );
@@ -65,6 +92,7 @@ export default class Search extends Component {
         }
         return (
             <div>
+      <RateFacultyModal showModal={this.state.rateShow} activeFaculty={this.state.activeFaculty} closeModal={this.closeModal}/>
                 <div className="input-search">
                     <input type="text" id="search" onChange={onChange} value={userInput} placeholder="Search" autoComplete="off" />
                     <img src={srcpng} alt="Go" />

@@ -30,3 +30,9 @@
     margin:0;
     padding:0;
 }
+.fac-bg{
+    background: var(--primary-color);
+}
+.fac-bg > div > div > div{
+    background: white;
+}
