@@ -3,6 +3,7 @@
     display:flex;
     width:100%;
     justify-content: space-between;
+    background: var(--background);
 }
 .layout-main > div:first-child,.layout-main > div:last-child{
     width:20%;
@@ -18,4 +19,9 @@
 .layout-sub{
     flex-direction: column;
     align-items: center;
+}
+.toggler{
+    position:fixed;
+    bottom:2%;
+    right:3%;
 }

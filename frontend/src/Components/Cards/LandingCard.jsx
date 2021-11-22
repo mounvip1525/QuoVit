@@ -58,8 +58,8 @@ export default function LandingCard(props) {
       <div>
         <div className="desc-div">
           {(desc.length>200 && fullText) ? 
-              <p style={{fontSize:"small",color:"black"}}>{desc.substring(0,200)} &nbsp;<span onClick={()=>{setFullText(false);console.log("hello")}}>More</span></p> :
-              <p style={{fontSize:"small",color:"black"}}>{desc}</p> 
+              <p style={{fontSize:"small"}}>{desc.substring(0,200)} &nbsp;<span onClick={()=>{setFullText(false);console.log("hello")}}>More</span></p> :
+              <p style={{fontSize:"small"}}>{desc}</p> 
           }
         </div>
         {img &&        

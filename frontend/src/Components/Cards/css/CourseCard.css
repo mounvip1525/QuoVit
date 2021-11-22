@@ -8,6 +8,8 @@
     box-sizing: border-box;
     width:40%; 
     position:relative;
+    background: var(--white);
+    color:var(--black)
 }
 .course-head{
     display:flex;

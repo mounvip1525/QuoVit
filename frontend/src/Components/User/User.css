@@ -2,7 +2,7 @@
     display:flex;
     align-items: center;
     text-decoration: none;
-    color:black;
+    color:var(--black);
     cursor:pointer;
 }
 .user-card img{

@@ -6,6 +6,8 @@
     padding:0 0 2%;
     width:65%;
     margin:1.5% auto;
+    background: var(--white);
+    color:var(--black)
 }
 .suggestions-main div{
     display:flex;

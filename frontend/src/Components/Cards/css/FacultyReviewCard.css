@@ -6,6 +6,8 @@
     margin:0.5rem;
     display: flex;
     align-items: center;
+    background: var(--white);
+    color:var(--black)
 }
 .fac-card > div:first-child{
     width:60%;

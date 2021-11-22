@@ -1,5 +1,7 @@
 .ideaCard {
     position:relative;
+    background: var(--white);
+    color:var(--black)
 }
 .idea-expand {
     position:absolute;

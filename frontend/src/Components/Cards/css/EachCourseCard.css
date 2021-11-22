@@ -5,6 +5,8 @@
     display: flex;
     font-size: 1.1rem;
     box-shadow: var(--box-shadow);
+    background: var(--white);
+    color:var(--black)
 }
 .internals>.year{
     padding: 10px 35px;

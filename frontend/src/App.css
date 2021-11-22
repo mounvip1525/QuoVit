@@ -1,4 +1,30 @@
 html{
     --primary-color:#C03A3A;
     --box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    --background: white;
+    --white:white;
+    --black:black;
+    --whiteTwo:white;
+}
+html[data-theme="dark"] {
+    --primary-color:#C03A3A;
+    --box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    --background: #191919;
+    --white:black;
+    --black:white;
+    --whiteTwo:#191919
+}
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *:before,
+html.theme-transition *:after {
+  transition: all 2s ease!important;
+  transition-delay: 2s !important;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 2s;
+    background:transparent !important
 }

@@ -6,6 +6,7 @@
     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
     padding:0;
     margin:2rem auto;
+    background:var(--white)
 }
 .c-date{
     font-size: small;
@@ -18,6 +19,7 @@
 .c-text{
     font-size:small;
     padding:2% 5%;
+    color:var(--black)
 }
 .c-emojis{
     text-align: right;
