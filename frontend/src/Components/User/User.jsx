@@ -8,7 +8,6 @@ import avatar from './Avatar8.png'
 import './User.css'
 
 export default function User(props) {
-    console.log("user----------->",props)
   const history = useHistory();
     const [check,setCheck]=useState(true);
     const dispatch = useDispatch();

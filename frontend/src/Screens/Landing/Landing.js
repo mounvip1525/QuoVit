@@ -19,7 +19,6 @@ export default function Landing(props){
   }, [dispatch,auth]);
 
     return (
-      <div>
         <MainLayout type="landing">
           <AddPostModal />
           <div className="landing-main">
@@ -31,7 +30,6 @@ export default function Landing(props){
             ))}
           </div>
         </MainLayout>
-      </div>
     );
 }
 

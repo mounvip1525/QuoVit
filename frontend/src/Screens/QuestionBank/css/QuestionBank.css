@@ -44,3 +44,12 @@
 input[type="radio"]:focus{
     outline:none;
   }
+  .searched-res{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+  }
+  .no-options{
+      margin-bottom:5%;
+  }
