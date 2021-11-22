@@ -7,11 +7,12 @@ import notifications from "./img/notifications.png";
 import profile from "./img/profile.png";
 import save from "./img/save.png";
 import "./css/Sidebar.css";
-import { Add } from "@material-ui/icons";
+import { Add, Person, TurnedIn } from "@material-ui/icons";
 import { connect } from "react-redux";
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { signOut } from "../../Actions/auth";
+import NotificationsIcon from '@mui/icons-material/Notifications';
 
 function Sidebar({ type, showConfessModal, showFacultyModal,showIdeaModal,showPaperModal,showPostModal }) {
   const dispatch = useDispatch();
@@ -87,7 +88,7 @@ function Sidebar({ type, showConfessModal, showFacultyModal,showIdeaModal,showPa
             onClick={() => handleClick(btn.id, btn.link)}
             className={btn.id === selected ? "side-selected" : ""}
           >
-            <img src={btn.img} alt={btn.name} />
+            {btn.id === 1 ? <TurnedIn /> : btn.id === 2 ? <NotificationsIcon /> : <Person />} 
             {btn.name}
           </button>
         ))}

@@ -13,6 +13,12 @@ import saved from '../Cards/img/savedItem.png'
 import pic from './img/1.png'
 import { deletePost, dislikePost, likePost, toggleSavePost } from "../../Actions/posts";
 import DeleteIcon from '@material-ui/icons/Delete';
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import CommentIcon from '@mui/icons-material/Comment';
+import TurnedInNotIcon from '@mui/icons-material/TurnedInNot';
+import TurnedInIcon from '@mui/icons-material/TurnedIn';
+import { TurnedIn } from "@material-ui/icons";
 
 export default function LandingCard(props) {
   const history = useHistory()
@@ -68,19 +74,22 @@ export default function LandingCard(props) {
         </div>}
         <div className="lcs-div">
           <div>
-          <img src={up} alt="upvote" onClick={handleLikeClick} />
+          <ArrowDropUpIcon onClick={handleLikeClick} />
           <div className="like-circle" style={{borderColor:likeCircleColors[bgcolor]}}>
             {diff}
           </div>
-          <img src={down} alt="downvote" onClick={handleDislikeClick} />
+          <ArrowDropDownIcon onClick={handleDislikeClick} />
           </div>
           <div>
-            <img src={comment} alt="comments" style={{marginRight:"0.3rem"}}/>
+            <CommentIcon style={{marginRight:"0.3rem"}}/>
             {/* <p>{comments}</p> */}
             <p>5kk</p>
           </div>
           <div>
-            <img src={save ? saved : savenow} alt="save" style={{marginRight:"0.3rem"}} onClick={handleSaveClick} />
+            {save ? 
+            <TurnedIn style={{marginRight:"0.3rem"}} onClick={handleSaveClick} /> : 
+            <TurnedInNotIcon style={{marginRight:"0.3rem"}} onClick={handleSaveClick} />
+}
             <p>{save ? "Saved" : "Save"}</p>
           </div>
         </div>

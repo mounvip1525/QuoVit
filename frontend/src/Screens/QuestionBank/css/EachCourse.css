@@ -21,6 +21,7 @@
 .eachcourse-cont{
     width:90%;
     margin:0 auto;
+    color: var(--black);
 }
 hr{
     width: 95%;

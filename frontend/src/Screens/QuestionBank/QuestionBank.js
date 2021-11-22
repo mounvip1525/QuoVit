@@ -47,9 +47,6 @@ export default function QuestionBank() {
     <MainLayout type="questionBank">
       <AddPaperModal />
       <Search courses={courses} />
-      {/* <div className="searched-res">
-        {<CourseCard  course={sample} bg={true}/>}
-      </div> */}
       <div className="course-container">
         {courses.map((course) => (
           <CourseCard course={course} />

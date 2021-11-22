@@ -5,6 +5,7 @@ import "./css/FacultyReviewCard.css";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { useHistory } from "react-router";
+import PeopleIcon from '@mui/icons-material/People';
 
 export default function FacultyReviewCard(props) {
   const history = useHistory();
@@ -36,10 +37,8 @@ export default function FacultyReviewCard(props) {
         <div>
           <div>
             {numOfVotes}
-            <img
+            <PeopleIcon
               style={{ marginLeft: "0.5rem", objectFit: "contain" }}
-              src={person}
-              alt=""
             />
           </div>
           <div className="fac-rate" onClick={handleClick}>Rate</div>
@@ -49,9 +48,9 @@ export default function FacultyReviewCard(props) {
         value={rating * 20}
         text={`${rating}/5`}
         styles={buildStyles({
-          textColor: "black",
+          // textColor: "black",
           pathColor: color,
-          trailColor: "#C4C4C4",
+          // trailColor: "#C4C4C4",
         })}
       />
     </div>

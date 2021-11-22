@@ -34,7 +34,7 @@
     align-items: center;
     border-left:3px solid transparent;
 }
-.sidebar-main div button img,.sidebar-main button img{
+.sidebar-main div button img,.sidebar-main button svg{
     width:20%;
     height:1.5rem;
     object-fit: contain;
