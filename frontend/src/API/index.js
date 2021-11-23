@@ -10,6 +10,7 @@ export const toggleSavePost = (postId,userId) => axios.put(`${backend_url}posts/
 export const likePost = (postId,userId) => axios.put(`${backend_url}posts/like/${postId}`,{userId})
 export const dislikePost = (postId,userId) => axios.put(`${backend_url}posts/dislike/${postId}`,{userId})
 export const addPost = (post,id) => axios.post(`${backend_url}posts/${id}`,post)
+export const addComment = (postId,userId,comment) => axios.put(`${backend_url}posts/comment/${postId}/${userId}`,{comment})
 
 export const profileDetails = (id) => axios.get(`${backend_url}posts/profile/${id}`)
 export const editProfileDetails = (id,body) => axios.put(`${backend_url}posts/profile/${id}`,body)

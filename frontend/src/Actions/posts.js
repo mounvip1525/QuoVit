@@ -119,3 +119,16 @@ export const deletePost = (postid,userId) => async (dispatch) => {
     alert(err)
   }
 }
+
+export const addComment = (postId,userId,comment) => async (dispatch) => {
+  try {
+    if(!userId){
+      alert("Login first")
+    } else {
+      const { data } = await api.addComment(postId,userId,comment);
+      dispatch({ type:"ADD_COMMENT" , payload:data })
+    }
+  } catch(err){
+    alert(err)
+  }
+}

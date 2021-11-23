@@ -10,6 +10,7 @@ let posts = (state = initialState, action) => {
     case "LIKE_POST":
     case "DISLIKE_POST":
     case "TOGGLE_SAVE_POST":
+    case "ADD_COMMENT":
       return { ...initialState, posts: action.payload.uniquePosts, savedPosts: action.payload.savedPosts };
     case "ADD_POST":
       return { ...initialState, posts: [action.payload, ...state.posts] }

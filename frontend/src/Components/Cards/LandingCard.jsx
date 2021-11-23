@@ -11,7 +11,7 @@ import comment from '../Cards/img/comment.png'
 import savenow from '../Cards/img/save.png'
 import saved from '../Cards/img/savedItem.png'
 import pic from './img/1.png'
-import { deletePost, dislikePost, likePost, toggleSavePost } from "../../Actions/posts";
+import { addComment, deletePost, dislikePost, likePost, toggleSavePost } from "../../Actions/posts";
 import DeleteIcon from '@material-ui/icons/Delete';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
@@ -25,6 +25,7 @@ export default function LandingCard(props) {
   const history = useHistory()
   const [fullText,setFullText] = useState(true)
   const [showComments,setShowComments] = useState(false)
+  const [comment,setComment] = useState("")
   const { creator , caption , desc , likes , dislikes , img , _id, comments } = props.post;
   console.log(props.post)
   const [save,setSave] = useState(props.saved)
@@ -58,6 +59,16 @@ export default function LandingCard(props) {
   const handleCommentClick = () => {
     setShowComments(!showComments)
   }
+  const postComment = () => {
+    if(!auth._id){
+      history.push("/Login")
+    } else if(!comment) {
+      document.getElementById("comment").focus()
+    } else {
+      dispatch(addComment(_id,auth._id,comment))
+    }
+setComment("")
+  }
   const [follow, setFollow] = useState(true);
   const likeCircleColors = ["#91C196","#C5D226", "#F6E015","#DA6767"];
   let diff = likes.length - dislikes.length
@@ -89,7 +100,7 @@ export default function LandingCard(props) {
           <div>
             <CommentIcon style={{marginRight:"0.3rem"}} onClick={handleCommentClick}/>
             {/* <p>{comments}</p> */}
-            <p>5kk</p>
+            <p>{comments.length}</p>
           </div>
           <div>
             {save ? 
@@ -102,8 +113,8 @@ export default function LandingCard(props) {
       {showComments && 
       <div className="comment-box">
         <div>
-          <input type="text" name="comment" id="comment" className="edit-ip" placeholder="Add your comment" />
-          <button><Send /></button>
+          <input type="text" name="comment" id="comment" className="edit-ip" placeholder="Add your comment" value={comment} onChange={(e)=>setComment(e.target.value)}/>
+          <button onClick={postComment}><Send /></button>
         </div>
         <div>
         {comments.length > 0 ? comments.map(c=> <User user={c} />) : <Empty msg="Be the first one to comment" index={4} small={true}/>}
