@@ -23,6 +23,7 @@ export default function Signup() {
     campus: "Vellore",
     githubUsername: "",
     profileImg: "",
+    expertise:"",
     password: "",
     confirm_password: "",
   });
@@ -45,6 +46,7 @@ export default function Signup() {
         profileImg: "",
         password: "",
         confirm_password: "",
+        expertise:""
       })
       if(state.name){
         setSteps(2);
@@ -169,6 +171,17 @@ export default function Signup() {
                   onChange={handleChange}
                   value={user.githubUsername}
                 />
+              </div>
+              <div>
+                <label htmlFor="expertise">Your Expertise</label>
+                <select name="expertise" id="expertise" onChange={handleChange}>
+                  <option value="Web Development">Web Development</option>
+                  <option value="Machine Learning">Machine Learning</option>
+                  <option value="Data Science">Data Science</option>
+                  <option value="Python Developer">Python Developer</option>
+                  <option value="Blockchain Dev">Blockchain Dev</option>
+                  <option value="none">None</option>
+                </select>
               </div>
               <div>
                 <label htmlFor="profileImg">Choose your profile photo</label>

@@ -6,9 +6,6 @@ import { Add, Person, TurnedIn } from "@material-ui/icons";
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import notifications from "./img/notifications.png";
-import profile from "./img/profile.png";
-import save from "./img/save.png";
 
 function Sidebar({ type, showConfessModal, showFacultyModal,showIdeaModal,showPaperModal,showPostModal }) {
   const dispatch = useDispatch();
@@ -35,19 +32,16 @@ function Sidebar({ type, showConfessModal, showFacultyModal,showIdeaModal,showPa
     {
       id: 1,
       name: "Saved Posts",
-      img: save,
       link: auth._id ? "/Saved" : "/Login",
     },
     {
       id: 2,
       name: "Notifications",
-      img: notifications,
       link: auth._id ? "/Notifications" : "/Login",
     },
     {
       id: 3,
       name: "Your Profile",
-      img: profile,
       link: auth._id ? "/Profile" : "/Login",
     },
   ];
