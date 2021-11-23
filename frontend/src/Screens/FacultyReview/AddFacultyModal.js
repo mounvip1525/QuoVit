@@ -7,9 +7,10 @@ import "./css/FacultyReview.css";
 const AddFacultyModal = ({ closeModal, showModal }) => {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
-  const [faculty,setFaculty] = useState({facultyName:"",facultyRating:0})
+  const [faculty,setFaculty] = useState({facultyName:"",facultyRating:""})
   const handleSubmit = (e) => {
     e.preventDefault();
+    setFaculty({facultyName:"",facultyRating:0})
     dispatch(addFaculty(faculty,auth._id))
     closeModal();
   };
@@ -27,6 +28,7 @@ const AddFacultyModal = ({ closeModal, showModal }) => {
               type="text"
               id="facultyName"
               name="facultyName"
+              value={faculty.facultyName}
               onChange={handleChange}
             />
           </div>
@@ -38,6 +40,7 @@ const AddFacultyModal = ({ closeModal, showModal }) => {
               max="5"
               id="facultyRating"
               name="facultyRating"
+              value={faculty.facultyRating}
               onChange={handleChange}
             />
           </div>

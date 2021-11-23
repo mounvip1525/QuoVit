@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch , useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { getPosts, profileDetails, updateProfileDetails } from "../../Actions/posts";
-import MainLayout from "../../Components/Structure/Main";
+import { profileDetails, updateProfileDetails } from "../../Actions/posts";
 import Sub from "../../Components/Structure/Sub";
 import LandingCard from "../../Components/Cards/LandingCard";
 import User from "../../Components/User/User";
-import "./css/Profile.css";
-import pencil from "./img/Pencil.png";
-import bin from "./img/bin.png";
-import avatar from "./img/avatar.png";
-import { GitHub, Mail, Add, LinkedIn, WhatsApp, EditOutlined, ClearOutlined } from "@material-ui/icons";
 import Loader from "../../Components/Loader/loader";
-import { setLoading } from "../../Actions/auth";
 import Empty from "../../Components/Empty/Empty";
+import "./css/Profile.css";
+import avatar from "./img/avatar.png";
+import { GitHub, Mail, LinkedIn, WhatsApp, EditOutlined, ClearOutlined } from "@material-ui/icons";
 
 export default function Profile(props) {
   const history = useHistory();

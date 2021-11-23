@@ -4,7 +4,6 @@ export const getIdeas = () => async (dispatch) => {
   try {
     const { data } = await api.fetchIdeas();
     dispatch({ type: "FETCH_ALL_IDEAS", payload: data });
-    // dispatch({ type: "CLEAR_LOADING" })
   } catch (error) {
     console.log(error.message);
   }
@@ -17,7 +16,7 @@ export const addIdea = (idea,id) => async (dispatch) => {
         console.log(data)
         dispatch({type: "ADD_IDEA", payload: data});
       } else {
-        alert("fucker login first")
+        alert("login first")
       }
   } catch(error) {
     console.log(error.message);

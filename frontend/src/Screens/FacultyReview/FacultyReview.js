@@ -1,15 +1,13 @@
 import React, {useEffect,useState} from "react";
 import MainLayout from "../../Components/Structure/Main";
-import search from "./img/Search.png";
-import "./css/FacultyReview.css";
 import FacultyReviewCard from "../../Components/Cards/FacultyReviewCard";
 import AddFacultyModal from "./AddFacultyModal";
 import { getFacultyReviews } from "../../Actions/facultyReviews"; 
 import { useDispatch, useSelector } from "react-redux";
 import RateFacultyModal from "./RateFacultyModal";
-import { setLoading } from "../../Actions/auth";
 import Search from "./Search";
 import Loader from "../../Components/Loader/loader";
+import "./css/FacultyReview.css";
 
 export default function FacultyReview() {
   const [rateShow,setRateShow] = useState(false);
@@ -17,7 +15,6 @@ export default function FacultyReview() {
   const dispatch = useDispatch();
   const facultyReviews = useSelector((state) => state.facultyReviews);
   useEffect(() => {
-    // dispatch(setLoading)
     dispatch(getFacultyReviews());
   }, [dispatch]);
   const handleRateShow = (id,name) => {
@@ -35,7 +32,9 @@ export default function FacultyReview() {
             <FacultyReviewCard faculty={faculty} handleShow={handleRateShow}/>
           ))}
         </div>
-      </div> : <Loader />}
+      </div> : 
+      <Loader />
+      }
     </MainLayout>
   );
 }

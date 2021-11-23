@@ -12,6 +12,7 @@ const AddPostModal = ({ closeModal, showModal }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addPost(post,state._id))
+    setPost({caption:"",desc:"",img:"",isPublic:false})
     closeModal()
   };
   const handleChange = (e) => {

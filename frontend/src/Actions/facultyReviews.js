@@ -4,7 +4,6 @@ export const getFacultyReviews = () => async (dispatch) => {
   try {
     const { data } = await api.fetchFacultyReviews();
     dispatch({ type: "FETCH_ALL_FACULTIES", payload: data });
-    // dispatch({ type: "CLEAR_LOADING" })
   } catch (error) {
     console.log(error.message);
   }
@@ -20,7 +19,7 @@ export const addFaculty = (newFaculty,id) => async (dispatch) => {
         dispatch({type: "ADD_FACULTY", payload: data});
       }
     } else {
-      alert("Login first asshole")
+      alert("Login first")
     }
   } catch(error) {
     console.log(error.message);
@@ -37,7 +36,7 @@ export const rateFaculty = (userId,facId,rating) => async (dispatch) => {
       dispatch({ type: "RATE_FACULTY", payload: data });
         }
       } else {
-        alert("Login first you ass")
+        alert("Login first")
       }
     } catch (error) {
       console.log(error.message);

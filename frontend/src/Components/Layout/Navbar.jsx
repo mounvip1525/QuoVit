@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Tabs, Tab, Paper, Avatar } from "@material-ui/core"; 
 import { Link } from "react-router-dom";
 import logo from "./img/logo.png";
@@ -20,7 +20,6 @@ function a11yProps(index) {
 
 export default function Navbar() {
   const state = useSelector(state => state.auth)
-  const dispatch = useDispatch()
 
   const [value, setValue] = React.useState(0);
 

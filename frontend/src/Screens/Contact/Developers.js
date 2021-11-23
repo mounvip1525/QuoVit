@@ -18,11 +18,9 @@ export default function Developers() {
       swipeable={false}
       draggable={false}
       showDots={false}
-      responsive={responsive}
       ssr={true}
       infinite={true}
       autoPlay={false}
-      autoPlaySpeed={1000000000000}
       keyBoardControl={true}
       transitionDuration={500}
       >

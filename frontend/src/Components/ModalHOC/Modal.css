@@ -16,13 +16,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 1px;
-  /* padding: 2%; */
   box-sizing: border-box;
   margin: auto;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
   box-shadow: var(--box-shadow);
 }
 .display-block {

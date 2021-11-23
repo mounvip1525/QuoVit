@@ -1,14 +1,11 @@
 import React, { Component } from 'react'
-import './css/FacultyReview.css'
-import SearchIcon from '@material-ui/icons/Search';
-import { Link } from "react-router-dom";
-import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
-import srcpng from "./img/Search copy.png";
-import PropTypes from 'prop-types';
-import CourseCard from '../../Components/Cards/CourseCard';
 import FacultyReviewCard from '../../Components/Cards/FacultyReviewCard';
 import RateFacultyModal from './RateFacultyModal';
 import Empty from '../../Components/Empty/Empty';
+import PropTypes from 'prop-types';
+import './css/FacultyReview.css'
+import srcpng from "./img/Search copy.png";
+
 
 export default class Search extends Component {
     static propTypes = {

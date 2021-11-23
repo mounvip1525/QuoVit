@@ -1,28 +1,27 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import * as Validate from './helper.auth'
+import { useHistory } from "react-router";
+import { signUp } from "../../Actions/auth";
 import { Link } from "react-router-dom";
+import * as Validate from './helper.auth'
 import { ChevronLeft, ChevronRight } from "@material-ui/icons";
 import logo from "../../Assets/logo.png";
 import main from "./img/Signup.png";
 import "./css/Auth.css";
-import { signUp } from "../../Actions/auth";
 
 export default function Signup() {
+  const history = useHistory()
   const state = useSelector(state => state.auth)
-  console.log("auth state", state)
   const dispatch = useDispatch()
   const [steps, setSteps] = useState(0);
   const [width, setWidth] = useState(1);
   const [user, setUser] = useState({
     name: "",
     email: "",
-    // year: "",
     phoneNumber: "",
     branch: "",
     campus: "Vellore",
     githubUsername: "",
-    // resume: "",
     profileImg: "",
     password: "",
     confirm_password: "",
@@ -35,7 +34,6 @@ export default function Signup() {
         Validate.mobileValidation(user.phoneNumber) && 
         Validate.passwordValidation(user.password) && 
         Validate.confirmPasswordValidation(user.confirm_password)) {
-      // console.log(user)
       dispatch(signUp(user))
       setUser({
         name: "",
@@ -52,6 +50,7 @@ export default function Signup() {
         setSteps(2);
         setWidth(100);
       }
+      history.push("/Login")
     }
   };
   const handleChange = (e) => {
@@ -118,17 +117,6 @@ export default function Signup() {
                   placeholder="johndoe2019@vitstudent.ac.in"
                 />
               </div>
-              {/* <div>
-              <label htmlFor="year">Year of Study</label>
-              <input
-                type="text"
-                id="year"
-                name="year"
-                onChange={handleChange}
-                value={user.year}
-                placeholder="Ex. 3rd Year"
-              />
-            </div> */}
               <div>
                 <label htmlFor="phoneNumber">Mobile Number <span style={{ color: "red" }}>*</span></label>
                 <input
@@ -189,7 +177,6 @@ export default function Signup() {
                   id="profileImg"
                   name="profileImg"
                   onChange={handleProfileImgChange}
-                // value={user.profileImg}
                 />
               </div>
               <div>

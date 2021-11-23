@@ -1,6 +1,5 @@
 import React from "react";
-import { useDispatch , useSelector } from "react-redux";
-import person from "./img/person.png";
+import {  useSelector } from "react-redux";
 import "./css/FacultyReviewCard.css";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
@@ -11,7 +10,6 @@ export default function FacultyReviewCard(props) {
   const history = useHistory();
   const { facultyName, numOfVotes, facultyCMRating,_id } = props.faculty;
   const auth = useSelector((state)=>state.auth)
-  // console.log("faculty",props.faculty)
   const rating = (facultyCMRating / numOfVotes).toFixed(1);
   const colors = ["#DD2929", "#E5664A", "#F6E015", "#71D8B3"];
   const color =
@@ -22,7 +20,6 @@ export default function FacultyReviewCard(props) {
       : rating >= 2.5
       ? colors[1]
       : colors[0];
-  // const color = colors[0];
   const handleClick = () => {
     if(auth._id){
       props.handleShow(_id,facultyName)

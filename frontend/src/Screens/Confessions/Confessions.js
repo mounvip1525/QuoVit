@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import ConfessionCard from "../../Components/Cards/ConfessionCard";
 import MainLayout from "../../Components/Structure/Main";
 import "./css/Confessions.css";
 import { getConfessions } from "../../Actions/confessions";
 import { useDispatch, useSelector } from "react-redux";
 import AddConfession from "./AddConfession";
-import { setLoading } from "../../Actions/auth";
 import Loader from "../../Components/Loader/loader";
 
 export default function Confessions() {

@@ -3,21 +3,12 @@ import { useDispatch , useSelector } from "react-redux";
 import { useHistory } from "react-router-dom"
 import User from "../User/User.jsx";
 import "./css/LandingCard.css";
-import following from '../Cards/img/Follow.png'
-import friends from '../Cards/img/Friends.png'
-import up from '../Cards/img/up.png'
-import down from '../Cards/img/down.png'
-import comment from '../Cards/img/comment.png'
-import savenow from '../Cards/img/save.png'
-import saved from '../Cards/img/savedItem.png'
-import pic from './img/1.png'
 import { addComment, deletePost, dislikePost, likePost, toggleSavePost } from "../../Actions/posts";
 import DeleteIcon from '@material-ui/icons/Delete';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import CommentIcon from '@mui/icons-material/Comment';
 import TurnedInNotIcon from '@mui/icons-material/TurnedInNot';
-import TurnedInIcon from '@mui/icons-material/TurnedIn';
 import { Send, TurnedIn } from "@material-ui/icons";
 import Empty from "../Empty/Empty.js";
 
@@ -69,7 +60,6 @@ export default function LandingCard(props) {
     }
 setComment("")
   }
-  const [follow, setFollow] = useState(true);
   const likeCircleColors = ["#91C196","#C5D226", "#F6E015","#DA6767"];
   let diff = likes.length - dislikes.length
   const bgcolor = diff >= 10 ? 0 : diff>= 5 ? 1 : diff>= 3 ? 2 : 3;

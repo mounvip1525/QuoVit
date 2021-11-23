@@ -1,9 +1,8 @@
-import { Clear } from '@material-ui/icons';
 import React,{useState} from 'react'
 import {useHistory }from "react-router-dom"
 import { useDispatch , useSelector } from "react-redux";
 import { followUser,unfollowUser } from '../../Actions/users';
-import { Add, Check } from '@material-ui/icons'
+import { Add, Check,Clear } from '@material-ui/icons'
 import avatar from './Avatar8.png'
 import './User.css'
 

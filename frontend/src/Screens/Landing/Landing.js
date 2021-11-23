@@ -1,10 +1,9 @@
-import React, { Component , useEffect } from "react";
+import React, { useEffect } from "react";
 import { getPosts } from "../../Actions/posts";
 import { useDispatch, useSelector } from "react-redux";
 import MainLayout from "../../Components/Structure/Main";
 import "./css/Landing.css";
 import LandingCard from "../../Components/Cards/LandingCard";
-import avatar from "./img/Avatar8.png";
 import AddPostModal from "./AddPostModal";
 import Loader from "../../Components/Loader/loader";
 
@@ -26,7 +25,9 @@ export default function Landing(props){
                 saved={savedPosts.some(sPost=>sPost._id === post._id)}
               />
             ))}
-          </div> : <Loader />}
+          </div> : 
+          <Loader />
+          }
         </MainLayout>
     );
 }

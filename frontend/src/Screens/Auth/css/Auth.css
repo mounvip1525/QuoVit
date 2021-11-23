@@ -68,10 +68,8 @@
     color:var(--black);
     min-width:20rem;
     border-radius: 3px;
-    /* box-shadow: 0 0px 10px rgba(67, 71, 85, 0.75); */
 }
 .login-form div{
-    /* display:flex; */
     flex-direction: column;
     align-items: flex-start;
     padding:0 3% 3% 3%;

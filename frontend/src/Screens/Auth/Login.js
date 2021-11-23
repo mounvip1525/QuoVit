@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link , Redirect} from 'react-router-dom'
+import { signIn } from "../../Actions/auth";
 import * as Validate from './helper.auth'
+import './css/Auth.css'
 import logo from '../../Assets/logo.png'
 import main from './img/Login.png'
-import './css/Auth.css'
-import { signIn } from "../../Actions/auth";
 
 export default function Login() {
     const state = useSelector(state => state.auth)
@@ -16,7 +16,6 @@ export default function Login() {
         e.preventDefault();
         if (Validate.emailValidation(user.email) && 
             Validate.passwordValidation(user.password)) {
-          // console.log(user)
           dispatch(signIn(user))
           setUser({
             email: "",

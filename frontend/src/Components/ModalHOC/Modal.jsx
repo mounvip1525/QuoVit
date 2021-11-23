@@ -1,5 +1,5 @@
-import { Clear, TimerSharp } from "@material-ui/icons";
 import React from "react";
+import { Clear } from "@material-ui/icons";
 import "./Modal.css";
 
 export default function Modal(props) {

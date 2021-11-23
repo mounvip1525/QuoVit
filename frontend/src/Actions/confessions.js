@@ -4,7 +4,6 @@ export const getConfessions = () => async (dispatch) => {
   try {
     const { data } = await api.fetchConfessions();
     dispatch({ type: "FETCH_ALL_CONFESSIONS", payload: data });
-    // dispatch({ type: "CLEAR_LOADING" })
   } catch (error) {
     console.log(error.message);
   }

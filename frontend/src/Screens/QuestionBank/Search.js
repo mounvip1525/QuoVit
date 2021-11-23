@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 import './css/QuestionBank.css'
-import SearchIcon from '@material-ui/icons/Search';
-import { Link } from "react-router-dom";
-import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import srcpng from "./img/Search copy.png";
 import PropTypes from 'prop-types';
 import CourseCard from '../../Components/Cards/CourseCard';

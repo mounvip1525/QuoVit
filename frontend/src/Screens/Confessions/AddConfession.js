@@ -12,6 +12,7 @@ const AddConfession = ({ closeModal, showModal }) => {
     e.preventDefault();
     console.log(confession);
     dispatch(addConfession(auth._id,confession))
+    setConfession("")
     closeModal()
   };
   const handleChange = (e) => {
@@ -27,6 +28,7 @@ const AddConfession = ({ closeModal, showModal }) => {
             <textarea
               onChange={handleChange}
               className="confession-textarea"
+              value={confession}
             />
           </div>
           <button type="submit" className="login-btn add-btn">

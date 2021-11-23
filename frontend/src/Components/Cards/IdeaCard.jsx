@@ -1,6 +1,6 @@
-import { Add, Remove } from "@material-ui/icons";
 import React , {useState} from "react";
 import User from "../User/User.jsx";
+import { Add, Remove } from "@material-ui/icons";
 import "./css/IdeaCard.css";
 
 export default function IdeaCard(props) {

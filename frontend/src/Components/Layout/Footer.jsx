@@ -1,7 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import InfoIcon from '@mui/icons-material/Info';
 import './css/Footer.css'
-import { Link } from 'react-router-dom';
 
 export default function Footer() {
     return (

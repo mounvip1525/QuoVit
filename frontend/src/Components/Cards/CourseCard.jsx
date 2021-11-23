@@ -1,7 +1,7 @@
 import React from 'react'
-import './css/CourseCard.css'
 import { Link } from 'react-router-dom'
 import { ChevronRight } from '@material-ui/icons';
+import './css/CourseCard.css'
 
 export default function CourseCard(props) {
     const {courseName,courseCategory } = props.course;

@@ -1,6 +1,7 @@
 import * as api from "../API";
 
 export const getPosts = (id) => async (dispatch) => {
+  dispatch({ type: "SET_LOADING" })
   try {
     if(id === null) 
         id = "619ca53ce8ca95b0fa19defd"
@@ -9,36 +10,38 @@ export const getPosts = (id) => async (dispatch) => {
     // dispatch({ type: "CLEAR_LOADING" })
   } catch (error) {
     // alert(error.message);
-    console.log("ERR1",error)
+    alert(error)
   }
 };
 
 export const getSavedPosts = (id) => async (dispatch) => {
+  dispatch({ type: "SET_LOADING" })
   try {
     if(id === null) 
         id = "619ca53ce8ca95b0fa19defd"
     const { data } = await api.fetchSavedPosts(id);
     dispatch({ type: "FETCH_SAVED_POSTS", payload: data });
   } catch (error) {
-    alert("h12",error.message);
+    alert(error.message);
   }
 };
 
 export const toggleSavePost = (postid,userid) => async (dispatch) => {
+  dispatch({ type: "SET_LOADING" })
   try {
     if(userid === null) 
       alert("bruh login first")
     else {
     const { data } = await api.toggleSavePost(postid,userid);
-    console.log("action",data)
     dispatch({ type: "TOGGLE_SAVE_POST", payload: data });
     }
   } catch (error) {
-    console.log("3",error);
+    alert(error);
   }
 };
 
 export const likePost = (postid,userid) => async (dispatch) => {
+  dispatch({ type: "SET_LOADING" })
     try {
       if(userid === null) 
         alert("bruh login first")
@@ -47,12 +50,13 @@ export const likePost = (postid,userid) => async (dispatch) => {
       dispatch({ type: "LIKE_POST", payload: data });
         }
     } catch (error) {
-      console.log(error.message);
+      alert(error.message);
     }
   };
 
 
   export const dislikePost = (postid,userid) => async (dispatch) => {
+  dispatch({ type: "SET_LOADING" })
     try {
       if(userid === null) 
         alert("bruh login first") 
@@ -61,11 +65,12 @@ export const likePost = (postid,userid) => async (dispatch) => {
       dispatch({ type: "DISLIKE_POST", payload: data });
         }
     } catch (error) {
-      console.log(error.message);
+      alert(error.message);
     }
   };
 
 export const addPost = (post,id) => async (dispatch) => {
+  dispatch({ type: "SET_LOADING" })
   try {
       if(id){
         const { data } = await api.addPost(post,id);
@@ -73,11 +78,12 @@ export const addPost = (post,id) => async (dispatch) => {
         dispatch({type: "ADD_POST", payload: data});
       } 
   } catch(error) {
-    console.log(error);
+    alert(error);
   }
 }
 
 export const profileDetails = (id) => async (dispatch) => {
+  dispatch({ type: "SET_LOADING" })
   try {
     if(id){
       const { data } = await api.profileDetails(id);
@@ -87,10 +93,11 @@ export const profileDetails = (id) => async (dispatch) => {
       alert("fucker login first")
     }
   } catch (err) {
-    console.log("5",err)
+    alert(err)
   }
 }
 export const updateProfileDetails = (id,userId,edits) => async (dispatch) => {
+  dispatch({ type: "SET_LOADING" })
   try {
     if(id !== userId){
       alert("You can only edit your own post")
@@ -102,11 +109,12 @@ export const updateProfileDetails = (id,userId,edits) => async (dispatch) => {
       dispatch({type:"FETCH_PROFILE_DETAILS",payload:data})
     }
   } catch(err){
-    console.log(err)
+    alert(err)
   }
 }
 
 export const deletePost = (postid,userId) => async (dispatch) => {
+  dispatch({ type: "SET_LOADING" })
   try {
     if(!userId){
       alert("Login first")
@@ -121,6 +129,7 @@ export const deletePost = (postid,userId) => async (dispatch) => {
 }
 
 export const addComment = (postId,userId,comment) => async (dispatch) => {
+  dispatch({ type: "SET_LOADING" })
   try {
     if(!userId){
       alert("Login first")

@@ -1,11 +1,8 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch , useSelector } from "react-redux";
-import logo from './img/Avatar8.png'
-import add from './img/add.png'
-import './css/Suggestions.css'
-import { Add, Check } from '@material-ui/icons'
 import { getSuggestedUsers } from '../../Actions/users';
 import User from '../User/User';
+import './css/Suggestions.css'
 
 export default function Suggestions() {
     const dispatch = useDispatch();

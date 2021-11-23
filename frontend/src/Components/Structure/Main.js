@@ -24,7 +24,7 @@ export default function MainLayout(props) {
             <div className="layout-main">
                 <Sidebar type={props.type}/>
                 <div style={{width:"60%"}}>
-                    {/* <Loader /> */}
+                    <Loader />
                     {props.children}
                 </div>
                 <Suggestions />

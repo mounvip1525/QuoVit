@@ -1,14 +1,13 @@
-import React, { Component , useEffect } from "react";
+import React, { useEffect } from "react";
 import { getSavedPosts } from "../../Actions/posts";
 import { useDispatch, useSelector } from "react-redux";
 import MainLayout from "../../Components/Structure/Main";
 import "./css/Landing.css";
 import LandingCard from "../../Components/Cards/LandingCard";
-import avatar from "./img/Avatar8.png";
 import AddPostModal from "./AddPostModal";
 import Empty from "../../Components/Empty/Empty";
 
-export default function Saved(props){
+export default function Saved(){
   const dispatch = useDispatch();
   const {savedPosts} = useSelector((state) => state.posts);
   const auth = useSelector((state)=>state.auth)

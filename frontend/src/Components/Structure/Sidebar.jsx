@@ -1,18 +1,14 @@
 import React, { useState } from "react";
-import { useDispatch , useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import add from "./img/add.png";
-import logout from "./img/Logout.png";
+import { connect, useDispatch , useSelector } from "react-redux";
+import "./css/Sidebar.css";
+import { Add, Person, TurnedIn } from "@material-ui/icons";
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 import notifications from "./img/notifications.png";
 import profile from "./img/profile.png";
 import save from "./img/save.png";
-import "./css/Sidebar.css";
-import { Add, Person, TurnedIn } from "@material-ui/icons";
-import { connect } from "react-redux";
-import LoginIcon from '@mui/icons-material/Login';
-import LogoutIcon from '@mui/icons-material/Logout';
-import { signOut } from "../../Actions/auth";
-import NotificationsIcon from '@mui/icons-material/Notifications';
 
 function Sidebar({ type, showConfessModal, showFacultyModal,showIdeaModal,showPaperModal,showPostModal }) {
   const dispatch = useDispatch();
@@ -24,6 +20,7 @@ function Sidebar({ type, showConfessModal, showFacultyModal,showIdeaModal,showPa
     setSelected(id);
     history.push(link,{id:auth._id});
   };
+  console.log("path",path)
   const handleLogout = () => {
     dispatch({type:"SIGN_OUT"})
     dispatch({type:"CLEAR_POSTS"})

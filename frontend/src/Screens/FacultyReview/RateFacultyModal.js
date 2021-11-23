@@ -15,6 +15,7 @@ export default function RateFacultyModal({
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(rateFaculty(auth._id,activeFaculty.id, rating));
+    setRating("")
     closeModal();
   };
   const handleChange = (e) => {
@@ -38,6 +39,7 @@ export default function RateFacultyModal({
               max="5"
               id="facultyRating"
               name="facultyRating"
+              value={rating}
               onChange={handleChange}
             />
           </div>

@@ -2,7 +2,8 @@ let initialState = {
   posts: [],
   savedPosts: [],
   userPosts:[],
-  profileDetails:[]
+  profileDetails:[],
+  loading: false
 }
 let posts = (state = initialState, action) => {
   switch (action.type) {
@@ -11,21 +12,30 @@ let posts = (state = initialState, action) => {
     case "DISLIKE_POST":
     case "TOGGLE_SAVE_POST":
     case "ADD_COMMENT":
-      return { ...initialState, posts: action.payload.uniquePosts, savedPosts: action.payload.savedPosts };
+      return { ...initialState, posts: action.payload.uniquePosts, savedPosts: action.payload.savedPosts, loading:false };
     case "ADD_POST":
-      return { ...initialState, posts: [action.payload, ...state.posts] }
+      return { ...initialState, posts: [action.payload, ...state.posts],loading:false }
     case "FETCH_SAVED_POSTS":
-      return { ...initialState, savedPosts: action.payload };
+      return { ...initialState, savedPosts: action.payload ,loading:false};
     case "FETCH_PROFILE_DETAILS":
     case "DELETE_POST":
     case "UNFOLLOW_USER":
-      return { ...initialState, userPosts: action.payload.posts, profileDetails:action.payload};
+      return { ...initialState, userPosts: action.payload.posts, profileDetails:action.payload,loading:false};
     case "CLEAR_POSTS":
       return {  posts: [],
         savedPosts: [],
         userPosts:[],
-        profileDetails:[]
-      }
+        profileDetails:[],
+        loading:false
+      };
+      case "SET_LOADING": 
+      return {
+        ...initialState, loading:true
+      };
+      case "CLEAR_LOADING": 
+      return {
+        ...initialState, loading:true
+      };
     default:
       return state;
   }
