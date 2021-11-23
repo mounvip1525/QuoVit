@@ -6,23 +6,22 @@ import IdeaCard from "../../Components/Cards/IdeaCard";
 import "./css/IdeasBlock.css";
 import AddIdeaModal from "./AddIdeaModal";
 import { setLoading } from "../../Actions/auth";
+import Loader from "../../Components/Loader/loader";
 
 export default function IdeasBlock() {
   const dispatch = useDispatch();
   const ideas = useSelector((state) => state.ideas);
   useEffect(() => {
-    dispatch(setLoading)
-    // dispatch({ type: "SET_LOADING" })
     dispatch(getIdeas());
   }, [dispatch]);
   return (
     <MainLayout type="ideasBlock">
       <AddIdeaModal />
-      <div className="ideas-main">
+      {ideas.length>0 ? <div className="ideas-main">
         {ideas.map((idea) => (
           <IdeaCard idea={idea} />
         ))}
-      </div>
+      </div> : <Loader />}
     </MainLayout>
   );
 }

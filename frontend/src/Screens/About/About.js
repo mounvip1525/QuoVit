@@ -11,7 +11,7 @@ import line from './img/line.png';
 
 export default function About() {
   return (
-    <Sub>
+    <Sub className="about-pg">
       <div className="about-head">
           <img src={line} alt="------------------" />
           <h1 className="about-h1">ABOUT US</h1>

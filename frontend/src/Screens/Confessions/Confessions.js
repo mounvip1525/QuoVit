@@ -6,19 +6,18 @@ import { getConfessions } from "../../Actions/confessions";
 import { useDispatch, useSelector } from "react-redux";
 import AddConfession from "./AddConfession";
 import { setLoading } from "../../Actions/auth";
+import Loader from "../../Components/Loader/loader";
 
 export default function Confessions() {
   const dispatch = useDispatch();
   const confessions = useSelector((state) => state.confessions);
   useEffect(() => {
-    // dispatch({ type: "SET_LOADING" })
-    dispatch(setLoading)
     dispatch(getConfessions());
   }, [dispatch]);
   return (
     <MainLayout type="confessions">
       <AddConfession />
-      <div className="confessions-cont">
+      {confessions.length > 0 ?       <div className="confessions-cont">
         <div className="c-1">
           {confessions.map((confession, index) =>
             index % 2 === 0 ? (
@@ -47,7 +46,7 @@ export default function Confessions() {
             )
           )}
         </div>
-      </div>
+      </div> : <Loader />}
     </MainLayout>
   );
 }

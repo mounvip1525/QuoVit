@@ -4,7 +4,7 @@ export const getFacultyReviews = () => async (dispatch) => {
   try {
     const { data } = await api.fetchFacultyReviews();
     dispatch({ type: "FETCH_ALL_FACULTIES", payload: data });
-    dispatch({ type: "CLEAR_LOADING" })
+    // dispatch({ type: "CLEAR_LOADING" })
   } catch (error) {
     console.log(error.message);
   }

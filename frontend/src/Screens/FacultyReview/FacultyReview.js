@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import RateFacultyModal from "./RateFacultyModal";
 import { setLoading } from "../../Actions/auth";
 import Search from "./Search";
+import Loader from "../../Components/Loader/loader";
 
 export default function FacultyReview() {
   const [rateShow,setRateShow] = useState(false);
@@ -16,7 +17,7 @@ export default function FacultyReview() {
   const dispatch = useDispatch();
   const facultyReviews = useSelector((state) => state.facultyReviews);
   useEffect(() => {
-    dispatch(setLoading)
+    // dispatch(setLoading)
     dispatch(getFacultyReviews());
   }, [dispatch]);
   const handleRateShow = (id,name) => {
@@ -28,13 +29,13 @@ export default function FacultyReview() {
       <Search faculties={facultyReviews} />
       <AddFacultyModal />
       <RateFacultyModal showModal={rateShow} activeFaculty={activeFaculty} closeModal={()=>setRateShow(false)}/>
-      <div className="fac-main">
+      {facultyReviews.length>0 ? <div className="fac-main">
         <div className="fac-cards">
           {facultyReviews.map((faculty) => (
             <FacultyReviewCard faculty={faculty} handleShow={handleRateShow}/>
           ))}
         </div>
-      </div>
+      </div> : <Loader />}
     </MainLayout>
   );
 }

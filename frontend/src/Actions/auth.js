@@ -35,21 +35,21 @@ export const signIn = (user) => async (dispatch) => {
   }
 };
 
-export const setLoading = () => async (dispatch) => {
-  try{
-    dispatch({ type: "SET_LOADING" })
-  } catch(err){
-    console.log(err)
-  }
-}
+// export const setLoading = () => async (dispatch) => {
+//   try{
+//     dispatch({ type: "SET_LOADING" })
+//   } catch(err){
+//     console.log(err)
+//   }
+// }
 
-export const clearLoading = () => async (dispatch) => {
-  try{
-    dispatch({ type: "CLEAR_LOADING" })
-  } catch(err){
-    console.log(err)
-  }
-}
+// export const clearLoading = () => async (dispatch) => {
+//   try{
+//     dispatch({ type: "CLEAR_LOADING" })
+//   } catch(err){
+//     console.log(err)
+//   }
+// }
 
 // export const signIn = (email, password) => {
 //   return (dispatch) => {

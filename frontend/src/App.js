@@ -19,6 +19,9 @@ import Mentorship from "./Screens/Mentor/Mentorship";
 function App() {
   return (
     <Switch>
+            <Route exact path="/Login" component={Login} />
+      <Route exact path="/Signup" component={Signup} />
+      
       <Route exact path="/" component={Landing} />
       <Route exact path="/Saved" component={SavedPosts} />
       <Route exact path="/Notifications" component={Notifications} />
@@ -31,9 +34,6 @@ function App() {
       <Route exact path="/EachCourse" component={EachCourse} />
 
       <Route exact path="/Mentorship" component={Mentorship} />
-
-      <Route exact path="/Login" component={Login} />
-      <Route exact path="/Signup" component={Signup} />
 
       <Route exact path="/Contact" component={Contact} />  
       <Route exact path="/About" component={About} />

@@ -20,6 +20,12 @@ let posts = (state = initialState, action) => {
     case "DELETE_POST":
     case "UNFOLLOW_USER":
       return { ...initialState, userPosts: action.payload.posts, profileDetails:action.payload};
+    case "CLEAR_POSTS":
+      return {  posts: [],
+        savedPosts: [],
+        userPosts:[],
+        profileDetails:[]
+      }
     default:
       return state;
   }

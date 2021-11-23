@@ -3,10 +3,10 @@ import * as api from "../API";
 export const getPosts = (id) => async (dispatch) => {
   try {
     if(id === null) 
-        id = "6188299c20192f9a7c1f814c"
+        id = "619ca53ce8ca95b0fa19defd"
     const { data } = await api.fetchPosts(id);
     dispatch({ type: "FETCH_ALL_POSTS", payload: data });
-    dispatch({ type: "CLEAR_LOADING" })
+    // dispatch({ type: "CLEAR_LOADING" })
   } catch (error) {
     // alert(error.message);
     console.log("ERR1",error)
@@ -16,7 +16,7 @@ export const getPosts = (id) => async (dispatch) => {
 export const getSavedPosts = (id) => async (dispatch) => {
   try {
     if(id === null) 
-        id = "6188299c20192f9a7c1f814c"
+        id = "619ca53ce8ca95b0fa19defd"
     const { data } = await api.fetchSavedPosts(id);
     dispatch({ type: "FETCH_SAVED_POSTS", payload: data });
   } catch (error) {

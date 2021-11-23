@@ -41,7 +41,7 @@ export default function Profile(props) {
   }
   const auth = useSelector((state)=>state.auth)
   useEffect(() => {
-    dispatch(setLoading)
+    // dispatch(setLoading)
     let id = history.location.state ? history.location.state.id : auth._id
     dispatch(profileDetails(id))
   }, [dispatch,auth,history]);

@@ -6,15 +6,12 @@
     align-items: center;
     padding:0.5% 2%;
 }
-.footer > div{
-    display:flex;
-    align-items: center;
-    min-width:20%;
-}
-.footer > div > svg{
-    margin-right:2%;
-}
 .footer > a{
     text-decoration: none;
     color:black;
+    align-items: center;
+    display:flex;
+}
+.footer > a > svg{
+    margin-right:2px;
 }

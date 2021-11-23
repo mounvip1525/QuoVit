@@ -46,17 +46,17 @@ let auth = (state = initialState, action) => {
         _id: null,
         savedPosts: []
       }
-    case "REDIRECT_LOGIN":
-      // window.location.replace("/")
-      return state
-    case "SET_LOADING":
-      return {
-        ...initialState, loading: true
-      }
-    case "CLEAR_LOADING":
-      return {
-        ...initialState, loading: false
-      }
+    // case "REDIRECT_LOGIN":
+    //   // window.location.replace("/")
+    //   return state
+    // case "SET_LOADING":
+    //   return {
+    //     ...initialState, loading: true
+    //   }
+    // case "CLEAR_LOADING":
+    //   return {
+    //     ...initialState, loading: false
+    //   }
     default:
       return state;
   }

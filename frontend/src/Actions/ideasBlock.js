@@ -4,7 +4,7 @@ export const getIdeas = () => async (dispatch) => {
   try {
     const { data } = await api.fetchIdeas();
     dispatch({ type: "FETCH_ALL_IDEAS", payload: data });
-    dispatch({ type: "CLEAR_LOADING" })
+    // dispatch({ type: "CLEAR_LOADING" })
   } catch (error) {
     console.log(error.message);
   }

@@ -4,7 +4,7 @@ export const getCourses = () => async (dispatch) => {
   try {
     const { data } = await api.fetchCourses();
     dispatch({ type: "FETCH_ALL_PAPERS", payload: data });
-    dispatch({ type: "CLEAR_LOADING" })
+    // dispatch({ type: "CLEAR_LOADING" })
   } catch (error) {
     alert(error.message);
   }

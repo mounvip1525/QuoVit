@@ -26,6 +26,7 @@ function Sidebar({ type, showConfessModal, showFacultyModal,showIdeaModal,showPa
   };
   const handleLogout = () => {
     dispatch({type:"SIGN_OUT"})
+    dispatch({type:"CLEAR_POSTS"})
   }
   const handleLogin = () => {
     history.push("/Login")
