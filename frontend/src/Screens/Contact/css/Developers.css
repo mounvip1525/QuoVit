@@ -3,6 +3,7 @@
 }
 .dev-div h3{
     font-weight: 500;
+    color:var(--black)
 }
 .dev-card{
     position:relative;

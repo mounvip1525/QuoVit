@@ -9,7 +9,7 @@
 .modal-main {
   z-index: 25;
   position: fixed;
-  background: white;
+  background: var(--white);
   min-width: 40%;
   height: auto;
   top: 50%;

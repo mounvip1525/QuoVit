@@ -22,6 +22,9 @@
 }
 .toggler{
     position:fixed;
-    bottom:2%;
+    bottom:6%;
     right:3%;
+    background: var(--black);
+    color:var(--white);
+    padding:1%;
 }

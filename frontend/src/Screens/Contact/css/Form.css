@@ -3,6 +3,8 @@
   flex-direction: column;
   padding: 2%;
   box-sizing: border-box;
+  background: var(--white);
+  color:var(--black)
 }
 .contact-input {
   display: flex;
@@ -23,6 +25,7 @@
   border-bottom: 1px solid black;
   width: 80%;
   padding: 4%;
+  background: var(--whiteTwo);
 }
 .contact-input textarea {
   width: 40%;
@@ -32,6 +35,7 @@
   box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
   height: 16rem;
   padding: 1%;
+  background: var(--whiteTwo);
 }
 .contact-radio {
   display: flex;

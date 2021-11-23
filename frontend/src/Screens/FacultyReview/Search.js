@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import CourseCard from '../../Components/Cards/CourseCard';
 import FacultyReviewCard from '../../Components/Cards/FacultyReviewCard';
 import RateFacultyModal from './RateFacultyModal';
+import Empty from '../../Components/Empty/Empty';
 
 export default class Search extends Component {
     static propTypes = {
@@ -85,7 +86,7 @@ export default class Search extends Component {
             } else {
                 optionList = (
                     <div className="no-options">
-                        <em>No results</em>
+                        <Empty msg="No Faculty Found" index={1} />
                     </div>
                 );
             }

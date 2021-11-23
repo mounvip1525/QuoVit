@@ -14,7 +14,7 @@
     border:none;
     outline:none;
     padding:1% 3%;
-    background: white;
+    background: var(--whiteTwo);
     overflow-y:scroll;
     resize: none;
     margin:auto;

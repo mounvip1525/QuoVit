@@ -19,7 +19,7 @@ export default function MainLayout(props) {
     }
     return (
         <div>
-            <button className="toggler"onClick={toggleTheme}>Toggle</button>
+            {theme==='light' ? <i className="fa fa-moon toggler" onClick={toggleTheme}></i> : <i className="fas fa-sun toggler" onClick={toggleTheme}></i>}
             <Navbar />
             <div className="layout-main">
                 <Sidebar type={props.type}/>

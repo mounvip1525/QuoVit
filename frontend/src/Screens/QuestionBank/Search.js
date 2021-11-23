@@ -6,6 +6,7 @@ import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import srcpng from "./img/Search copy.png";
 import PropTypes from 'prop-types';
 import CourseCard from '../../Components/Cards/CourseCard';
+import Empty from '../../Components/Empty/Empty'
 
 export default class Search extends Component {
     static propTypes = {
@@ -58,7 +59,7 @@ export default class Search extends Component {
             } else {
                 optionList = (
                     <div className="no-options">
-                        <em>No results</em>
+                        <Empty msg="No course found" index={1} />
                     </div>
                 );
             }

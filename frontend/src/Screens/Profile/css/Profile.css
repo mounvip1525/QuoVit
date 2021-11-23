@@ -1,6 +1,5 @@
 .profile-main {
-  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
-    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  box-shadow: var(--box-shadow);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,9 +34,11 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+  color:var(--black)
 }
 .user-second {
   width: 70%;
+  color:var(--black)
 }
 .user-first img {
   height: 12rem;
@@ -109,7 +110,7 @@
 }
 .skills-div p {
   display: inline-flex;
-  border: 1.5px solid black;
+  border: 1.5px solid var(--black);
   margin-right: 2%;
   border-radius: 3px;
   padding: 0.5% 2%;
