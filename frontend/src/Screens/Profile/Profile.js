@@ -76,7 +76,7 @@ export default function Profile(props) {
         <div className="u-main">
           <div className="user-details">
             <div className="user-first">
-              <img src={profileImg} style={{ background: "black" }} alt="img" />
+              <img src={profileImg || avatar} style={{ background: "black" }} alt="img" />
               <div className="user-contact">
                 <h4>Connect with me</h4>
                 <div>

@@ -18,12 +18,15 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import CommentIcon from '@mui/icons-material/Comment';
 import TurnedInNotIcon from '@mui/icons-material/TurnedInNot';
 import TurnedInIcon from '@mui/icons-material/TurnedIn';
-import { TurnedIn } from "@material-ui/icons";
+import { Send, TurnedIn } from "@material-ui/icons";
+import Empty from "../Empty/Empty.js";
 
 export default function LandingCard(props) {
   const history = useHistory()
   const [fullText,setFullText] = useState(true)
-  const { creator , caption , desc , likes , dislikes , img , _id } = props.post;
+  const [showComments,setShowComments] = useState(false)
+  const { creator , caption , desc , likes , dislikes , img , _id, comments } = props.post;
+  console.log(props.post)
   const [save,setSave] = useState(props.saved)
   const dispatch = useDispatch();
   const auth = useSelector((state)=>state.auth)
@@ -51,6 +54,9 @@ export default function LandingCard(props) {
   }
   const handleDelete = () => {
       dispatch(deletePost(_id,auth._id))
+  }
+  const handleCommentClick = () => {
+    setShowComments(!showComments)
   }
   const [follow, setFollow] = useState(true);
   const likeCircleColors = ["#91C196","#C5D226", "#F6E015","#DA6767"];
@@ -81,19 +87,28 @@ export default function LandingCard(props) {
           <ArrowDropDownIcon onClick={handleDislikeClick} />
           </div>
           <div>
-            <CommentIcon style={{marginRight:"0.3rem"}}/>
+            <CommentIcon style={{marginRight:"0.3rem"}} onClick={handleCommentClick}/>
             {/* <p>{comments}</p> */}
             <p>5kk</p>
           </div>
           <div>
             {save ? 
             <TurnedIn style={{marginRight:"0.3rem"}} onClick={handleSaveClick} /> : 
-            <TurnedInNotIcon style={{marginRight:"0.3rem"}} onClick={handleSaveClick} />
-}
+            <TurnedInNotIcon style={{marginRight:"0.3rem"}} onClick={handleSaveClick} />}
             <p>{save ? "Saved" : "Save"}</p>
           </div>
         </div>
       </div>
+      {showComments && 
+      <div className="comment-box">
+        <div>
+          <input type="text" name="comment" id="comment" className="edit-ip" placeholder="Add your comment" />
+          <button><Send /></button>
+        </div>
+        <div>
+        {comments.length > 0 ? comments.map(c=> <User user={c} />) : <Empty msg="Be the first one to comment" index={4} small={true}/>}
+        </div>
+      </div>}
     </div>
   );
 }

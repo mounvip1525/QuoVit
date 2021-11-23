@@ -12,7 +12,7 @@ export default function User(props) {
     const [check,setCheck]=useState(true);
     const dispatch = useDispatch();
     const auth = useSelector((state)=>state.auth)
-    const {name,designation,background,img,profileImg, tagLine,_id } = props.user;
+    const {name,designation,background,img,profileImg, tagLine,_id, comment } = props.user;
         const handleUnfollow = (e) => {
         dispatch(unfollowUser(auth._id,_id))
         e.stopPropagation()
@@ -33,11 +33,12 @@ export default function User(props) {
         });
     }
     return (
-        <div className="user-card" onClick={handleUserChange}>
+        <div className={comment ? `user-card mb-3` : "user-card"} onClick={handleUserChange}>
             <img src={img || profileImg || avatar} alt={name} style={{background:background || "black"}}/>
             <div>
                 <h4>{name}</h4>
                 <p style={{fontSize:"x-small",color:"grey"}}>{designation || tagLine}</p>
+                {comment && <p style={{color:"grey",fontStyle:"italic"}}>{comment}</p>}
             </div>
             { props.remove && <Clear onClick={handleUnfollow}/> }
             { props.add ? check ? <Add className="suggestions-add" onClick={handleFollow}/> : <Check className="suggestions-add" /> : null }
