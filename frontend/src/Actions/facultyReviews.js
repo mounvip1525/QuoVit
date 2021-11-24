@@ -1,6 +1,7 @@
 import * as api from "../API";
 
 export const getFacultyReviews = () => async (dispatch) => {
+  dispatch({ type: "SET_F_LOADING" })
   try {
     const { data } = await api.fetchFacultyReviews();
     dispatch({ type: "FETCH_ALL_FACULTIES", payload: data });
@@ -12,6 +13,7 @@ export const getFacultyReviews = () => async (dispatch) => {
 export const addFaculty = (newFaculty,id) => async (dispatch) => {
   try {
     if(id){
+  dispatch({ type: "SET_F_LOADING" })
       const { data } = await api.addFaculty(newFaculty,id);
       if(data.message){
         alert(data.message)
@@ -29,6 +31,7 @@ export const addFaculty = (newFaculty,id) => async (dispatch) => {
 export const rateFaculty = (userId,facId,rating) => async (dispatch) => {
     try {
       if(userId){
+  dispatch({ type: "SET_F_LOADING" })
         const { data } = await api.rateFaculty(userId,facId,rating);
         if(data.message){
           alert(data.message)

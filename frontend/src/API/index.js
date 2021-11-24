@@ -20,6 +20,8 @@ export const followUser = (userId,followId) => axios.put(`${backend_url}user/fol
 export const unfollowUser = (userId,followId) => axios.put(`${backend_url}user/unfollow/${userId}`,{userId:followId})
 export const getSuggestedUsers = (id) => axios.get(`${backend_url}user/suggestions/${id}`)
 
+export const getMentors = () => axios.get(`${backend_url}user/getMentors`)
+
 export const fetchConfessions = () => axios.get(`${backend_url}confessions`)
 export const addConfession = (newConfession) => axios.post(`${backend_url}confessions/add`,{confession:newConfession})
 

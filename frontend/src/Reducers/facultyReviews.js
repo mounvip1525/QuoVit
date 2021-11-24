@@ -1,13 +1,19 @@
-let facultyReviews = (facultyReviews = [], action) => {
+let initialState = {
+  facultyReviews: [],
+  loading: false
+}
+let facultyReviews = (state = initialState, action) => {
     switch (action.type) {
       case "FETCH_ALL_FACULTIES":
-        return action.payload;
+        return {facultyReviews: action.payload, loading:false};
       case "ADD_FACULTY":
-        return [...facultyReviews,action.payload];
+        return {facultyReviews : [...state.facultyReviews,action.payload] , loading:false};
       case "RATE_FACULTY":
-          return [...facultyReviews.filter(f=>f._id !== action.payload._id),action.payload];
-      default:
-        return facultyReviews;
+          return {facultyReviews: [...state.facultyReviews.filter(f=>f._id !== action.payload._id),action.payload],loading: false};
+      case "SET_F_LOADING":
+        return {...state,loading:true}
+            default:
+        return state;
     }
   };
   export default facultyReviews;

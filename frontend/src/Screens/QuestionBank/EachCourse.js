@@ -11,14 +11,14 @@ export default function EachCourse() {
   const history = useHistory()
   const { query } = useLocation();
   const dispatch = useDispatch();
-  const {courseName,courseCategory,cat1,cat2,fat} = useSelector((state) => state.eachCourse);
+  const {courseName,courseCategory,cat1,cat2,fat} = useSelector((state) => state.eachCourse.eachCourse);
   useEffect(() => {
     if(query){
       dispatch(getPapersByCourse(query.props.course.courseName));
     } else {
       history.push("/Login")
     }
-  });
+  },[dispatch,history,query]);
   return (
     <MainLayout type="questionBank">
       <AddPaperModal />

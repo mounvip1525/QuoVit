@@ -1,11 +1,17 @@
-let courses = (eachCourse = [], action) => {
+let initialState = {
+  eachCourse:[],
+  loading:false
+}
+let courses = (state = initialState , action) => {
     switch (action.type) {
       case "FETCH_BY_COURSENAME":
-        return action.payload;
+        return {eachCourse: action.payload, loading: false };
     case "DOWNLOAD_PAPER":
-        return eachCourse;
+        return {eachCourse: initialState.eachCourse};
+    case "SET_QP_LOADING":
+      return { ...state, loading : true }
       default:
-        return eachCourse;
+        return state;
     }
   };
 

@@ -45,9 +45,7 @@ export default function FacultyReviewCard(props) {
         value={rating * 20}
         text={`${rating}/5`}
         styles={buildStyles({
-          // textColor: "black",
           pathColor: color,
-          // trailColor: "#C4C4C4",
         })}
       />
     </div>

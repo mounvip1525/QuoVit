@@ -5,24 +5,21 @@ import MainLayout from "../../Components/Structure/Main";
 import IdeaCard from "../../Components/Cards/IdeaCard";
 import "./css/IdeasBlock.css";
 import AddIdeaModal from "./AddIdeaModal";
-import Loader from "../../Components/Loader/loader";
 
 export default function IdeasBlock() {
   const dispatch = useDispatch();
-  const ideas = useSelector((state) => state.ideas);
+  const { ideas } = useSelector((state) => state.ideas);
   useEffect(() => {
     dispatch(getIdeas());
   }, [dispatch]);
   return (
     <MainLayout type="ideasBlock">
       <AddIdeaModal />
-      {ideas.length > 0 ? <div className="ideas-main">
+      <div className="ideas-main">
         {ideas.map((idea) => (
           <IdeaCard idea={idea} />
         ))}
-      </div> : 
-      <Loader />
-      }
+      </div>
     </MainLayout>
   );
 }

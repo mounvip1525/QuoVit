@@ -6,6 +6,7 @@ import { Add, Person, TurnedIn } from "@material-ui/icons";
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
 
 function Sidebar({ type, showConfessModal, showFacultyModal,showIdeaModal,showPaperModal,showPostModal }) {
   const dispatch = useDispatch();
@@ -36,8 +37,10 @@ function Sidebar({ type, showConfessModal, showFacultyModal,showIdeaModal,showPa
     },
     {
       id: 2,
-      name: "Notifications",
-      link: auth._id ? "/Notifications" : "/Login",
+      // name: "Notifications",
+      // link: auth._id ? "/Notifications" : "/Login",
+      name: "Mentorship",
+      link: "/Mentorship"
     },
     {
       id: 3,
@@ -54,7 +57,7 @@ function Sidebar({ type, showConfessModal, showFacultyModal,showIdeaModal,showPa
             ? showConfessModal
             : path === "/FacultyReview"
             ? showFacultyModal
-            : path === "/" || path === "/Saved" || path === "/Notifications"
+            : path === "/" || path === "/Saved" || path === "/Notifications" || path === "/Mentorship"
             ? showPostModal
             : path === "/IdeasBlock"
             ? showIdeaModal
@@ -80,7 +83,10 @@ function Sidebar({ type, showConfessModal, showFacultyModal,showIdeaModal,showPa
             onClick={() => handleClick(btn.id, btn.link)}
             className={btn.id === selected ? "side-selected" : ""}
           >
-            {btn.id === 1 ? <TurnedIn /> : btn.id === 2 ? <NotificationsIcon /> : <Person />} 
+            {btn.id === 1 ? <TurnedIn /> : btn.id === 2 ? 
+            // <NotificationsIcon /> 
+            <AccessibilityNewIcon />
+            : <Person />} 
             {btn.name}
           </button>
         ))}

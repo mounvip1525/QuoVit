@@ -27,3 +27,12 @@ export const getSuggestedUsers = (id) => async (dispatch) => {
     alert(err)
   }
 }
+
+export const getMentors = () => async (dispatch) => {
+  try {
+    const { data } = await api.getMentors();
+    dispatch({ type: "FETCH_MENTORS" , payload: data })
+  } catch(err) {
+    alert(err)
+  }
+}

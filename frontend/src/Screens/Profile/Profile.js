@@ -13,7 +13,6 @@ import { GitHub, Mail, LinkedIn, WhatsApp, EditOutlined, ClearOutlined } from "@
 
 export default function Profile(props) {
   const history = useHistory();
-  console.log(history)
   const [userEdit,setUserEdit] = useState({
     proj:[],
     workExp:[],
@@ -37,12 +36,10 @@ export default function Profile(props) {
   }
   const auth = useSelector((state)=>state.auth)
   useEffect(() => {
-    // dispatch(setLoading)
     let id = history.location.state ? history.location.state.id : auth._id
     dispatch(profileDetails(id))
   }, [dispatch,auth,history]);
   const [activeTab, setActiveTab] = useState("posts");
-  // const self = history.location.state ? history.location.state.id === auth._id ? true : false : ;
   const self = (auth && history.location.state) ? 
                 auth._id === history.location.state.id ? true : false : false;
                 console.log(self)
@@ -75,24 +72,23 @@ export default function Profile(props) {
               <img src={profileImg || avatar} style={{ background: "black" }} alt="img" />
               <div className="user-contact">
                 <h4>Connect with me</h4>
-                <div>
+                {user.email && <div>
                   <Mail />
                   <p>{user.email}</p>
-                </div>
-                <div>
+                </div>}
+                {user.linkedIn && <div>
                   <LinkedIn />
                   <p>{user.linkedIn}</p>
-                </div>
-                <div>
+                </div>}
+                {user.phoneNumber && <div>
                   <WhatsApp />
                   <p>{user.phoneNumber}</p>
-                </div>
-                <div>
+                </div>}
+                {user.githubUsername && <div>
                   <GitHub />
                   <p>{user.githubUsername}</p>
-                </div>
+                </div>}
                 <div className="user-btn">
-            {/* <button className="resume-btn">Resume</button> */}
           </div>
               </div>
             </div>
@@ -106,18 +102,18 @@ export default function Profile(props) {
               <div>
                 <h4>Skills:</h4>
                 {edit ? <div className="skills-div">
-                  {user.skills.map(skill=>(
-                    <p>{skill}</p>
-                  ))}
+                  {user.skills.length > 0 ? user.skills.map(skill=>(
+                    skill && <p>{skill}</p>
+                  )) : <p>No Skills</p>}
                 </div> : <input type="text" name="skil" className="edit-ip" value={userEdit.skil} onChange={handleEditChange} />}
               </div>
               <hr />
               <div>
                 <h4>Work Experience:</h4>
                 {edit ? <ul>
-                  {user.workExperience.map(we=>(
-                    <li>{we}</li>
-                  ))}
+                  {user.workExperience.length > 0 ? user.workExperience.map(we=>(
+                    we && <li>{we}</li>
+                  )) : "No Work Experience"}
                 </ul>
                 : <input type="text" name="workExp" className="edit-ip" value={userEdit.workExp} onChange={handleEditChange} />}
               </div>
@@ -125,9 +121,9 @@ export default function Profile(props) {
               <div>
                 <h4>Projects:</h4>
                 {edit ? <ul>
-                {user.projects.map(project=>(
-                    <li>{project}</li>
-                  ))}
+                {user.projects.length > 0 ? user.projects.map(project=>(
+                    project && <li>{project}</li>
+                  )) : "No Projects"}
                 </ul>
                 : <input type="text" name="proj" className="edit-ip" value={userEdit.proj} onChange={handleEditChange}/>}
               </div>

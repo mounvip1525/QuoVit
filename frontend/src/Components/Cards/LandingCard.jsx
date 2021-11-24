@@ -18,7 +18,6 @@ export default function LandingCard(props) {
   const [showComments,setShowComments] = useState(false)
   const [comment,setComment] = useState("")
   const { creator , caption , desc , likes , dislikes , img , _id, comments } = props.post;
-  console.log(props.post)
   const [save,setSave] = useState(props.saved)
   const dispatch = useDispatch();
   const auth = useSelector((state)=>state.auth)

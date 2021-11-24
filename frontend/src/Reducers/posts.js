@@ -30,11 +30,11 @@ let posts = (state = initialState, action) => {
       };
       case "SET_LOADING": 
       return {
-        ...initialState, loading:true
+        ...state, loading:true
       };
       case "CLEAR_LOADING": 
       return {
-        ...initialState, loading:true
+        ...state, loading:true
       };
     default:
       return state;

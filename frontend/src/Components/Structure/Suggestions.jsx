@@ -6,7 +6,7 @@ import './css/Suggestions.css'
 
 export default function Suggestions() {
     const dispatch = useDispatch();
-    const sUsers = useSelector((state) => state.users);
+    const sUsers = useSelector((state) => state.users.users);
     const auth = useSelector((state)=>state.auth)
     useEffect(() => {
       dispatch(getSuggestedUsers(auth._id));

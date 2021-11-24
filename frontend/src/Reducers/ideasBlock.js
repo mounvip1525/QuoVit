@@ -1,11 +1,17 @@
-let ideas = (ideas = [], action) => {
+let initialState = {
+  ideas: [],
+  loading: false
+}
+let ideas = (state=initialState, action) => {
     switch (action.type) {
       case "FETCH_ALL_IDEAS":
-        return action.payload;
+        return { ideas : action.payload , loading:false };
       case "ADD_IDEA":
-        return [...ideas,action.payload];
+        return {ideas: [...state.ideas,action.payload], loading: false };
+      case "SET_I_LOADING":
+        return {...state,loading:true}
       default:
-        return ideas;
+        return state;
     }
   };
   export default ideas;
