@@ -98,3 +98,6 @@
   background:var(--primary-color);
   color:var(--white)
 }
+.bin-post2{
+  color:var(--black) !important
+}

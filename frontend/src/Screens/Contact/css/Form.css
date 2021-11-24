@@ -47,7 +47,7 @@
   margin-top: 2rem;
   text-align: end;
 }
-.form-div div button {
+.form-div div button,.thanks {
   background: var(--primary-color);
   padding: 1% 4%;
   color: white;
@@ -82,4 +82,8 @@
 }
 .form-div .contact-input textarea::placeholder {
   color: grey;
+}
+.thanks{
+  text-align: center;
+  cursor:not-allowed
 }

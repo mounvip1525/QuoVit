@@ -11,13 +11,14 @@ import CommentIcon from '@mui/icons-material/Comment';
 import TurnedInNotIcon from '@mui/icons-material/TurnedInNot';
 import { Send, TurnedIn } from "@material-ui/icons";
 import Empty from "../Empty/Empty.js";
+import LockIcon from '@mui/icons-material/Lock';
 
 export default function LandingCard(props) {
   const history = useHistory()
   const [fullText,setFullText] = useState(true)
   const [showComments,setShowComments] = useState(false)
   const [comment,setComment] = useState("")
-  const { creator , caption , desc , likes , dislikes , img , _id, comments } = props.post;
+  const { creator , caption , desc , likes , dislikes , img , _id, comments, isPublic } = props.post;
   const [save,setSave] = useState(props.saved)
   const dispatch = useDispatch();
   const auth = useSelector((state)=>state.auth)
@@ -64,7 +65,8 @@ setComment("")
   const bgcolor = diff >= 10 ? 0 : diff>= 5 ? 1 : diff>= 3 ? 2 : 3;
   return (
     <div className="landingCard">
-      {props.remove && <div className="bin-post"><DeleteIcon onClick={handleDelete}/></div>}
+      {props.remove ? <div className="bin-post"><DeleteIcon onClick={handleDelete}/></div> : 
+      isPublic ? <div className="bin-post bin-post2"><LockIcon /></div> : ""}
       <User user={creator} />
       <h3>{caption}</h3>
       <div>

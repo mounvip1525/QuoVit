@@ -1,9 +1,39 @@
-import React from "react";
+import React , {useState} from "react";
+import axios from 'axios'
 import "./css/Form.css";
 
 export default function Form() {
+  const [serverState, setServerState] = useState({
+    submitting: false,
+    status: null
+  });
+  const handleServerResponse = (ok, msg, form) => {
+    setServerState({
+      submitting: false,
+      status: { ok, msg }
+    });
+    if (ok) {
+      form.reset();
+    }
+  };
+  const handleOnSubmit = e => {
+    e.preventDefault();
+    const form = e.target;
+    setServerState({ submitting: true });
+    axios({
+      method: "post",
+      url: "https://formspree.io/f/xbjqrjvo",
+      data: new FormData(form)
+    })
+      .then(r => {
+        handleServerResponse(true, "Thanks! We will get back to you soon", form);
+      })
+      .catch(r => {
+        handleServerResponse(false, r.response.data.error, form);
+      });
+  };
   return (
-    <div className="form-div">
+    <form className="form-div" onSubmit={handleOnSubmit}>
       <div className="contact-input">
         <div>
           <div>
@@ -37,8 +67,15 @@ export default function Form() {
         </div>
       </div>
       <div>
-          <button>Send</button>
+          {serverState.status ? 
+                        <div>
+                            <p className={!serverState.status.ok ? "errorMsg" : "thanks"}>
+                                {serverState.status.msg}
+                            </p>
+                        </div>
+                        : <button type="submit">Send</button>
+                        }
       </div>
-    </div>
+    </form>
   );
 }
