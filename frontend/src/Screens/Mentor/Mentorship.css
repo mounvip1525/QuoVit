@@ -1,8 +1,10 @@
 .ment{
-    min-height:80vh;
+    min-height:85vh;
     display:flex;
     flex-direction: column;
     align-items: center;
+    background:var(--white);
+    color:var(--black)
 }
 .ment .user-tab{
     margin-top:1%;

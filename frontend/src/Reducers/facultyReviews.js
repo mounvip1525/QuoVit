@@ -12,6 +12,8 @@ let facultyReviews = (state = initialState, action) => {
           return {facultyReviews: [...state.facultyReviews.filter(f=>f._id !== action.payload._id),action.payload],loading: false};
       case "SET_F_LOADING":
         return {...state,loading:true}
+      case "CLEAR_F_LOADING":
+        return {...state,loading:false}
             default:
         return state;
     }

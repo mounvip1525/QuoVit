@@ -23,3 +23,6 @@
 .ideaCard > div>div > p:last-child{
     margin-bottom:2%;
 }
+.link-card{
+    word-break: break-all;
+}

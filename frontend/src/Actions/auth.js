@@ -5,8 +5,11 @@ export const signUp = (user) => async (dispatch) => {
       const {data} = await api.signUp(user);
     if(data.message){
       alert(data.message)
-    } 
-    dispatch({ type: "SIGN_UP",  payload: data});
+      window.location.replace("/Signup")
+    } else {
+      window.location.replace("/Login")
+      dispatch({ type: "SIGN_UP",  payload: data});
+    }
     } catch (error) {
       console.log(error.message);
     }

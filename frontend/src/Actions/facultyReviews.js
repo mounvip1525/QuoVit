@@ -10,38 +10,40 @@ export const getFacultyReviews = () => async (dispatch) => {
   }
 };
 
-export const addFaculty = (newFaculty,id) => async (dispatch) => {
+export const addFaculty = (newFaculty, id) => async (dispatch) => {
   try {
-    if(id){
-  dispatch({ type: "SET_F_LOADING" })
-      const { data } = await api.addFaculty(newFaculty,id);
-      if(data.message){
+    if (id) {
+      dispatch({ type: "SET_F_LOADING" })
+      const { data } = await api.addFaculty(newFaculty, id);
+      if (data.message) {
+        dispatch({ type: "CLEAR_F_LOADING" })
         alert(data.message)
       } else {
-        dispatch({type: "ADD_FACULTY", payload: data});
+        dispatch({ type: "ADD_FACULTY", payload: data });
       }
     } else {
       alert("Login first")
     }
-  } catch(error) {
+  } catch (error) {
     console.log(error.message);
   }
 }
 
-export const rateFaculty = (userId,facId,rating) => async (dispatch) => {
-    try {
-      if(userId){
-  dispatch({ type: "SET_F_LOADING" })
-        const { data } = await api.rateFaculty(userId,facId,rating);
-        if(data.message){
-          alert(data.message)
-        } else {
-      dispatch({ type: "RATE_FACULTY", payload: data });
-        }
+export const rateFaculty = (userId, facId, rating) => async (dispatch) => {
+  try {
+    if (userId) {
+      dispatch({ type: "SET_F_LOADING" })
+      const { data } = await api.rateFaculty(userId, facId, rating);
+      if (data.message) {
+        dispatch({ type: "CLEAR_F_LOADING" })
+        alert(data.message)
       } else {
-        alert("Login first")
+        dispatch({ type: "RATE_FACULTY", payload: data });
       }
-    } catch (error) {
-      console.log(error.message);
+    } else {
+      alert("Login first")
     }
-  };
+  } catch (error) {
+    console.log(error.message);
+  }
+};

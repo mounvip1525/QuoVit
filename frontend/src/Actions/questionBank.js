@@ -10,16 +10,16 @@ export const getCourses = () => async (dispatch) => {
   }
 };
 
-export const uploadPaper = (id,courseName,courseCategory,examType,year,formData) => async (dispatch) => {
-    try {
-      if(id){
-  dispatch({ type: "SET_Q_LOADING" })
-        const { data } = await api.uploadPaper(courseName,courseCategory,examType,year,formData);
-        dispatch({ type:"UPLOAD_PAPER", payload: data })
-      } else {
-        alert("login first")
-      }
-    } catch (error) {
-        alert(error.message)
+export const uploadPaper = (id, courseName, courseCategory, examType, year, formData) => async (dispatch) => {
+  try {
+    if (id) {
+      dispatch({ type: "SET_Q_LOADING" })
+      const { data } = await api.uploadPaper(courseName, courseCategory, examType, year, formData);
+      dispatch({ type: "UPLOAD_PAPER", payload: data })
+    } else {
+      alert("login first")
     }
+  } catch (error) {
+    alert(error.message)
+  }
 }

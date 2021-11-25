@@ -38,8 +38,8 @@ export default function Mentorship() {
         <div>
         {theme === 'light' ? <i className="fa fa-moon toggler" onClick={toggleTheme}></i> : <i className="fas fa-sun toggler" onClick={toggleTheme}></i>}
         <Navbar />
-        <p style={{textAlign:"center"}}>Connect with our own circle</p>
         <div className="ment">
+        <p style={{textAlign:"center"}}>Connect with our own circle</p>
                 <div className="user-tab">
                     <h3
                         onClick={() => setActiveTab("webDev")}

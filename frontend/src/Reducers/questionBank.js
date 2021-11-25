@@ -7,7 +7,7 @@ let questionBank = (state = initialState, action) => {
       case "FETCH_ALL_PAPERS":
         return {courses:action.payload,loading: false};
       case "UPLOAD_PAPER":
-        // window.location.replace("/QuestionBank")
+        window.location.replace("/QuestionBank")
         return {courses:action.payload, loading: false};
       case "SET_Q_LOADING":
         return { ...state, loading : true }

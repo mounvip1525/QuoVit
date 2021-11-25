@@ -66,7 +66,7 @@ setComment("")
   return (
     <div className="landingCard">
       {props.remove ? <div className="bin-post"><DeleteIcon onClick={handleDelete}/></div> : 
-      isPublic ? <div className="bin-post bin-post2"><LockIcon /></div> : ""}
+      !isPublic ? <div className="bin-post bin-post2"><LockIcon /></div> : ""}
       <User user={creator} />
       <h3>{caption}</h3>
       <div>

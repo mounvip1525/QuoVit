@@ -54,3 +54,7 @@
     border-left:3px solid var(--primary-color);
     background: rgba(193, 70, 78, 0.17)
 }
+.sidebar-main div button:hover{
+    border-left:3px solid var(--primary-color);
+    background: rgba(193, 70, 78, 0.17)
+}

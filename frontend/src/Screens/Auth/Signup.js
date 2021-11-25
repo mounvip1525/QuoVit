@@ -52,7 +52,7 @@ export default function Signup() {
         setSteps(2);
         setWidth(100);
       }
-      history.push("/Login")
+      // history.push("/Login")
     }
   };
   const handleChange = (e) => {

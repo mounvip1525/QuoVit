@@ -9,7 +9,6 @@ export const followUser = (userId,followId) => async (dispatch) => {
 };
 
 export const unfollowUser = (userId,followId) => async (dispatch) => {
-  dispatch({ type: "SET_U_LOADING" })
   try {
     const { data } = await api.unfollowUser(userId,followId);
     dispatch({ type: "UNFOLLOW_USER", payload: data });

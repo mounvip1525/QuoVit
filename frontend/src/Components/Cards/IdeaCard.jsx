@@ -5,7 +5,6 @@ import "./css/IdeaCard.css";
 
 export default function IdeaCard(props) {
   const { idea, desc, link, creator } = props.idea;
-  console.log(props.idea.creator)
   const [show,setShow] = useState(false);
   return (
     <div className="ideaCard">
@@ -23,7 +22,7 @@ export default function IdeaCard(props) {
       {link && (
         <div>
           <p className="i-muted">Link:</p>
-            <p> {link}</p>
+            <p className="link-card"> {link}</p>
         </div>
       )}
       </div>}
