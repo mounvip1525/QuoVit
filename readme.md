@@ -9,7 +9,9 @@
 
 [![Languages](https://img.shields.io/github/languages/count/mounvip1525/QuoVit?style=for-the-badge)](https://github.com/mounvip1525/QuoVit)
 [![Generic badge](https://img.shields.io/badge/backend-blue?style=for-the-badge&label=Code%20)](https://github.com/mounvip1525/QuoVit-Backend) 
-[![Generic badge](https://img.shields.io/badge/view-demo-blue?style=for-the-badge&label=View%20Demo%20Video)](https://www.youtube.com/watch?v=zYL1du5k2Vs&ab_channel=MounviPodapati) 
+[![Generic badge](https://img.shields.io/badge/view-demo-blue?style=for-the-badge&label=Video)](https://www.youtube.com/watch?v=zYL1du5k2Vs&ab_channel=MounviPodapati) 
+[![GitHub license](https://img.shields.io/github/license/mounvip1525/QuoVit?&style=for-the-badge)](https://github.com/mounvip1525)
+[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/mounvip1525/QuoVit?&style=for-the-badge)](https://github.com/mounvip1525/) 
 
 
 ## Tech stack
