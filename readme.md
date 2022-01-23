@@ -8,10 +8,11 @@
 </p>
 
 
-[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/mounvip1525/QuoVit?logo=github&style=for-the-badge)](https://github.com/mounvip1525/) 
+[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/mounvip1525/QuoVit?&style=for-the-badge)](https://github.com/mounvip1525/) 
 [![Languages](https://img.shields.io/github/languages/count/mounvip1525/QuoVit?style=for-the-badge)](https://github.com/mounvip1525/QuoVit)
 [![Generic badge](https://img.shields.io/badge/backend-blue?style=for-the-badge&label=Code%20)](https://github.com/mounvip1525/QuoVit-Backend) 
 [![Generic badge](https://img.shields.io/badge/view-demo-blue?style=for-the-badge&label=View%20Demo%20Video)](https://www.youtube.com/watch?v=zYL1du5k2Vs&ab_channel=MounviPodapati) 
+[![GitHub license](https://img.shields.io/github/license/mounvip1525/QuoVit?style=for-the-badge)](https://github.com/mounvip1525/QuoVit)
 
 
 ## Tech stack
@@ -31,19 +32,25 @@
 
 <i><b>Posts:</b></i>
 Typical to what posts on popular social media platforms look like, the posts on QuoVIT are aimed at increasing the social networking aspect of a student’s internal college life. The posts can be made in the form of text or . This empowers a user to easily make the best use of their time and understand what his or her mates in college are doing. This would help in nurturing a professional yet very social and inclusive environment and culture in the institution.
+<div align="center"><img src="https://github.com/mounvip1525/QuoVit/blob/master/images/landing.png" height="450" /></div><br>
 
 <i><b>Anonymous Confessions:</b></i>
 This is one for the public. A module where anyone can say something which holds a lot of value and truth but don’t want to go public with your identity disclosed. This page is for those people looking to be heard but also avoid the heat. It offers a platform for users to convey their ideas/issues without disclosing their identities and thus keeping the heat off their backs. The existence of such a device simply calls for increased transparency withing the institution which would help it to flourish in the future.
+<div align="center"><img src="https://github.com/mounvip1525/QuoVit/blob/master/images/Confessions.png" height="450" /></div><br>
 
 <i><b>Question bank:</b></i>
 This module is specifically designed to allow students to view and download question papers over the years, exam category wise so that they can get an idea of the
 pattern, type and level of the questions asked and the marking scheme and hence help students in testing their knowledge and practise various questions. Students will also be allowed to upload and help other students with the same in the future.
+<div align="center"><img src="https://github.com/mounvip1525/QuoVit/blob/master/images/QB.png" height="450" /></div><br>
+<div align="center"><img src="https://github.com/mounvip1525/QuoVit/blob/master/images/Downloads.png" height="450" /></div><br>
 
 <i><b>Idea sharing:</b></i>
 A module to allow students to share or putting out innovative ideas into the world just to see the response it gets? In that case, the ideas sharing portal is the place to be. Here the user can share his/her ideas and make sure it gets some audience since it automatically goes onto the institution’s digital platform. This enables other users to make the choice of either helping in the solidification of the idea or just upvoting or supporting its progress.
+<div align="center"><img src="https://github.com/mounvip1525/QuoVit/blob/master/images/ideas.png" height="450" /></div><br>
 
 <i><b>Faculty Review:</b></i>
 A module to allow students to select the right faculty during FFCS. This will help students to make the correct and well informed decision about taking the righ faculty and the right subject to help you in you adventurous and fruitful journey of your degree completion. Find overall rating on multiple faculties and make the best informed and logical choice.
+<div align="center"><img src="https://github.com/mounvip1525/QuoVit/blob/master/images/facultyReviews.png" height="450" /></div><br>
 
 <i><b>Mentorship:</b></i>
 A module to allow students to connect to other students who offer guidance and help fellow juniors or other naive friends to evolve into developed professionals. Student mentors can provide academic, personal and professional help and can be a source of support when you need it most. Student mentees gain valuable skills from their mentorships including networking, research and internship opportunities, and special insight from someone with more experience or knowledge in your field. 
