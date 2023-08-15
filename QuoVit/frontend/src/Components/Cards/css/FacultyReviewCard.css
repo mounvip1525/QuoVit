@@ -1,0 +1,41 @@
+.fac-card{
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    width:45%;
+    padding:3%;
+    box-sizing: border-box;
+    margin:0.5rem;
+    display: flex;
+    align-items: center;
+    background: var(--white);
+    color:var(--black)
+}
+.fac-card > div:first-child{
+    width:60%;
+}
+.fac-card > div > div{
+    display:flex;
+}
+.fac-card > div > div > div{
+    box-shadow: var(--box-shadow);
+    margin:1.5rem 5% 2% 0;
+    width:5rem;
+    align-items: center;
+    justify-content: center;
+    display:flex;
+    cursor:pointer;
+    color:var(--black)
+}
+.fac-card > div > div > div:last-child{
+    border:1px solid var(--primary-color)
+}
+.fac-card > div > h3{
+    font-weight: 500;
+    margin:0;
+    padding:0;
+}
+.fac-bg{
+    background: var(--primary-color);
+}
+.fac-bg > div > div > div{
+    background: white;
+}

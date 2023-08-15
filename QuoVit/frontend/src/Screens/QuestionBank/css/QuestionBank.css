@@ -1,0 +1,55 @@
+.courseCard{
+    justify-content: center;
+    border: solid 2px;
+}
+.course-container{
+    display:flex;
+    flex-wrap: wrap;
+    margin:auto;
+    justify-content: center;
+    /* width:90%; */
+}
+.login-form .input-radios{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.login-form .upload-cls label{
+    margin-bottom: 0;
+}
+.input-radios{
+    display:flex;
+    justify-content: center;
+}
+.input-radios input[type="radio"]{
+    box-shadow: none;
+    width:max-content;
+    margin:auto 2%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    width: 1.2rem;
+    height: 1.2rem !important;
+    padding: 1px;
+    background-clip: content-box;
+    border: 1px solid var(--primary-color);
+    border-radius: 50%;
+    min-height:0;
+}
+.input-radios input[type="radio"]:checked{
+    background-color:var(--primary-color);
+    border:1px solid var(--primary-color);
+  }
+input[type="radio"]:focus{
+    outline:none;
+  }
+  .searched-res{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+  }
+  .no-options{
+      margin-bottom:5%;
+  }

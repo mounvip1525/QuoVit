@@ -1,0 +1,42 @@
+.suggestions-main{
+    display:flex;
+    flex-direction: column;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    padding:0 0 2%;
+    width:65%;
+    margin:1.5% auto;
+    background: var(--white);
+    color:var(--black)
+}
+.suggestions-main div{
+    display:flex;
+    width:100%;
+    padding:2% 5%;
+    box-sizing: border-box;
+    align-items: center;
+}
+.suggestions-main div img{
+    height:2.5rem;
+    width:2.5rem;
+    border-radius:50%;
+    padding:1%;
+    object-fit: contain;
+}
+.suggestions-main div div{
+    display:flex;
+    flex-direction: column;
+    width:70%;
+    align-items: flex-start;
+}
+.suggestions-main div div h4,.suggestions-main div div p{
+    margin:0;
+    padding:0;
+}
+.suggestions-main div div h4{
+    font-weight:500;
+    font-size: small;
+}
+.suggestions-main .suggestions-add{
+    color:rgb(92, 92, 92);
+    height:1rem
+}

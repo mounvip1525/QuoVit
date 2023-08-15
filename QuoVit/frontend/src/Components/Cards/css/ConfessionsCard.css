@@ -1,0 +1,38 @@
+.confession-card{
+    display:flex;
+    flex-direction: column;
+    width:90%;
+    height:max-content;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    padding:0;
+    margin:2rem auto;
+    background:var(--white)
+}
+.c-date{
+    font-size: small;
+    background: var(--primary-color);
+    padding:4%;
+    margin:0;
+    text-align: right;
+    color:white;
+}
+.c-text{
+    font-size:small;
+    padding:2% 5%;
+    color:var(--black)
+}
+.c-emojis{
+    text-align: right;
+    margin:3%;
+    display:flex;
+    justify-content: flex-end;
+}
+.c-emojis div{
+    margin:2%;
+    border-radius: 50%;
+    padding:2%;
+    display: flex;
+}
+.emoji-selected{
+    box-shadow: var(--box-shadow) !important;
+}

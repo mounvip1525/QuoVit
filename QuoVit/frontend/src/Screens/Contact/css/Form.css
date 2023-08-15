@@ -1,0 +1,89 @@
+.form-div {
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
+  box-sizing: border-box;
+  background: var(--white);
+  color:var(--black)
+}
+.contact-input {
+  display: flex;
+}
+.contact-input div {
+  width: 50%;
+  padding: 1%;
+}
+.contact-input div div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 3%;
+}
+.contact-input div div input {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+  width: 80%;
+  padding: 4%;
+  background: var(--whiteTwo);
+}
+.contact-input textarea {
+  width: 40%;
+  resize: none;
+  border: 1px solid grey;
+  outline: none;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  height: 16rem;
+  padding: 1%;
+  background: var(--whiteTwo);
+}
+.contact-radio {
+  display: flex;
+}
+.contact-radio div {
+  margin: 0 3%;
+}
+.form-div > div:last-child {
+  margin-top: 2rem;
+  text-align: end;
+}
+.form-div div button,.thanks {
+  background: var(--primary-color);
+  padding: 1% 4%;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  font-family: Poppins;
+  font-size: large;
+  margin-right: 3rem;
+}
+.form-div .contact-radio input[type="radio"] {
+  vertical-align: top;
+}
+.form-div .contact-radio input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  padding: 1px;
+  background-clip: content-box;
+  border: 1px solid var(--primary-color);
+  border-radius: 50%;
+}
+.form-div .contact-radio input[type="radio"]:checked {
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+.form-div .contact-radio input[type="radio"]:focus {
+  outline: none;
+}
+.form-div .contact-input textarea::placeholder {
+  color: grey;
+}
+.thanks{
+  text-align: center;
+  cursor:not-allowed
+}

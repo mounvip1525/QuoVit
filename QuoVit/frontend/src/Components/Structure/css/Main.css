@@ -1,0 +1,30 @@
+.layout-main,.layout-sub{
+    min-height:90vh;
+    display:flex;
+    width:100%;
+    justify-content: space-between;
+    background: var(--background);
+}
+.layout-main > div:first-child,.layout-main > div:last-child{
+    width:20%;
+    height:max-content;
+}
+.layout-main > div:last-child{
+    width:18%;
+    height:max-content;
+}
+.layout-main:nth-child(2){
+    min-height:100vh;
+}
+.layout-sub{
+    flex-direction: column;
+    align-items: center;
+}
+.toggler{
+    position:fixed;
+    bottom:6%;
+    right:3%;
+    background: var(--black);
+    color:var(--white);
+    padding:1%;
+}

@@ -1,0 +1,28 @@
+.ideaCard {
+    position:relative;
+    background: var(--white);
+    color:var(--black)
+}
+.idea-expand {
+    position:absolute;
+    top:5%;
+    right:4%;
+    border:0.5px solid var(--black);
+    border-radius: 5px;
+    cursor:pointer;
+}
+.idea-add{
+    top:10%;
+}
+.ideaCard > div >div>p {
+    margin:0;
+}
+.ideaCard >div> div > p:first-child{
+    color:grey;
+}
+.ideaCard > div>div > p:last-child{
+    margin-bottom:2%;
+}
+.link-card{
+    word-break: break-all;
+}

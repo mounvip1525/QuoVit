@@ -1,0 +1,26 @@
+.confessions-cont{
+    display: flex;
+    width:90%;
+    margin:auto;
+    justify-content: space-around;
+}
+.confessions-cont > div{
+    width:50%;
+}
+.confession-textarea{
+    min-height:150px;
+    width:100%;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    border:none;
+    outline:none;
+    padding:1% 3%;
+    background: var(--whiteTwo);
+    overflow-y:scroll;
+    resize: none;
+    margin:auto;
+    box-sizing: border-box;
+}
+.confession-textarea::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+}

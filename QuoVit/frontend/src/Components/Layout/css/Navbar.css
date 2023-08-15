@@ -1,0 +1,66 @@
+.nav{
+    background:var(--primary-color);
+    display:flex;
+    justify-content: space-between;
+    height:4rem;
+    align-items: center;
+    padding:0.1% 1%;
+}
+.nav > div{
+    align-items: center;
+}
+.nav > div:first-child{
+    width:20%;
+    display:flex;
+    justify-content: flex-start;
+}
+.nav .MuiTab-root {
+    min-width: 0 !important;
+    width:6rem !important
+}
+.nav > div:last-child{
+    width:20%;
+    display:flex;
+    justify-content: flex-end;
+}
+.nav > div > img{
+    height:3.2rem;
+    object-fit: contain;
+}
+.nav .MuiAvatar-root {
+    border-radius:0 !important
+}
+.nav .PrivateTabIndicator-root-2 {
+    display:none !important
+}
+.nav .MuiTab-textColorInherit.Mui-selected {
+    border-bottom:4px solid var(--primary-color) !important
+}
+.nav .MuiTab-textColorInherit {
+    opacity:1 !important
+}
+.nav > div > div > p{
+    padding:0;
+    margin:0;
+    text-align: right;
+}
+.nav .avatar{
+    height:2.7rem;
+    border-radius: 50%;
+    width:2.7rem;
+    margin-left:2%;
+    object-fit: contain;
+    padding:0.5%;
+}
+
+/* .navbar-nav{
+    background: white;
+    display:flex;
+    justify-content: space-between;
+    width:30%;
+}
+.navbar-nav img{
+    height:4rem !important;
+    object-fit: contain !important;
+    width:4rem !important
+} */

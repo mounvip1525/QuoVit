@@ -1,0 +1,25 @@
+.internals{
+    margin: 30px;
+    width: max-content;
+    display: flex;
+    font-size: 1.1rem;
+    box-shadow: var(--box-shadow);
+    background: var(--white);
+    color:var(--black)
+}
+.internals>.year{
+    padding: 10px 35px;
+}
+.internals>button{
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: var(--primary-color);
+    margin: 5px;
+
+    
+}
+.internals>button>img{
+    height: 20px;
+    width: 30px;
+}

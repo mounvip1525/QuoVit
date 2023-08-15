@@ -1,0 +1,24 @@
+.modal3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(199, 212, 255, 0.1);
+    z-index:1;
+} 
+.modal-main3 {
+    z-index:65;
+    position:fixed;
+    width: 35%;
+    height: auto;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    display:flex;
+    justify-content: center;
+} 
+.display-block3 {
+    display: block;
+} 
+.display-none3 {
+    display: none;
+}

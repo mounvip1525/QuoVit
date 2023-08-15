@@ -1,0 +1,103 @@
+.landingCard {
+  padding: 3%;
+  position: relative;
+  margin:3%;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  background: var(--white);
+  color:var(--black)
+}
+.landing-expand {
+  position: absolute;
+  top: 5%;
+  right: 4%;
+  border: 0.5px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.landing-add {
+  top: 10%;
+}
+.landingCard > div > div > p {
+  margin: 0;
+}
+.landingCard > div > div > p:first-child {
+  color: var(--black);
+}
+.landingCard > div > div > p:last-child {
+  margin-bottom: 2%;
+}
+.lcs-div{
+  display:flex;
+}
+.lcs-div div{
+  display:flex;
+  margin:0 2%;
+  display:flex;
+  align-items: center;
+}
+.lcs-div div:first-child{
+  margin-left:0;
+}
+.lcs-div div img{
+  height:auto;
+  max-height:1.2rem;
+  object-fit: contain;
+  cursor: pointer;
+}
+.lcs-div div p{
+  margin:0;
+  padding:0;
+}
+.like-circle{
+  border:2px solid black;
+  margin:0 0.5rem !important;
+  height:1.7rem;
+  width:1.7rem;
+  display:flex;
+  justify-content: center;
+  border-radius: 50%;
+}
+.post-img > img{
+  margin:5% auto;
+  display:block;
+  height:15rem;
+  object-fit: contain;
+}
+.desc-div span{
+  color:var(--primary-color);
+  cursor:pointer;
+}
+.desc-div span:hover{
+  text-decoration: underline;
+}
+.bin-post{
+  position: absolute;
+  right:0;
+  top:0;
+  padding:2%;
+  color:var(--primary-color);
+}
+.comment-box{
+  border-top:1px solid var(--black);
+  margin-top:3%;
+}
+.comment-box div:first-child{
+  display:flex;
+  margin-top:3%
+}
+.comment-box div:first-child button{
+  color:var(--primary-color);
+  background: transparent;
+  border:1.5px solid var(--primary-color);
+  margin-left:10px;
+  border-radius: 3px;
+  cursor:pointer;
+  outline:none;
+}
+.comment-box div:first-child button:hover{
+  background:var(--primary-color);
+  color:var(--white)
+}
+.bin-post2{
+  color:var(--black) !important
+}

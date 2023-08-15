@@ -1,0 +1,52 @@
+.co-Card{
+    margin: 1%;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    padding: 2%; 
+    box-sizing: border-box;
+    width:40%; 
+    position:relative;
+    background: var(--white);
+    color:var(--black)
+}
+.course-head{
+    display:flex;
+    justify-content: space-between;
+}
+.course-head p{
+    color:grey;
+    padding:0;
+    margin:0;
+    font-size:0.8rem
+}
+.course-head svg{
+    background:var(--primary-color);
+    height:2rem;
+    width:2rem;
+    border-radius: 50%;
+    object-fit: contain;
+    margin:5% 2% 0 0;
+    position:absolute;
+    right:3%;
+    top:-8%;
+    color:white;
+}
+.co-Card h4{
+    font-weight:normal;
+    margin:0;
+    padding:0;
+}
+.colored-course{
+    background: var(--primary-color);
+    color:white;
+    margin-bottom:3%;
+}
+.colored-course .course-head svg{
+    background:white;
+    color:var(--primary-color)
+}
+.colored-course .course-head p{
+    color:black
+}

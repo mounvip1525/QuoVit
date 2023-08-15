@@ -1,0 +1,45 @@
+.fac-main{
+    width:90%;
+    margin:0rem auto 2rem;
+}
+.input-search{
+    box-shadow:var(--box-shadow);
+    width:70%;
+    margin:2rem auto;
+    display:flex;
+    padding:1% 2%;
+    border-radius:30px;
+    background: var(--white);
+}
+.input-search input{
+    width:95%;
+    outline:none;
+    border:none;
+    background: var(--white);
+    color:var(--black)
+}
+.input-search input::placeholder{
+    font-family: Poppins;
+    color:var(--black)
+}
+.input-search img{
+    width:5%;
+    cursor:pointer;
+}
+.fac-cards{
+    display:flex;
+    flex-wrap: wrap;
+    margin:auto;
+    justify-content: center;
+}
+.searched-res{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 2%;
+}
+.no-options{
+    margin-bottom:5%;
+    color:var(--black)
+}
